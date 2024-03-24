@@ -1,0 +1,11 @@
+.textButton {
+    background-color: red;
+    width: 89px;
+    height: 48px;
+    border-radius: 5px;
+    padding: 12px 16px;
+    gap: 8px;
+    color: red;
+    text-align: center;
+    
+  }

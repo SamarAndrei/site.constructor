@@ -5,6 +5,8 @@ import BasicTextFields from './components/UI/Input/Input';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { Button, Stack } from '@mui/material';
+import './components/UI/Buttons/StylesButtons.css';
+
 
 function App() {
   return (
