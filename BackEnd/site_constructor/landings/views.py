@@ -7,7 +7,7 @@ def landing_add(request):
     address = input()
     n = Landing(land_name = name, land_address = address)
     n.save()
-    return HttpResponse('новый лендинг')
+    return render(request, 'какой-то html файл')
 
 def landing_delete(request):
     id = int(input())
@@ -23,13 +23,17 @@ def landing_update(request):
         n.land_name = land_name_new
     if (land_address_new != ""):
         n.land_address = land_address_new
+    n.save()
 
 def landing_get_all(request):
-    Landing.objects.all()
+    return list(Landing.objects.all())
+
 
 def landing_get(request):
     id = int(input())
-    Landing.objects.get(pk = id)
+    n = Landing.objects.get(pk = id)
+    return render(request, n)
+    
 
 
 
