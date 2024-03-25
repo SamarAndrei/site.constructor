@@ -6,14 +6,16 @@ import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-re
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { Button, Stack } from '@mui/material';
 import './components/UI/Buttons/StylesButtons.css';
+import ButtonLink from './components/UI/Buttons/ButtonLink';
 
 
 function App() {
   return (
     <div className="App">
-      <BasicButtons/>   
-      <TypographyTheme/>
+      <BasicButtons>Кнопка</BasicButtons>   
+      <TypographyTheme>Текст текст</TypographyTheme>
       <BasicTextFields/>
+      <ButtonLink/>
 
       <CarouselProvider
         naturalSlideWidth={100}

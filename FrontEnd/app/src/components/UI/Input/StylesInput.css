@@ -1,0 +1,7 @@
+.inputName {
+    width: 20%;
+  height: 20px;
+  border: 1px solid rgba(246, 134, 113, 1);
+  background-color: white;
+  color: #333;
+}

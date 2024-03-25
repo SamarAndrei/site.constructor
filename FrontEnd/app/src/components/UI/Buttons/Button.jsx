@@ -1,16 +1,13 @@
-import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+import React from 'react';
+import classes from  './StylesButtons.css';
 
 
-export default function BasicButtons() {
+const Button = (props) => {
   return (
-    <Stack spacing={2} direction="column">
-      <Button variant="text" className= 'textButton'>Текст</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
-    </Stack>
-    
+    <button className='textButton'>
+      {props.children}
+    </button>
   );
-}
+};
 
+export default Button;
