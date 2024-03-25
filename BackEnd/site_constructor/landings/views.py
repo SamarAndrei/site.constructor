@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import Landing
-from django.http import HttpResponse
 
 def landing_add(request):
     name = input()
