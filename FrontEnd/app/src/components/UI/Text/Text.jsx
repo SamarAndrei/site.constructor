@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from'./StylesText.css'; 
+
 
 const Text = (props) => {
   return (

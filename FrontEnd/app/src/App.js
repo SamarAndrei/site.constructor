@@ -7,16 +7,17 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import { Button, Stack } from '@mui/material';
 import './components/UI/Buttons/StylesButtons.css';
 import ButtonLink from './components/UI/Buttons/ButtonLink';
+import FeedbackForm from './components/UI/Form/FeedbackForm';
 
 
 function App() {
   return (
     <div className="App">
       <BasicButtons>Кнопка</BasicButtons>   
-      <TypographyTheme>Текст текст</TypographyTheme>
+      <TypographyTheme>Текст компонент</TypographyTheme>
       <BasicTextFields/>
       <ButtonLink/>
-
+      <FeedbackForm/>
       <CarouselProvider
         naturalSlideWidth={100}
         naturalSlideHeight={10}
