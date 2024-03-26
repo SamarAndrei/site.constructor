@@ -3,9 +3,11 @@ import React from 'react';
 
 
 const MyButton = (props) => {
+
   return (
-    <button className='button'>
+    <button onClick={() => {alert('12')}} className='button'>
       {props.children}
+
     </button>
   );
 };
