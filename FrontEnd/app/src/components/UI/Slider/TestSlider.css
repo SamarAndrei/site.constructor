@@ -1,0 +1,44 @@
+
+.carousel-container {
+    width: 100%; 
+    margin: 0 auto; 
+  }
+  .slider {
+    width: 50%; 
+    margin: 0 auto; 
+    background: indigo; 
+    color: white; 
+  }
+  .slide {
+    text-align: center; 
+    font-size: 24px; 
+    font-family: Arial Black, sans-serif; 
+    text-transform: lowercase; 
+  }
+  .slider-buttons {
+    display: flex; 
+    justify-content: center;
+    align-content: 'center';
+    margin: 5px; 
+    border: 0; 
+    margin-top: 20px; 
+  }
+
+  .button-back button,
+  .button-next button {
+    width: 100px; 
+    height: 40px; 
+  }
+.stack-style {
+    display: flex;
+    justify-content: center;
+
+}
+.button-back {
+    margin-right: 5px; /* Отступ справа для кнопки Back */
+  }
+  
+  .button-next {
+    margin-left: 5px; /* Отступ слева для кнопки Next */
+  }
+  
