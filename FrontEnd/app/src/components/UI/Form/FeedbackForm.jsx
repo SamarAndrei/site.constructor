@@ -1,27 +1,16 @@
-import React, { useState } from 'react';
-import './StylesForms.css'; // Подключаем файл стилей
+import React from 'react';
+import './StylesForms.css'; 
+
 const FeedbackForm = () => {
-    const [email, setEmail] = useState('');
-
-    const handleSubmit = (event) => {
-        event.preventDefault(); // Предотвращаем отправку формы по умолчанию
-        console.log('Отправлен email:', email); // Выводим email в консоль (может быть заменен на отправку данных на сервер)
-    };
-
-    return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Email:
-                <input 
-                    type="email" 
-                    value={email} 
-                    onChange={(e) => setEmail(e.target.value)} 
-                    required 
-                />
-            </label>
-            <button type="submit">Отправить</button>
-        </form>
-    );
+  return (
+    <div className="form">
+      <h1>Обратная связь</h1>
+      <input className="input" type="text" placeholder="Ваше имя" />
+      <input className="input" type="tel" placeholder="Ваш номер телефона" />
+      <textarea className="textarea" placeholder="Ваше сообщение" rows="6" />
+      <button className="buttonForm" type="submit">Отправить</button>
+    </div>
+  );
 };
 
 export default FeedbackForm;

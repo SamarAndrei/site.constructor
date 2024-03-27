@@ -1,10 +1,12 @@
 import React from 'react';
-import classes from './StylesInput.css';
 
-const Input = (props) => {
+
+const MyInput = (props) => {
   return (
-    <input className='inputName' {...props}/>
+    <input className='inputName'>
+      {props.children}
+    </input>
   );
 };
 
-export default Input;
+export default MyInput;

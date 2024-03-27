@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Text = (props) => {
+const MyText = (props) => {
   return (
     <text className='text'> 
        {props.children} 
@@ -9,4 +9,4 @@ const Text = (props) => {
   );
 };
 
-export default Text;
+export default MyText;
