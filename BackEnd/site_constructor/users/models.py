@@ -6,4 +6,4 @@ class Users(models.Model):
     password = models.CharField(max_length = 25)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    photo = models.ImageField(upload_to='photo/%Y/%/%d/', blank=True)
+    photo = models.ImageField(upload_to='photo/%Y/%m/%d/', blank=True)
