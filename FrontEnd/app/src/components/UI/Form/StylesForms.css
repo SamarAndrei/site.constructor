@@ -1,0 +1,29 @@
+.form-container {
+    max-width: 400px; /* Максимальная ширина контейнера формы */
+    margin: 0 auto; /* Центрируем контейнер по горизонтали */
+    padding: 20px; /* Внутренние отступы контейнера */
+    border: 1px solid rgba(246, 134, 113, 1); /* Граница контейнера */
+    border-radius: 8px; /* Закругление углов контейнера */
+  }
+  
+  .form-container label {
+    display: block; /* Делаем метку блочным элементом */
+    margin-bottom: 10px; /* Отступ между метками */
+  }
+  
+  .form-container input[type="email"] {
+    width: 100%; /* Растягиваем поле ввода на всю ширину контейнера */
+    padding: 10px; /* Внутренние отступы поля ввода */
+    border: 1px solid rgba(246, 134, 113, 1); /* Граница поля ввода */
+    border-radius: 4px; /* Закругление углов поля ввода */
+  }
+  
+  .form-container button {
+    width: 88px;
+  height: 48px;
+  background-color: rgba(241, 80, 68, 1);
+  color: white;
+  text-align: center;
+  cursor: pointer;/* Изменяем указатель при наведении на кнопку */
+  }
+  

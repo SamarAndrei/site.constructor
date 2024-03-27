@@ -1,0 +1,19 @@
+
+
+img {
+  border-radius: 12px;
+  background-color: black;
+  width: 350px;
+  height: 240px;
+}
+
+
+
+.container {
+  padding: 9px;
+  border: 2px solid black;
+  margin: auto;
+  border-radius: 12px;
+  width: 350px;
+  height: 380px;
+}

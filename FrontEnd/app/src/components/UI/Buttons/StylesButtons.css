@@ -1,13 +1,4 @@
-.textButton {
-  width: 88px;
-  height: 48px;
-  background-color: rgba(241, 80, 68, 1);
-  color: white;
-  text-align: center;
-  cursor: pointer;
-}
-
-.buttonlink { 
+.button {
   padding: 10px 20px; 
   border: 1px solid rgba(246, 134, 113, 1); 
   border-radius: 4px; 
