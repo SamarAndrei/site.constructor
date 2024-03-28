@@ -9,7 +9,8 @@ import MyButton from './components/UI/Buttons/Button';
 import TestSlider from './components/UI/Slider/TestSlider';
 import Card from './components/UI/Card/Card';
 import '././components/UI/Card/Card.css'
-
+import FixedBar from './components/UI/Bar/FixedBar';
+import './App.css';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <FeedbackForm/>
       <TestSlider/>
       <Card/>
+      <FixedBar/>
     </div>
   );
   
