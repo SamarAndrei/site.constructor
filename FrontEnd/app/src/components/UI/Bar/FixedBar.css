@@ -7,7 +7,6 @@
     left: 0;
     width: 100%;
     background: linear-gradient(to left, #000000, #242424);
-    
     /* background-color: #202020; */
     /* background-image: url('https://images.unsplash.com/photo-1596865249308-2472dc5807d7?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmxhY2slMjB0ZXh0dXJlfGVufDB8fDB8fHww'); */
     background-size: cover; 
@@ -22,7 +21,6 @@
     height: 40px;
     display: flex;
     text-align: center;
-    
   }
   
   .fixed-bar span {
