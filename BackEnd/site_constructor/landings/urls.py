@@ -2,9 +2,12 @@ from .views import *
 from django.urls import path
 
 urlpatterns = [
-   path('landing_add/', landing_add),
-   path('landing_delete/', landing_delete),
-   path('landing_get/', landing_get),
-   path('landing_get_all/', landing_get_all),
-   path('landing_update/', landing_update)
+   path('landings/', landing_add),
+   path('landings/', landing_delete),
+   path('landings/', landing_get),
+   path('landings/', landing_get_all),
+   path('landings/', landing_update),
+   path('users/', User_update),
+   path('users/', User_add),
+   path('users/', User_delete),
 ]
