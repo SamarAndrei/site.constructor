@@ -1,7 +1,9 @@
 .inputName {
-    width: 20%;
-  height: 20px;
-  border: 1px solid rgba(246, 134, 113, 1);
-  background-color: white;
-  color: #333;
+  max-width: 400px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: 1px solid #0D1F23;
+  border-radius: 5px;
+  outline: none;
+  font-family: inherit;
 }

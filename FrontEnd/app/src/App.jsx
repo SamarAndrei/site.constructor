@@ -15,13 +15,13 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <MyButton>Кнпока</MyButton>
-      <MyText>Какой то текст</MyText>
-      <MyInput/>
-      <ButtonLink/>
+      {/* <MyButton>Кнпока</MyButton> */}
+      {/* <MyText>Какой то текст</MyText> */}
+      {/* <MyInput/> */}
+      {/* <ButtonLink/> */}
       <FeedbackForm/>
-      <TestSlider/>
-      <Card/>
+      {/* <TestSlider/> */}
+      {/* <Card/> */}
       <FixedBar/>
     </div>
   );
