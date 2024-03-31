@@ -3,7 +3,7 @@ import React from 'react';
 import FixedBar from './components/UI/Bar/FixedBar';
 function Header () {
 	return (
-		<div className="poppins-regular">
+		<div>
 			<FixedBar></FixedBar>
 		</div>
 	);

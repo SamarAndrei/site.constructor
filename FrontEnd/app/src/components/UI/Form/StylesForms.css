@@ -7,43 +7,34 @@
   margin: 50px auto;
 }
 
-.input {
+input {
   max-width: 400px;
   padding: 10px 15px;
   margin: 10px 0;
-<<<<<<< HEAD
-  border: 1px solid #FBE4D8;
-=======
   border: 1px solid #132E35;
->>>>>>> 4ac369a4d68c56586b22b2f75af5574273d6a148
   border-radius: 5px;
   outline: none;
-  font-family: Poppins;
+  font-family: "Montserrat", sans-serif;
 }
 
-.textarea {
+textarea {
   max-width: 400px;
   padding: 10px 15px;
   margin: 10px 0;
   border: 1px solid #FBE4D8;
   border-radius: 5px;
   outline: none;
-  font-family: Poppins;
+  font-family: "Montserrat", sans-serif;
 }
 
 .buttonForm {
-<<<<<<< HEAD
-  background-color: #FBE4D8;
-  color: #0D1F23;
-=======
   background-color: #132E35;
   color: white;
->>>>>>> 4ac369a4d68c56586b22b2f75af5574273d6a148
   text-transform: uppercase;
   border: none;
   border-radius: 5px;
   padding: 15px 0;
   margin: 10px 0;
   cursor: pointer;
-  font-family: Poppins;
+  font-family: "Montserrat", sans-serif;
 }
