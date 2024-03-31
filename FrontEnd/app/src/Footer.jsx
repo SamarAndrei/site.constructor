@@ -14,17 +14,9 @@ const footerStyles = {
 
 function Footer () {
 	return (
-<<<<<<< HEAD
-	<footer style={footerStyles}>
-      	<div>
-		  <FeedbackForm />
-      	</div>
-    </footer>
-=======
 		<div className='poppins-regular'>
 			<FeedbackForm/>
 		</div>
->>>>>>> 4ac369a4d68c56586b22b2f75af5574273d6a148
 	);
 };
 
