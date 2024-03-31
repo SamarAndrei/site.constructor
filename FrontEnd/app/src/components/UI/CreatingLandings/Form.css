@@ -1,0 +1,28 @@
+.content-container {
+	
+
+	border: 1px solid red	;
+}
+
+.content {
+	width: 300px;
+	margin-left: 40px;
+	border: 1px solid red	;
+}
+.container {
+	position: absolute;
+}
+
+.form2 {
+	position: relative;
+	left: 70%;
+	top: 60%;
+}
+#h {
+	font-size: large;
+}
+
+.clform {
+	color: #fbe4d8be;
+	font-family: "Montserrat", sans-serif;
+}
