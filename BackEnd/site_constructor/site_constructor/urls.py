@@ -22,8 +22,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('landing/', include('landings.urls')),
-    path('user/', include('users.urls')),
-    path('RegLog/', include('RegLog.urls'))
     
 ]
 
