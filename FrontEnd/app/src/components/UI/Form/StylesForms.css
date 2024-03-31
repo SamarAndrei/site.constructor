@@ -7,24 +7,24 @@
   margin: 50px auto;
 }
 
-.input {
+input {
   max-width: 400px;
   padding: 10px 15px;
   margin: 10px 0;
   border: 1px solid #132E35;
   border-radius: 5px;
   outline: none;
-  font-family: Poppins;
+  font-family: "Montserrat", sans-serif;
 }
 
-.textarea {
+textarea {
   max-width: 400px;
   padding: 10px 15px;
   margin: 10px 0;
   border: 1px solid #FBE4D8;
   border-radius: 5px;
   outline: none;
-  font-family: Poppins;
+  font-family: "Montserrat", sans-serif;
 }
 
 .buttonForm {
@@ -36,5 +36,5 @@
   padding: 15px 0;
   margin: 10px 0;
   cursor: pointer;
-  font-family: Poppins;
+  font-family: "Montserrat", sans-serif;
 }

@@ -4,10 +4,10 @@ import './StylesForms.css';
 const FeedbackForm = () => {
   return (
     <div className="form">
-      <h1 style={{ color: '#FBE4D8', fontFamily: 'Poppins' }}>Обратная связь</h1>
-      <input className="input" type="text" placeholder="Ваше имя" />
-      <input className="input" type="tel" placeholder="Ваш номер телефона" />
-      <textarea className="textarea" placeholder="Ваше сообщение" rows="1" />
+      <h1 style={{ color: '#FBE4D8', fontFamily: '"Montserrat", sans-serif' }}>Обратная связь</h1>
+      <input type="text" placeholder="Ваше имя" />
+      <input type="tel" placeholder="Ваш номер телефона" />
+      <textarea placeholder="Ваше сообщение" rows="1" />
       <button className="buttonForm" type="submit">Отправить</button>
     </div>
   );
