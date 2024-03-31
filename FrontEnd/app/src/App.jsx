@@ -22,7 +22,7 @@ function App() {
       <FeedbackForm/>
       {/* <TestSlider/> */}
       {/* <Card/> */}
-      <FixedBar/>
+      <FixedBar />
     </div>
   );
   
