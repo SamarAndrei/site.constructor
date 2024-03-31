@@ -11,7 +11,7 @@
   max-width: 400px;
   padding: 10px 15px;
   margin: 10px 0;
-  border: 1px solid #0D1F23;
+  border: 1px solid #132E35;
   border-radius: 5px;
   outline: none;
   font-family: inherit;
@@ -28,7 +28,7 @@
 }
 
 .buttonForm {
-  background-color: #0D1F23;
+  background-color: #132E35;
   color: white;
   text-transform: uppercase;
   border: none;

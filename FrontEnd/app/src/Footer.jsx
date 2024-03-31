@@ -4,7 +4,7 @@ import FeedbackForm from './components/UI/Form/FeedbackForm';
 
 function Footer () {
 	return (
-		<div>
+		<div className='poppins-regular'>
 			<FeedbackForm/>
 		</div>
 	);
