@@ -1,40 +1,40 @@
 .form {
-  background-color: white;
+  background-color: #0D1F23;
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 400px;
-  margin-top: 50px;
+  margin: 50px auto;
 }
 
 .input {
   max-width: 400px;
   padding: 10px 15px;
   margin: 10px 0;
-  border: 1px solid #0D1F23;
+  border: 1px solid #FBE4D8;
   border-radius: 5px;
   outline: none;
-  font-family: inherit;
+  font-family: Poppins;
 }
 
 .textarea {
   max-width: 400px;
   padding: 10px 15px;
   margin: 10px 0;
-  border: 1px solid #0D1F23;
+  border: 1px solid #FBE4D8;
   border-radius: 5px;
   outline: none;
-  font-family: inherit;
+  font-family: Poppins;
 }
 
 .buttonForm {
-  background-color: #0D1F23;
-  color: white;
+  background-color: #FBE4D8;
+  color: #0D1F23;
   text-transform: uppercase;
   border: none;
   border-radius: 5px;
   padding: 15px 0;
   margin: 10px 0;
   cursor: pointer;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Poppins;
 }
