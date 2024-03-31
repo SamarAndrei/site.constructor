@@ -12,7 +12,6 @@ const Form = () => {
 				<div className="content">Добавьте описания, фотографии и цены. Вы можете указывать скидки и предлагать оплату в кредит</div>
 			</div>
 			
-			<hr width="600px" />
 			<div className="form2">
 				<span id='h' className='clform'> <p><b> Интуитивный конструктор сайтов</b></p>	 </span>
 				<span className='clform'><p>Создайте сайт без знаний программирования</p></span>
