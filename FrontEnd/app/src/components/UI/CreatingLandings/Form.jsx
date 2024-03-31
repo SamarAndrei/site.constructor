@@ -5,15 +5,16 @@ const Form = () => {
 	return (
 		<div className='container'>
 			<div className="content-container">
-				<div className="content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam quod facere, placeat nesciunt eum officiis quis repudiandae, fugit suscipit quia impedit quasi quidem enim veniam rem distinctio voluptates nisi ipsa!</div>
-				<div className="content">Lorem ipsum dolor sit amet consectetur.
+				<div className="content">Придумайте название, адрес сайта и добавьте разделы, например информацию о компании и условия доставки
 				</div>
-				<div className="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, placeat quis nihil molestias possimus nobis.</div>
+				<div className="content">Шаблоны уже готовы — вам не придется думать о дизайне каждой страницы
+				</div>
+				<div className="content">Добавьте описания, фотографии и цены. Вы можете указывать скидки и предлагать оплату в кредит</div>
 			</div>
 			
-
+			<hr width="600px" />
 			<div className="form2">
-				<span id='h' className='clform'> <p>Интуитивный конструктор сайтов</p>	 </span>
+				<span id='h' className='clform'> <p><b> Интуитивный конструктор сайтов</b></p>	 </span>
 				<span className='clform'><p>Создайте сайт без знаний программирования</p></span>
 				<button className="buttonForm" style={{width: '90%'}} type="submit">         <b>Отправить</b>
 				</button>

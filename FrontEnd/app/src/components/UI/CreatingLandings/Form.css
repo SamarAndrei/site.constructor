@@ -1,15 +1,18 @@
 .content-container {
 	display: flex;
 	justify-content: space-between;
-	border: 1px solid red;
+
 	margin-bottom: 10px;
 	align-content: top;
   }
   
   .content {
 	width: 300px;
-	border: 1px solid red;
 	margin-right: 10px;
+	font-size: 22px;
+	font-family: "Montserrat", sans-serif;
+	color: antiquewhite;
+	margin-bottom: 50px;
   }
   
   .container {
@@ -21,11 +24,18 @@
 	height: 0; 
 	padding: 0px;
 	align-content: top;
-	top: 150px
+	top: 420px
+	
   }
   
   .form2 {
 	text-align: center; 
-	margin-top: 20px;
+	margin-top: 50px;
   }
   
+	.clform {
+		font-size: 50px;
+		font-family: "Montserrat", sans-serif;
+		color: antiquewhite;
+		
+	}
