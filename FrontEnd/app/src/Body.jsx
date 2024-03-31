@@ -6,7 +6,7 @@ function Body () {
 	return (
 		<div >
 			<Form></Form>
-			<img style={{width: "101%", height: '101%', marginRight: '0px', marginLeft: '0px', marginTop: '0px', objectFit: 'cover', display: 'block',  }} src={mountains} alt="" />
+			<img style={{width: "101%", height: '101%', marginRight: '0px', marginLeft: '0px', marginTop: '0px', objectFit: 'cover', display: 'block', }} src={mountains} alt="" />
 			
 			
 		</div>

@@ -15,7 +15,7 @@ const Form = () => {
 			<div className="form2">
 				<span id='h' className='clform'> <p><b> Интуитивный конструктор сайтов</b></p>	 </span>
 				<span className='clform'><p>Создайте сайт без знаний программирования</p></span>
-				<button className="buttonForm" style={{width: '90%'}} type="submit">         <b>Отправить</b>
+				<button className="buttonForm" style={{width: '90%'}} type="submit">         <b>Создать</b>
 				</button>
 			</div>
 		

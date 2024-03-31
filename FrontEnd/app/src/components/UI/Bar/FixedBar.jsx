@@ -9,11 +9,12 @@ const FixedBar = () => {
       <span className="text">Сайт-конструктор "botat"</span>
       <Button variant="text" style = {{
         marginLeft: 'auto',
-        color: '#ffffff', 
+        color: '#FBE4D8', 
         width: '50px', 
         height: '30px', 
         marginRight: '20px', 
         fontFamily: 'Montserrat',
+        
       }}>
         Войти
       </Button>
