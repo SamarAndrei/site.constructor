@@ -7,13 +7,13 @@ const FixedBar = () => {
     <div className="fixed-bar">
       <img className="logo" src={logo} alt="Логотип сайта" />
       <span className="text">Сайт-конструктор "botat"</span>
-      <Button className="button" variant="text" style = {{
+      <Button variant="text" style = {{
         marginLeft: 'auto',
         color: '#ffffff', 
-        fontFamily: 'Lucida Sans Unicode', 
         width: '50px', 
         height: '30px', 
         marginRight: '20px', 
+        fontFamily: 'Montserrat',
       }}>
         Войти
       </Button>
