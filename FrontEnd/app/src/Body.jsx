@@ -4,9 +4,10 @@ import Form from './components/UI/CreatingLandings/Form';
 function Body () {
 
 	return (
-		<div style={{padding: '0px'}}>
+		<div >
 			<Form></Form>
-			<img style={{width: "100%"}} src={mountains} alt="" />
+			<img style={{width: "101%", height: '101%', marginRight: '0px', marginLeft: '0px', marginTop: '0px', objectFit: 'cover', display: 'block',  }} src={mountains} alt="" />
+			
 			
 		</div>
 	);
