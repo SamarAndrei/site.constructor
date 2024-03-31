@@ -4,11 +4,12 @@ import './index.css'
 
 
 const footerStyles = {
+	left: '0', // Установите значение left в 0
 	backgroundColor: '#0D1F23', 
-  	padding: '10px', 
-  	textAlign: 'center', 
-  	bottom: 0, 
-  	width: '100%',
+	padding: '10px', 
+	textAlign: 'center', 
+	bottom: 0, 
+	width: '100%',
   };
 
 
