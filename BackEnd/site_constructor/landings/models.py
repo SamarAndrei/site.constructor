@@ -8,11 +8,10 @@ class Landing(models.Model):
     image = models.ImageField(upload_to='photo/%Y/%m/%d/', blank=True, verbose_name='Изображение')
     active = models.BooleanField(default=False)
 
-class Users(models.Model):
+class User(models.Model):
     name = models.CharField(max_length = 100, verbose_name = 'Имя пользователя')
     email = models.EmailField()
     password = models.CharField(max_length = 25)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    photo = models.ImageField(upload_to='photo/%Y/%m/%d/', blank=True)
-    
+

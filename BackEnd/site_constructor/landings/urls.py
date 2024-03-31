@@ -1,13 +1,13 @@
-from .views import *
+from .controllers import *
 from django.urls import path
 
 urlpatterns = [
-   path('landings/', landing_add),
-   path('landings/', landing_delete),
-   path('landings/', landing_get),
-   path('landings/', landing_get_all),
-   path('landings/', landing_update),
-   path('users/', User_update),
-   path('users/', User_add),
-   path('users/', User_delete),
+   path('', landing_add),
+   path('<int:land_id/>', landing_delete),
+   path('<int:land_id/>', landing_get),
+   path('', landing_get_all),
+   path('<int:land_id/>', landing_update),
+   path('users/<int:user_id/>', user_update),
+   path('users/', user_add),
+   path('users/<int:user_id/>', user_delete),
 ]
