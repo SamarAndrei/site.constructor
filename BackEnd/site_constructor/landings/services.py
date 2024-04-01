@@ -6,16 +6,28 @@ class LandingService(LandingRepository):
         return self._add_landing(name, address)
 
     def delete_landing(self, landing_id):
-        return self._delete_landing(landing_id)
+        try:
+            Landing.objects.get(pk = landing_id)
+            return self._delete_landing(landing_id)
+        except Landing.DoesNotExist:
+            return False
 
     def update_landing(self, landing_id, name_new, address_new):
-        return self._update_landing(landing_id, name_new, address_new)
+        try:
+            Landing.objects.get(pk = landing_id)
+            return self._update_landing(landing_id, name_new, address_new)
+        except Landing.DoesNotExist:
+            return False
 
     def get_landing(self, landing_id):
-        return self._get_landing(landing_id)
+        try:
+            Landing.objects.get(pk=landing_id)
+            return self._get_landing(landing_id)
+        except Landing.DoesNotExist:
+            return False
 
     def get_all_landing(self):
-        return self._get_all_lending()
+        return self._get_all_landing()
 
     def update_user(self,user_id, name_new, email_new, password_new):
         try:

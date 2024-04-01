@@ -38,7 +38,7 @@ class LandingRepository:
         except Landing.DoesNotExist:
             return False
 
-    def _get_all_lending(self):
+    def _get_all_landing(self):
         try:
             landings = Landing.objects.all()
             landing_list = [{'name': landing.name, 'address': landing.address} for landing in landings]
