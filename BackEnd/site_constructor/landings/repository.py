@@ -53,30 +53,24 @@ class LandingRepository:
         return True
 
     def _delete_user(self, user_id):
-        try:
-            user = User.objects.get(pk=user_id)
-            user.delete()
-            return True
-        except User.DoesNotExist:
-            return False
+        user = User.objects.get(pk=user_id)
+        user.delete()
+        return True
 
     def _update_user(self, user_id, name_new, email_new, password_new):
-        try:
-            user = User.objects.get(id=user_id)
-            if name_new != "":
-                user.name = name_new
-                user.save()
+        user = User.objects.get(id=user_id)
+        if name_new != "":
+            user.name = name_new
+            user.save()
 
-            if email_new != "":
-                user.email = email_new
-                user.save()
+        if email_new != "":
+            user.email = email_new
+            user.save()
 
-            if password_new != "":
-                user.password = password_new
-                user.save()
+        if password_new != "":
+            user.password = password_new
+            user.save()
 
-            return True
-        except User.DoesNotExist:
-            return False
+        return True
 
 
