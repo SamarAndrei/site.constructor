@@ -5,33 +5,27 @@ from django.views.decorators.http import require_http_methods, require_GET, requ
 
 
 
-@require_POST
-def landing_add(request):
-    name = request.POST.get('name')
-    address = request.POST.get('address')
-
+# @require_POST
+def landing_add(request, name, address):
     landing_service = LandingService()
     success = landing_service.add_landing(name, address)
-
     return JsonResponse({'success': success})
 
-@require_http_methods(["DELETE"])
+# @require_http_methods(["DELETE"])
 def landing_delete(request, landing_id):
     landing_service = LandingService()
     success = landing_service.delete_landing(landing_id)
     return JsonResponse({'success': success})
 
-@require_http_methods(["PUT"])
-def landing_update(request, landing_id):
-    name_new = request.POST.get('name')
-    address_new = request.POST.get('address')
+# @require_http_methods(["PUT"])
+def landing_update(request, landing_id, name_new, address_new):
 
     landing_service = LandingService()
     success = landing_service.update_landing(landing_id, name_new, address_new)
 
     return JsonResponse({'success': success})
 
-@require_GET
+# @require_GET
 def landing_get_all(request):
     landing_service = LandingService()
     landing_list = landing_service.get_all_landing()
@@ -41,11 +35,8 @@ def landing_get_all(request):
     else:
         return JsonResponse({'error': 'No Landings Found'}, status=404)
 
-@require_GET
+# @require_GET
 def landing_get(request, landing_id):
-    # landing_service = LandingService()
-    # success = landing_service.get_landing(landing_id)
-    # return JsonResponse({'success': success})
     landing_service = LandingService()
     landing = landing_service.get_landing(landing_id)
 

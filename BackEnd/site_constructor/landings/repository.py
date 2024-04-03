@@ -21,7 +21,7 @@ class LandingRepository:
             landing.save()
 
         if address_new != "":
-            landing.email = address_new
+            landing.address = address_new
             landing.save()
         return True
 
@@ -30,18 +30,16 @@ class LandingRepository:
         return JsonResponse({'name': landing.name, 'address': landing.address})
 
     def _get_all_landing(self):
-<<<<<<< HEAD
         try:
             landings = Landing.objects.all()
             landing_list = [{'name': landing.name, 'address': landing.address} for landing in landings]
             return landing_list
         except Landing.DoesNotExist:
             return []
-=======
         landings = Landing.objects.all()
         landing_list = [{'name': landing.name, 'address': landing.address} for landing in landings]
         return JsonResponse({'landing_list': landing_list})
->>>>>>> f9e41d50acbba0e561285b15de6cf98ce08311f1
+
 
 
     def _add_user(self, user_name, email, password):
