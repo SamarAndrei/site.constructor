@@ -20,9 +20,13 @@ class LandingService(LandingRepository):
             return False
 
     def get_landing(self, landing_id):
+        # try:
+        #     Landing.objects.get(pk=landing_id)
+        #     return self._get_landing(landing_id)
+        # except Landing.DoesNotExist:
+        #     return False
         try:
-            Landing.objects.get(pk=landing_id)
-            return self._get_landing(landing_id)
+            return Landing.objects.get(id=landing_id)
         except Landing.DoesNotExist:
             return False
 

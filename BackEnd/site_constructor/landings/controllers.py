@@ -34,14 +34,25 @@ def landing_update(request, landing_id):
 @require_GET
 def landing_get_all(request):
     landing_service = LandingService()
-    success = landing_service.get_all_landing()
-    return JsonResponse({'success': success})
+    landing_list = landing_service.get_all_landing()
+
+    if landing_list:
+        return JsonResponse({'landing_list': landing_list})
+    else:
+        return JsonResponse({'error': 'No Landings Found'}, status=404)
 
 @require_GET
 def landing_get(request, landing_id):
+    # landing_service = LandingService()
+    # success = landing_service.get_landing(landing_id)
+    # return JsonResponse({'success': success})
     landing_service = LandingService()
-    success = landing_service.get_landing(landing_id)
-    return JsonResponse({'success': success})
+    landing = landing_service.get_landing(landing_id)
+
+    if landing:
+        return JsonResponse({'name': landing.name, 'address': landing.address})
+
+    return JsonResponse({'error': 'Not Found'}, status=404)
 
 @require_POST
 def user_add(request):

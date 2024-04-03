@@ -42,9 +42,9 @@ class LandingRepository:
         try:
             landings = Landing.objects.all()
             landing_list = [{'name': landing.name, 'address': landing.address} for landing in landings]
-            return JsonResponse({'landing_list': landing_list})
+            return landing_list
         except Landing.DoesNotExist:
-            return False
+            return []
 
 
     def _add_user(self, user_name, email, password):
