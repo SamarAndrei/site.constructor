@@ -1,7 +1,6 @@
 from fastapi import APIRouter
-
-from app.database import async_session_maker
-from app.Users.services import *
+from ..database import async_session_maker
+from services import *
 
 router = APIRouter(prefix='/users', tags=["Пользователи"])
 
@@ -26,3 +25,6 @@ def add_user():
 @router.put("/{user_id}")
 def update_user( user_id):
     pass
+
+
+

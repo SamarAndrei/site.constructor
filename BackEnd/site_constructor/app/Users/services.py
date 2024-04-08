@@ -1,8 +1,8 @@
-from app.Services.repository import *
-from app.database import async_session_maker
-from app.Users.models import Users
+from ...app.Services.repository import *
+from ..database import async_session_maker
+from models import Users
 from fastapi.responses import JSONResponse
-from app.Users.schemas import SUser
+from schemas import SUser
 
 
 
