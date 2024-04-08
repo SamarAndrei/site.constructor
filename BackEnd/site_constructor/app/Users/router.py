@@ -31,3 +31,6 @@ async def add_user(user_data: SUser):
 @router.put("/{user_id}")
 def update_user( user_id):
     pass
+
+
+
