@@ -1,5 +1,6 @@
 from fastapi import APIRouter
-from services import *
+from app.Landings.services import LandingServices
+from app.Landings.schemas import SLanding
 
 router = APIRouter(prefix='/landings', tags=["Лендинги"])
 
@@ -20,8 +21,15 @@ async def delete_landing(landing_id: int):
 
 
 @router.post("")
-def add_landing():
-    pass
+async def add_landing(landing_data: SLanding):
+    await LandingServices.add(
+        user_id = landing_data.user_id,
+        name = landing_data.name, 
+        adress = landing_data.address, 
+        description = landing_data.description
+    )
+
+    
 
 
 @router.put("/{landing_id}")
