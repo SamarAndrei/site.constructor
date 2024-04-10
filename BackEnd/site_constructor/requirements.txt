@@ -5,3 +5,4 @@ asyncpg
 pydantic-settings
 passlib
 python-jose
+bcrypt
