@@ -1,5 +1,5 @@
 .form {
-  background-color: #0D1F23;
+  background-color: rgba(28, 28, 28, 1);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -12,7 +12,7 @@ input {
   max-width: 400px;
   padding: 10px 15px;
   margin: 10px 0;
-  border: 1px solid #132E35;
+  border: 1px solid rgba(173, 34, 47, 1);
   border-radius: 5px;
   outline: none;
   font-family: "Montserrat", sans-serif;
@@ -22,21 +22,9 @@ textarea {
   max-width: 400px;
   padding: 10px 15px;
   margin: 10px 0;
-  border: 1px solid #FBE4D8;
+  border: 1px solid rgba(173, 34, 47, 1);
   border-radius: 5px;
   outline: none;
   font-family: "Montserrat", sans-serif;
 }
 
-.buttonForm {
-  background-color: #FBE4D8;
-  color: #132E35;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 5px;
-  padding: 15px 0;
-  margin: 10px 0;
-  cursor: pointer;
-  font-family: "Montserrat", sans-serif;
-
-}
