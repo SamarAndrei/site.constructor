@@ -1,0 +1,7 @@
+fastapi[all]
+sqlalchemy
+alembic
+asyncpg
+pydantic-settings
+passlib
+python-jose
