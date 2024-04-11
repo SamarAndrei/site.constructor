@@ -1,16 +1,13 @@
 import React from 'react';
-import FeedbackForm from './components/UI/Form/FeedbackForm';
-import './index.css'
-
-
+import FeedbackForm from './components/UI/FeedbackForm/FeedbackForm';
 const footerStyles = {
 	left: '0', 
-	backgroundColor: '#0D1F23', 
+	backgroundColor: 'rgba(28, 28, 28, 1', 
 	padding: '9px', 
 	textAlign: 'center', 
 	bottom: '0', 
 	width: '100%',
-	top: 0
+
   };
 
 
@@ -26,4 +23,3 @@ function Footer () {
 };
 
 export default Footer;
-

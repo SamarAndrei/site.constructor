@@ -1,10 +1,10 @@
 .button {
   padding: 10px 20px; 
-  border: 1px solid #0D1F23; 
+  border: 1px solid rgba(173, 34, 47, 1); 
   border-radius: 4px; 
   text-decoration: none; 
   color: white; 
   text-align: center;
-  background-color: #0D1F23; 
+  background-color: rgba(173, 34, 47, 1); 
   cursor: pointer; 
 }

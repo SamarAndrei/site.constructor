@@ -4,7 +4,7 @@ import FixedBar from './components/UI/Bar/FixedBar';
 function Header () {
 	return (
 		<div>
-			<FixedBar></FixedBar>
+			<FixedBar/>
 		</div>
 	);
 };

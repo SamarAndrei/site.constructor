@@ -6,7 +6,7 @@ class Landings(Base):
     __tablename__ = 'landings'
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(ForeignKey("users.id"), nullable=False)
+    user_id = Column(ForeignKey("users.id"))
     name = Column(String, nullable=False)
     address = Column(String, nullable=False)
     description = Column(String, nullable=True)

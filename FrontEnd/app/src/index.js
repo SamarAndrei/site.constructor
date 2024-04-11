@@ -10,7 +10,7 @@ root.render(
   <React.StrictMode>
     <Header />
     <Body />
-    <Footer />
+    <Footer /> 
   </React.StrictMode>
 );
 

@@ -3,6 +3,7 @@ from fastapi import HTTPException
 from passlib.context import CryptContext
 from jose import jwt
 from pydantic import EmailStr
+from app.config import settings
 
 from app.Users.services import UserServices
 
@@ -19,7 +20,7 @@ def create_access_token(data: dict) -> str:
     expire = datetime.now(timezone.utc) + timedelta(minutes=30)
     to_encode.update({"exp": expire})
     encode_jwt = jwt.encode(
-        to_encode, "wZPQQCHpLUyiysSA7crc46xxS6qKhczRCwKPkukM+cg=", "HS256"
+        to_encode, settings.SECRET_KEY, settings.ALGORITHM
     )
     return encode_jwt
 
