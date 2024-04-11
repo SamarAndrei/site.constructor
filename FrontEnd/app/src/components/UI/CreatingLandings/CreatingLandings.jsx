@@ -26,30 +26,93 @@
 // };
 
 // export default Form;
+
+
+
+
+
+// left: '0', 
+// 	backgroundColor: 'rgba(28, 28, 28, 1', 
+// 	padding: '9px', 
+// 	textAlign: 'center', 
+// 	bottom: '0', 
+// 	width: '100%',
+
 import React from 'react';
 import backgroundImage from '../../../assets/images/logoetagi.jpg';
-
+import MyButton from '../Buttons/MyButton';
 
 const CreatingLandings = () => {
     return (
-        <div style={{ position: 'sticky', textAlign: 'center', marginTop: '0px', display: 'flex'  }}>
-            <img src={backgroundImage} alt="Background" style={{ width: '104%', height: '100%' , objectFit: 'cover', filter: 'brightness(30%)', justifyItems: 'center' }} />
-            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'white', textAlign: 'center', display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                <div /* style={{ flex: '1', marginRight: '20px' }} */>
-                    <h2>Придумайте название</h2>
-                    <p>Адрес сайта и другие разделы</p>
-                </div>
-                <div /* style={{ flex: '1', marginRight: '20px' }} */>
-                    <h2>Шаблоны уже готовы</h2>
-                    <p>Вам не придется думать о дизайне каждой страницы</p>
-                </div>
-                <div /* style={{ flex: '1' }} */>
-                    <h2>Добавьте описания, фотографии и цены</h2>
-                    <p>Вы можете указывать скидки и предлагать оплату в кредит</p>
-                </div>
+        <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'space-between',
+            width: '100%', 
+            height: '100%',
+            backgroundColor: 'rgba(210, 210, 210, 1)', }}>
+            <div style={{ 
+                width: '50%', 
+                position: 'relative',
+                display: 'flex' }}>
+                <img src={backgroundImage} alt="Background" style={{ 
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover', 
+                    filter: 'brightness(40%)' }} />
+            </div>
+            <div style={{ 
+                width: '50%', 
+                textAlign: 'center', 
+                paddingLeft: '20px',
+                  }}>
+                <h1 style={{ 
+                    color: 'rgba(28, 28, 28, 1)', 
+                      }}>Создайте впечатляющий сайт для бизнеса и медиа</h1>
+                <MyButton style={{ marginTop: '20px', backgroundColor: 'rgba(28, 28, 28, 1)' }}>Создать</MyButton>
             </div>
         </div>
     );
 };
 
 export default CreatingLandings;
+
+/* 
+const CreatingLandings = () => {
+    return (
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '100%',
+          height: '100%',
+          position: 'relative',
+        }}
+      >
+        <img
+          src={backgroundImage}
+          alt="Background"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            filter: 'brightness(40%)',
+
+          }}
+        />
+        <div
+          style={{
+            color: 'white',
+            textAlign: 'center',
+            position: 'relative',
+          }}
+        >
+          <h1>Создайте впечатляющий сайт для бизнеса и медиа</h1>
+        </div>
+      </div>
+    );
+  };
+  
+  export default CreatingLandings;
+   */

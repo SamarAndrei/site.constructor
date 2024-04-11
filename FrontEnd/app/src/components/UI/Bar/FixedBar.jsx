@@ -33,15 +33,25 @@ const FixedBar = () => {
     const buttonStyle = {
         marginLeft: 'auto', 
         color: 'white', 
-        padding: '10px 20px',  
+        padding: '10px 30px',  
         marginRight: '20px',
         backgroundColor: 'rgba(28, 28, 28, 1)' ,
     };
 
+    const buttonvoyti = {
+        marginLeft: 'auto', 
+        color: 'white', 
+        padding: '10px 20px',  
+        marginLeft: '960px',
+        backgroundColor: 'rgba(28, 28, 28, 1)' ,
+    }
+
+
     return (
         <div className="fixed-bar">
             <img className="logo" src={logo} alt="Логотип сайта" />
-            <MyButton style={buttonStyle}>Войти</MyButton>
+            <MyButton style={buttonvoyti}>Войти</MyButton>
+            <MyButton style={buttonStyle}>Регистрация</MyButton>
         </div>
     );
 };
