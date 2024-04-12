@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic import BaseModel
 
 
@@ -6,7 +7,7 @@ class SLanding(BaseModel):
     user_id: int
     name: str
     address: str
-    description: str
+    description: Optional[str] = None
 
     class Config:
         orm_mode = True
