@@ -29,29 +29,30 @@ import logo from '../../../assets/images/logosite.png';
 import MyButton from '../Buttons/MyButton';
 import './FixedBar.css'; 
 
+/* const buttonStyle = {
+    marginLeft: 'auto', 
+    color: 'white', 
+    padding: '10px 30px',  
+    marginRight: '20px',
+    backgroundColor: 'rgba(28, 28, 28, 1)' ,
+};
+
+const buttonvoyti = {
+    marginLeft: 'auto', 
+    color: 'white', 
+    padding: '10px 20px',  
+    marginLeft: '960px',
+    backgroundColor: 'rgba(28, 28, 28, 1)' ,
+} */
 const FixedBar = () => {
-    const buttonStyle = {
-        marginLeft: 'auto', 
-        color: 'white', 
-        padding: '10px 30px',  
-        marginRight: '20px',
-        backgroundColor: 'rgba(28, 28, 28, 1)' ,
-    };
-
-    const buttonvoyti = {
-        marginLeft: 'auto', 
-        color: 'white', 
-        padding: '10px 20px',  
-        marginLeft: '960px',
-        backgroundColor: 'rgba(28, 28, 28, 1)' ,
-    }
-
-
     return (
         <div className="fixed-bar">
             <img className="logo" src={logo} alt="Логотип сайта" />
-            <MyButton style={buttonvoyti}>Войти</MyButton>
-            <MyButton style={buttonStyle}>Регистрация</MyButton>
+        <div className='buttons-container'> 
+            <MyButton style  = {{marginRight: '10px', marginLeft: '10px', }}>Войти</MyButton>
+            <MyButton style = {{marginRight: '10px'}}>Регистрация</MyButton>
+        </div>
+            
         </div>
     );
 };

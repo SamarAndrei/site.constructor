@@ -39,3 +39,32 @@
 		color: antiquewhite;
 		
 	}
+
+
+
+
+.maincontainer {
+	object-fit: cover;
+	width: 2000px;
+	height: 100vh;
+	background-color: #494949;
+
+
+}
+
+.image-container {
+	display: flex;
+	position: relative;
+	width: 50%;
+	height: 50%;
+	object-fit: cover;
+	left: 0;
+
+}
+
+.text-container {
+	display: flex;
+	position: relative;
+	color: #c2c2c2
+	
+}
