@@ -13,4 +13,3 @@ root.render(
     <Footer /> 
   </React.StrictMode>
 );
-
