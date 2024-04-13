@@ -8,7 +8,8 @@ const FeedbackForm = () => {
         color: 'white', 
         padding: '15px 0',  
         marginRight: '0px',
-        backgroundColor: 'rgba(28, 28, 28, 1)' ,
+        backgroundColor: '#CE2023' ,
+        border: '1px solid #CE2023',
         textTransform: 'uppercase',
     };
 
