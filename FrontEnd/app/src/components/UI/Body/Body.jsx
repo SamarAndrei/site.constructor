@@ -1,5 +1,5 @@
 import React from 'react';
-import CreatingLandings from './components/UI/CreatingLandings/CreatingLandings';
+import CreatingLandings from '../CreatingLandings/CreatingLandings';
 
 const Body = () => {
     return (

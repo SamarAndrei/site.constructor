@@ -1,5 +1,5 @@
 import React from 'react';
-import FeedbackForm from './components/UI/FeedbackForm/FeedbackForm';
+import FeedbackForm from '../FeedbackForm/FeedbackForm';
 
 const footerStyles = {
   backgroundColor: 'rgba(28, 28, 28, 1)', 

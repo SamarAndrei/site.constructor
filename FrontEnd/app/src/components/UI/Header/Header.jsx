@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FixedBar from './components/UI/Bar/FixedBar';
+import FixedBar from '../Bar/FixedBar';
 function Header () {
 	return (
 		<div>
