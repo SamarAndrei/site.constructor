@@ -20,7 +20,7 @@ const FeedbackForm = () => {
       <input type="text" placeholder="Ваше имя" />
       <input type="tel" placeholder="Ваш номер телефона" />
       <textarea placeholder="Ваше сообщение" rows="1" />
-      <MyButton style={buttonStyle}>Отправить</MyButton>
+      <MyButton >Отправить</MyButton>
     </div>
   );
 };
