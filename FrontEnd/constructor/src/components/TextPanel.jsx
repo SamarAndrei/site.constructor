@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { Button, Drawer, Box, Typography, TextField } from '@mui/material';
+import { Button, Drawer, Box, Typography, TextField, MenuItem } from '@mui/material';
 
 function TextPanel() {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState('');
+  const [textAlign, setTextAlign] = useState('left');
+  const [textColor, setTextColor] = useState('#000000');
+  const [textSize, setTextSize] = useState(16);
+  const [backgroundColor, setBackgroundColor] = useState('#ffffff'); // Добавлено состояние для цвета фона
 
   const handleOpen = () => {
     setOpen(true);
@@ -15,6 +19,22 @@ function TextPanel() {
 
   const handleTextChange = (event) => {
     setText(event.target.value);
+  };
+
+  const handleTextAlignChange = (event) => {
+    setTextAlign(event.target.value);
+  };
+
+  const handleTextColorChange = (event) => {
+    setTextColor(event.target.value);
+  };
+
+  const handleTextSizeChange = (event) => {
+    setTextSize(parseInt(event.target.value));
+  };
+
+  const handleBackgroundColorChange = (event) => {
+    setBackgroundColor(event.target.value);
   };
 
   const handleContextMenu = (event) => {
@@ -37,10 +57,61 @@ function TextPanel() {
             fullWidth
             autoFocus
           />
+          <Typography gutterBottom>
+            Выберите выравнивание текста
+          </Typography>
+          <TextField
+            select
+            value={textAlign}
+            onChange={handleTextAlignChange}
+            fullWidth
+            variant="outlined"
+          >
+            <MenuItem value="left">Left</MenuItem>
+            <MenuItem value="center">Center</MenuItem>
+            <MenuItem value="right">Right</MenuItem>
+          </TextField>
+          <Typography gutterBottom>
+            Выберите цвет текста
+          </Typography>
+          <input
+            type="color"
+            value={textColor}
+            onChange={handleTextColorChange}
+          />
+          <Typography gutterBottom>
+            Выберите цвет фона
+          </Typography>
+          <input
+            type="color"
+            value={backgroundColor}
+            onChange={handleBackgroundColorChange}
+          />
+          <Typography gutterBottom>
+            Введите размер текста
+          </Typography>
+          <TextField
+            type="number"
+            variant="outlined"
+            value={textSize}
+            onChange={handleTextSizeChange}
+            inputProps={{
+              min: 8,
+              max: 72,
+            }}
+            fullWidth
+          />
         </Box>
       </Drawer>
       <Box
-        sx={{ marginTop: '0px', padding: '40px', border: '1px solid black' }}
+        sx={{
+          marginTop: '0px',
+          padding: '40px',
+          textAlign: textAlign,
+          color: textColor,
+          fontSize: `${textSize}px`, // Используем `${textSize}px` для задания размера текста
+          backgroundColor: backgroundColor, // Добавлено свойство для цвета фона
+        }}
         onContextMenu={handleContextMenu} // Добавляем обработчик события ПКМ
       >
         <Typography>{text}</Typography>

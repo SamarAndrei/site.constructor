@@ -31,7 +31,7 @@ function ComponentSelector({ onComponentSelect }) {
               <ListItemText primary="Цветной блок" />
             </ListItem>
             <ListItem button onClick={() => handleComponentSelect(<TextPanel/>)}>
-              <ListItemText primary="Компонент 2" />
+              <ListItemText primary="Текстовый блок" />
             </ListItem>
             {/* Добавьте здесь другие варианты компонентов для выбора */}
           </List>
