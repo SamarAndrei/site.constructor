@@ -8,6 +8,7 @@ function ButtonPanel() {
   const [buttonTextAlign, setButtonTextAlign] = useState('center');
   const [buttonTextColor, setButtonTextColor] = useState('#ffffff');
   const [buttonSize, setButtonSize] = useState(40);
+  const [backgroundColor, setBackgroundColor] = useState('#ffffff'); // Добавлено состояние для цвета фона блока
 
   const handleOpen = () => {
     setOpen(true);
@@ -36,6 +37,10 @@ function ButtonPanel() {
   const handleButtonSizeChange = (event) => {
     const newSize = parseInt(event.target.value);
     setButtonSize(newSize);
+  };
+
+  const handleBackgroundColorChange = (event) => {
+    setBackgroundColor(event.target.value);
   };
 
   return (
@@ -78,9 +83,18 @@ function ButtonPanel() {
             }}
             fullWidth
           />
+          <Typography gutterBottom>Выберите цвет фона блока</Typography>
+          <input type="color" value={backgroundColor} onChange={handleBackgroundColorChange} />
         </Box>
       </Drawer>
-      <Box sx={{ marginTop: '0px', padding: '40px', textAlign: buttonTextAlign }}>
+      <Box
+        sx={{
+          marginTop: '0px',
+          padding: '40px',
+          textAlign: buttonTextAlign,
+          backgroundColor: backgroundColor, // Используем цвет фона
+        }}
+      >
         <Button
           variant="contained"
           style={{
@@ -98,6 +112,4 @@ function ButtonPanel() {
 }
 
 export default ButtonPanel;
-
-
 
