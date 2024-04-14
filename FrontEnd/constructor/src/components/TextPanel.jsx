@@ -17,6 +17,11 @@ function TextPanel() {
     setText(event.target.value);
   };
 
+  const handleContextMenu = (event) => {
+    event.preventDefault(); // Предотвращаем открытие контекстного меню браузера
+    handleOpen(); // Вызываем функцию открытия панели
+  };
+
   return (
     <div>
       <Drawer anchor="right" open={open} onClose={handleClose}>
@@ -34,9 +39,12 @@ function TextPanel() {
           />
         </Box>
       </Drawer>
-      <Box sx={{ marginTop: '0px', padding: '40px', border: '1px solid black' }}>
+      <Box
+        sx={{ marginTop: '0px', padding: '40px', border: '1px solid black' }}
+        onContextMenu={handleContextMenu} // Добавляем обработчик события ПКМ
+      >
         <Typography>{text}</Typography>
-        <Button onClick={handleOpen}>Изменить текст</Button>
+        <Button onClick={handleOpen}></Button>
       </Box>
     </div>
   );

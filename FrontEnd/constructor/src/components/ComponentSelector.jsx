@@ -28,7 +28,7 @@ function ComponentSelector({ onComponentSelect }) {
         <DialogContent>
           <List>
             <ListItem button onClick={() => handleComponentSelect(<ColorPanel/>)}>
-              <ListItemText primary="Компонент 1" />
+              <ListItemText primary="Цветной блок" />
             </ListItem>
             <ListItem button onClick={() => handleComponentSelect(<TextPanel/>)}>
               <ListItemText primary="Компонент 2" />

@@ -1,8 +1,6 @@
 import PaletteIcon from '@mui/icons-material/Palette'
 import { Box, Button, Drawer, Typography } from '@mui/material'
-
 import React, { useState } from 'react'
-
 
 function ColorPanel() {
   const [open, setOpen] = useState(false);
@@ -20,6 +18,11 @@ function ColorPanel() {
     setColor(event.target.value);
   };
 
+  const handleContextMenu = (event) => {
+    event.preventDefault(); // Предотвращаем открытие контекстного меню браузера
+    handleOpen(); // Вызываем функцию открытия панели
+  };
+
   return (
     <div>
       <Drawer anchor="right" open={open} onClose={handleClose}>
@@ -34,10 +37,10 @@ function ColorPanel() {
           />
         </Box>
       </Drawer>
-      <Box sx={{ marginTop: '0px', padding: '40px', backgroundColor: color }}>
-        <Button onClick={handleOpen} startIcon={<PaletteIcon />}>
-          Изменить цвет
-        </Button>
+      <Box
+        sx={{ marginTop: '0px', padding: '40px', backgroundColor: color }}
+        onContextMenu={handleContextMenu} // Добавляем обработчик события ПКМ
+      >
       </Box>
     </div>
   );
