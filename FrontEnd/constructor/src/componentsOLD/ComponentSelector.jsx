@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions, List, ListItem, ListItemText } from '@mui/material';
-import ColorPanel from './ColorPanel'
-import TextPanel from './TextPanel'
+
 function ComponentSelector({ onComponentSelect }) {
   const [open, setOpen] = useState(false);
 
@@ -27,10 +26,10 @@ function ComponentSelector({ onComponentSelect }) {
         <DialogTitle>Выберите компонент</DialogTitle>
         <DialogContent>
           <List>
-            <ListItem button onClick={() => handleComponentSelect(<ColorPanel/>)}>
+            <ListItem button onClick={() => handleComponentSelect("Компонент 1")}>
               <ListItemText primary="Компонент 1" />
             </ListItem>
-            <ListItem button onClick={() => handleComponentSelect(<TextPanel/>)}>
+            <ListItem button onClick={() => handleComponentSelect("Компонент 2")}>
               <ListItemText primary="Компонент 2" />
             </ListItem>
             {/* Добавьте здесь другие варианты компонентов для выбора */}

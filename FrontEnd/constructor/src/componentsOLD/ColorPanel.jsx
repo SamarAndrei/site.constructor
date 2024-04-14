@@ -22,6 +22,7 @@ function ColorPanel() {
 
   return (
     <div>
+
       <Drawer anchor="right" open={open} onClose={handleClose}>
         <Box sx={{ width: 250, padding: 2 }}>
           <Typography gutterBottom>

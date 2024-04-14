@@ -1,13 +1,14 @@
-import ComponentSelector from './components/ComponentSelector'
+import React from 'react';
+import ParentComponent from './components/ParentComponent';
+import ColorPanel from './components/ColorPanel';
 
-
-
-function App() {
-  return (
-    <div className="App">
-      <ComponentSelector/>
-    </div>
-  );
+function App(props) {
+	return (
+		<div>
+			<ParentComponent></ParentComponent>
+			<ColorPanel></ColorPanel>
+		</div>
+	);
 }
 
 export default App;

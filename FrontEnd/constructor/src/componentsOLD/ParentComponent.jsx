@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions, List, ListItem, ListItemText } from '@mui/material';
-import ColorPanel from './ColorPanel'
-import TextPanel from './TextPanel'
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, List, ListItem, ListItemText } from '@mui/material'
+import ColorPanel from 'components/ColorPanel'
+import React, { useState } from 'react'
+
 function ComponentSelector({ onComponentSelect }) {
   const [open, setOpen] = useState(false);
 
@@ -27,13 +27,12 @@ function ComponentSelector({ onComponentSelect }) {
         <DialogTitle>Выберите компонент</DialogTitle>
         <DialogContent>
           <List>
-            <ListItem button onClick={() => handleComponentSelect(<ColorPanel/>)}>
+            <ListItem button onClick={() => handleComponentSelect(<ColorPanel />)}>
               <ListItemText primary="Компонент 1" />
             </ListItem>
-            <ListItem button onClick={() => handleComponentSelect(<TextPanel/>)}>
+            <ListItem button onClick={() => handleComponentSelect("Компонент 2")}>
               <ListItemText primary="Компонент 2" />
             </ListItem>
-            {/* Добавьте здесь другие варианты компонентов для выбора */}
           </List>
         </DialogContent>
         <DialogActions>
@@ -42,6 +41,27 @@ function ComponentSelector({ onComponentSelect }) {
       </Dialog>
     </div>
   );
+} 
+
+function ParentComponent() {
+  const [blocks, setBlocks] = useState([]);
+
+  const addBlock = (component) => {
+    const newBlock = <div key={blocks.length}>{component}</div>;
+    setBlocks([...blocks, newBlock]);
+  };
+	
+
+  return (
+    <div>
+      <ComponentSelector onComponentSelect={addBlock} />
+      <div>
+        {blocks.map((block, index) => (
+          <div key={index}>{block}</div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default ComponentSelector;
+export default ParentComponent;
