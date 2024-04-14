@@ -29,9 +29,12 @@ function TextPanel() {
     setTextColor(event.target.value);
   };
 
-  const handleTextSizeChange = (event) => {
-    setTextSize(parseInt(event.target.value));
-  };
+	const handleTextSizeChange = (event) => {
+		const newSize = parseInt(event.target.value);
+		console.log("New text size:", newSize); // Добавлено
+		setTextSize(newSize);
+	};
+	
 
   const handleBackgroundColorChange = (event) => {
     setBackgroundColor(event.target.value);
@@ -96,8 +99,8 @@ function TextPanel() {
             value={textSize}
             onChange={handleTextSizeChange}
             inputProps={{
-              min: 8,
-              max: 72,
+              min: 1,
+              max: 720,
             }}
             fullWidth
           />
@@ -111,10 +114,14 @@ function TextPanel() {
           color: textColor,
           fontSize: `${textSize}px`, // Используем `${textSize}px` для задания размера текста
           backgroundColor: backgroundColor, // Добавлено свойство для цвета фона
+          display: 'flex', // Добавлено свойство для использования flexbox
+          alignItems: 'center'
         }}
         onContextMenu={handleContextMenu} // Добавляем обработчик события ПКМ
       >
-        <Typography>{text}</Typography>
+        <Typography variant="body1" style={{ fontSize: `${textSize}px` }}>
+					{text}
+					</Typography>
         <Button onClick={handleOpen}></Button>
       </Box>
     </div>
