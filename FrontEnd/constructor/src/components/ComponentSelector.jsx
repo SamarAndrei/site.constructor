@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions, List, ListItem, ListItemText } from '@mui/material';
 import ColorPanel from './ColorPanel'
 import TextPanel from './TextPanel'
+import ButtonPanel from './ButtonPanel';
 function ComponentSelector({ onComponentSelect }) {
   const [open, setOpen] = useState(false);
 
@@ -33,7 +34,9 @@ function ComponentSelector({ onComponentSelect }) {
             <ListItem button onClick={() => handleComponentSelect(<TextPanel/>)}>
               <ListItemText primary="Текстовый блок" />
             </ListItem>
-            {/* Добавьте здесь другие варианты компонентов для выбора */}
+            <ListItem button onClick={() => handleComponentSelect(<ButtonPanel/>)}>
+              <ListItemText primary="Кнопка" />
+            </ListItem>
           </List>
         </DialogContent>
         <DialogActions>
