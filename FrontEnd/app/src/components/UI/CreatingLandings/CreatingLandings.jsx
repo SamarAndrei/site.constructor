@@ -44,7 +44,6 @@ import './CreatingLandings.css';
 
 const CreatingLandings = () => {
   return (
-    <Router> 
       <div className="container"> 
         <div className="text-container"> 
           <h2>Придумайте название, адрес сайта и добавьте разделы, например информацию о компании и условия доставки</h2>
@@ -54,18 +53,20 @@ const CreatingLandings = () => {
         <img src={backgroundImage} alt="Background" className="background-image" />
         <div className="main-content"> 
           <h1>Создайте впечатляющий сайт для бизнеса и медиа</h1>
-          <Link to="/Constructor">
-            <MyButton style={{ 
+
+          <Link to="/123">
+          <button className="buttonCreate" style={{ 
+              cursor: 'pointer',
               marginTop: '20px', 
               backgroundColor: '#CE2023', 
               color: 'white', 
               textTransform: 'uppercase', 
               padding: '10px 100px',
-              border: '1px solid #CE2023'}}>Создать</MyButton>
+              border: '1px solid #CE2023'}}>Создать</button>          
           </Link>
+
         </div>
       </div>
-    </Router>
   );
 };
 

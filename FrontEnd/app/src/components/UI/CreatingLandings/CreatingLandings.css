@@ -79,7 +79,7 @@
 	font-family: "Montserrat", sans-serif;
   }
   
-  .text-container {
+.text-container {
 	position: absolute;
 	top: 50px;
 	left: 50%;
@@ -92,11 +92,11 @@
 	width: 100%;
   }
   
-  .text-container div {
+.text-container div {
 	margin-right: 10px;
   }
   
-  .background-image {
+.background-image {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -106,7 +106,7 @@
 	filter: brightness(15%);
   }
   
-  .main-content {
+.main-content {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -116,5 +116,8 @@
 	z-index: 1;
   }
   
-
-  
+.buttonCreate {
+	&:hover {
+		background-color: aqua;
+	}
+}
