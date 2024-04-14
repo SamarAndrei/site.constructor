@@ -3,6 +3,7 @@ import { Button, Dialog, DialogTitle, DialogContent, DialogActions, List, ListIt
 import ColorPanel from './ColorPanel'
 import TextPanel from './TextPanel'
 import ButtonPanel from './ButtonPanel';
+import ImagePanel from './ImagePanel';
 function ComponentSelector({ onComponentSelect }) {
   const [open, setOpen] = useState(false);
 
@@ -36,6 +37,9 @@ function ComponentSelector({ onComponentSelect }) {
             </ListItem>
             <ListItem button onClick={() => handleComponentSelect(<ButtonPanel/>)}>
               <ListItemText primary="Кнопка" />
+            </ListItem>
+            <ListItem button onClick={() => handleComponentSelect(<ImagePanel/>)}>
+              <ListItemText primary="Изображение" />
             </ListItem>
           </List>
         </DialogContent>
