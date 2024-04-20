@@ -1,4 +1,6 @@
 from pydantic import BaseModel, Json
+from typing import Optional
+from pydantic import BaseModel
 
 
 class SLanding(BaseModel):
@@ -8,6 +10,7 @@ class SLanding(BaseModel):
     address: str
     description: str
     structure: Json
+    description: Optional[str] = None
 
     class Config:
         orm_mode = True
