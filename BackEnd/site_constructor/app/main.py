@@ -7,5 +7,3 @@ app = FastAPI()
 
 app.include_router(router_users)
 app.include_router(router_landings)
-
-

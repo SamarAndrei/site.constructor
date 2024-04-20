@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Json
 
 
 class SLanding(BaseModel):
@@ -7,6 +7,7 @@ class SLanding(BaseModel):
     name: str
     address: str
     description: str
+    structure: Json
 
     class Config:
         orm_mode = True

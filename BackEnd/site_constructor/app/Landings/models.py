@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, JSON
 from ..database import Base
 
 
@@ -10,3 +10,4 @@ class Landings(Base):
     name = Column(String, nullable=False)
     address = Column(String, nullable=False)
     description = Column(String, nullable=True)
+    structure = Column(JSON, nullable=False)

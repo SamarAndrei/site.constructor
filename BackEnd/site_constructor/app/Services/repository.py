@@ -12,6 +12,7 @@ class BaseServices:
         async with async_session_maker() as session:
             query = select(cls.model).filter_by(**filter)
             result = await session.execute(query)
+
             return result.mappings().all()
         
     @classmethod
@@ -19,6 +20,7 @@ class BaseServices:
         async with async_session_maker() as session:
             query = select(cls.model).filter_by(id = id)
             result = await session.execute(query)
+
             return result.scalar_one_or_none()
         
     @classmethod
@@ -26,6 +28,7 @@ class BaseServices:
         async with async_session_maker() as session:
             query = select(cls.model).filter_by(**filter)
             result = await session.execute(query)
+
             return result.scalar_one_or_none()
         
     @classmethod
@@ -34,9 +37,11 @@ class BaseServices:
             query = select(cls.model).filter_by(id = id)
             result = await session.execute(query)
             deleted_row = result.scalar_one_or_none()
+            
             if deleted_row:
                 await session.delete(deleted_row)
                 await session.commit()
+
                 return JSONResponse(content={"message": "Удалено"})
         
     @classmethod
@@ -45,6 +50,6 @@ class BaseServices:
             query = insert(cls.model).values(**data)
             await session.execute(query)
             await session.commit()
-
+# user вернуть
 
             

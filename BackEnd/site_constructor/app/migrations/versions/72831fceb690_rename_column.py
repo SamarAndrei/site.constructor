@@ -19,8 +19,7 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade() -> None:
-    op.alter_column('users', 'user_id', new_column_name='id')
-
+    pass
 
 
 def downgrade() -> None:
