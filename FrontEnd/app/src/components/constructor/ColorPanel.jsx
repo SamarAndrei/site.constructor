@@ -39,7 +39,7 @@ function ColorPanel() {
       </Drawer>
       <Box
         sx={{ marginTop: '0px', padding: '40px', backgroundColor: color }}
-        onContextMenu={handleContextMenu} // Добавляем обработчик события ПКМ
+        onContextMenu={handleContextMenu} 
       >
       </Box>
     </div>

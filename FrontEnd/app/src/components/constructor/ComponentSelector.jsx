@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions, List, ListItem, ListItemText } from '@mui/material';
-import ColorPanel from './ColorPanel'
-import TextPanel from './TextPanel'
+import { Drawer, List, ListItem, ListItemText, Button } from '@mui/material';
+import ColorPanel from './ColorPanel';
+import TextPanel from './TextPanel';
 import ButtonPanel from './ButtonPanel';
 import ImagePanel from './ImagePanel';
+
 function ComponentSelector({ onComponentSelect }) {
   const [open, setOpen] = useState(false);
 
@@ -22,31 +23,23 @@ function ComponentSelector({ onComponentSelect }) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>
-        Добавить компонент
-      </Button>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Выберите компонент</DialogTitle>
-        <DialogContent>
-          <List>
-            <ListItem button onClick={() => handleComponentSelect(<ColorPanel/>)}>
-              <ListItemText primary="Цветной блок" />
-            </ListItem>
-            <ListItem button onClick={() => handleComponentSelect(<TextPanel/>)}>
-              <ListItemText primary="Текстовый блок" />
-            </ListItem>
-            <ListItem button onClick={() => handleComponentSelect(<ButtonPanel/>)}>
-              <ListItemText primary="Кнопка" />
-            </ListItem>
-            <ListItem button onClick={() => handleComponentSelect(<ImagePanel/>)}>
-              <ListItemText primary="Изображение" />
-            </ListItem>
-          </List>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Отмена</Button>
-        </DialogActions>
-      </Dialog>
+      <Button onClick={handleOpen}>Добавить компоненты</Button>
+      <Drawer anchor="left" open={open} onClose={handleClose}>
+        <List>
+          <ListItem button onClick={() => handleComponentSelect(<ColorPanel />)}>
+            <ListItemText primary="Цветной блок" />
+          </ListItem>
+          <ListItem button onClick={() => handleComponentSelect(<TextPanel />)}>
+            <ListItemText primary="Текстовый блок" />
+          </ListItem>
+          <ListItem button onClick={() => handleComponentSelect(<ButtonPanel />)}>
+            <ListItemText primary="Кнопка" />
+          </ListItem>
+          <ListItem button onClick={() => handleComponentSelect(<ImagePanel />)}>
+            <ListItemText primary="Изображение" />
+          </ListItem>
+        </List>
+      </Drawer>
     </div>
   );
 }
