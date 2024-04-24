@@ -1,4 +1,3 @@
-from fastapi import HTTPException
 from app.Services.repository import *
 from app.database import async_session_maker
 from app.Users.models import Users
