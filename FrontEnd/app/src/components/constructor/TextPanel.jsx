@@ -112,12 +112,12 @@ function TextPanel() {
           padding: '40px',
           textAlign: textAlign,
           color: textColor,
-          fontSize: `${textSize}px`, // Используем `${textSize}px` для задания размера текста
-          backgroundColor: backgroundColor, // Добавлено свойство для цвета фона
-          display: 'flex', // Добавлено свойство для использования flexbox
+          fontSize: `${textSize}px`, 
+          backgroundColor: backgroundColor, 
+          display: 'flex', 
           alignItems: 'center'
         }}
-        onContextMenu={handleContextMenu} // Добавляем обработчик события ПКМ
+        onContextMenu={handleContextMenu} 
       >
         <Typography variant="body1" style={{ fontSize: `${textSize}px` }}>
 					{text}

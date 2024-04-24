@@ -23,7 +23,7 @@ function ComponentSelector({ onComponentSelect }) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Добавить компоненты</Button>
+      <Button onClick={handleOpen}>Компоненты</Button>
       <Drawer anchor="left" open={open} onClose={handleClose}>
         <List>
           <ListItem button onClick={() => handleComponentSelect(<ColorPanel />)}>

@@ -1,5 +1,4 @@
-import PaletteIcon from '@mui/icons-material/Palette'
-import { Box, Button, Drawer, Typography } from '@mui/material'
+import { Box, Drawer, Typography } from '@mui/material'
 import React, { useState } from 'react'
 
 function ColorPanel() {
