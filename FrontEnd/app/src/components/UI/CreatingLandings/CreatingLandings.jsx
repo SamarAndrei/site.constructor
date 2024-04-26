@@ -17,7 +17,7 @@ const CreatingLandings = () => {
           <h1>Создайте впечатляющий сайт для бизнеса и медиа</h1>
 
           <Link to="/123">
-          <button className="buttonCreate" >Создать</button>          
+          <MyButton className="buttonCreate" >Создать</MyButton>          
           </Link>
 
         </div>

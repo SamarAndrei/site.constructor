@@ -1,19 +1,23 @@
+.logoLogin {
+  height: 7%;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 5%;
 
-
-img {
-  border-radius: 12px;
-  background-color: black;
-  width: 350px;
-  height: 350px;
 }
 
 
 
 .container {
+  background: linear-gradient(to right, #121313, #0f0f0f);
   padding: 9px;
-  border: 2px solid black;
   margin: auto;
   border-radius: 12px;
-  width: 350px;
-  height: 475px;
+  width: 20%;
+  height: 60%;
+  color:white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
 }

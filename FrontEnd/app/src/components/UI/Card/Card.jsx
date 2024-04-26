@@ -1,14 +1,37 @@
-import React from 'react';
-import MyButton from '../Buttons/Button';
+import React, { useState } from 'react';
+import MyButton from '../Buttons/MyButton'
+import logo from '../../../assets/images/logo3.png';
+import './Card.css'
+import Input from '../Input/Input';
+
 const Card = (props) => {
+
+	const [value, setValue] = useState(true)
+	const [registrationOrLogin, setRegistrationOrLogin] = useState('Войти')
+
+	const handleOnClick = () => {
+		if(value){
+			setValue(false)
+			setRegistrationOrLogin('Войти')
+		} else {
+			setValue(true)
+			setRegistrationOrLogin('Зарегистрироваться')
+		}
+	}
+
 	return (
 		<div style={props.style} className='container'>
-			<img  src="https://images-ext-1.discordapp.net/external/UyfJnebdhLYfGa8P6O_3ERRujZQO7BpW4TbyNusJnsE/https/office-news.ru/wp-content/uploads/2023/11/SLAVA-1-720x768.jpg?format=webp&width=643&height=686" alt="city" />
-			<div className='cl2'>
-				<p className='cl1'><b>Мурманск</b></p>
-				<p className='cl1'>Красивый город</p>
-				<MyButton>Подробнее</MyButton>	
-			</div>
+			<img  className="logoLogin" src={logo} alt="etagiki"  />
+
+				{value && <Input placeholder='Username'/>}
+				<Input placeholder='Email'/>
+				<Input placeholder='Password'/>
+
+				<MyButton children={registrationOrLogin}></MyButton>
+
+				<a href="#" onClick={handleOnClick} style={{marginTop:"60%"}}>
+				{value ? 'Войти' : 'Регистрация' }
+				</a>
 		</div>
 	);
 };

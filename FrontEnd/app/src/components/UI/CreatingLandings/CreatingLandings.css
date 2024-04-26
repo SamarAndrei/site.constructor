@@ -54,13 +54,13 @@
 	text-decoration: none; 
 	color: rgb(255, 255, 255); 
 	text-align: center;
-	background-color: rgba(207, 49, 51, 1); 
+	background-color: rgba(173, 34, 47, 1); 
 	cursor: pointer; 
 	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 	font-family: "Montserrat", sans-serif;
   
 	&:hover {
-	  background-color: rgba(173, 34, 47, 1)
+	  background-color: rgba(207, 49, 51, 1)
 	}
   
   
