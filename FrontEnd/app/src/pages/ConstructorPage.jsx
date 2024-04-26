@@ -1,6 +1,8 @@
 import React from 'react';
 import ParentComponent from '../components/constructor/ParentComponent.jsx';
-import HeaderTemplatsOne from '../components/constructor/Templats/TemplatsOne/HeaderTemplatsOne.jsx';
+import Template1 from '../components/constructor/Templates/Template1/Template1.jsx'
+import MyButton from '../components/UI/Buttons/MyButton.jsx'
+import { savePageToJson } from '../utils/savePageToJson.jsx'
 
 
 const Constructor = () => {
@@ -8,7 +10,9 @@ const Constructor = () => {
         <div>
         {/* <Header/> */}
         <ParentComponent/>
-        <HeaderTemplatsOne/>   
+
+        <Template1/> 
+        <MyButton onClick={savePageToJson}>Сохранить</MyButton>
         </div>
     );
 };
