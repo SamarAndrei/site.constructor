@@ -2,11 +2,12 @@ import React from 'react';
 import FeedbackForm from '../FeedbackForm/FeedbackForm';
 
 const footerStyles = {
-  backgroundColor: 'rgba(28, 28, 28, 1)',
+  /* backgroundColor: 'rgba(28, 28, 28, 1)', */
   margin: '0px', 
   padding: '0px',
   marginTop : '-50px', 
   height: '50vh',
+  background: 'linear-gradient(to right, #121313, #0f0f0f)'
 
 };
 
