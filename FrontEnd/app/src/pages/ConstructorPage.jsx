@@ -3,7 +3,7 @@ import ParentComponent from '../components/constructor/ParentComponent.jsx';
 const Constructor = () => {
     return (
         <div>
-         <ParentComponent/>   
+         <ParentComponent/> 
         </div>
     );
 };
