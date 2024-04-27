@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import backgroundImage from '../../../assets/images/logoetagi.jpg';
 import MyButton from '../Buttons/MyButton';
 import './CreatingLandings.css'; 
@@ -15,11 +15,7 @@ const CreatingLandings = () => {
         <img src={backgroundImage} alt="Background" className="background-image" />
         <div className="main-content"> 
           <h1>Создайте впечатляющий сайт для бизнеса и медиа</h1>
-
-          <Link to="/123">
-          <MyButton className="buttonCreate" >Создать</MyButton>          
-          </Link>
-
+         <Link to='/Pattern'><MyButton className="buttonCreate">Создать</MyButton></Link>          
         </div>
       </div>
       

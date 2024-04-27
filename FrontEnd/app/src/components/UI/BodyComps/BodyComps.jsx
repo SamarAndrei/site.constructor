@@ -1,14 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './BodyComps.css';
-import samplesImage from '../../../assets/images/samples.png';
 import behind from '../../../assets/images/behindThetext.png'
+import MyButton from '../Buttons/MyButton';
 
 const BodyComps = () => {
     return(
-        <div className='main-container' style={{backgroundImage: `url(${behind})`, backgroundSize: 'cover', }}> 
-            
-        
+        <div className='main-container' style={{backgroundImage: `url(${behind})`, backgroundSize: 'cover', }}>    
             <div className='texxt-container'>
                 <h2>
                 Создайте сайт <br/> своей мечты
@@ -19,18 +17,14 @@ const BodyComps = () => {
                 </h6>
             </div>        
             <div className='button-block'>
-            <Link to="/123">
-            <button className="button-create"  >Создать</button>          
+            <Link to="/Pattern">
+            <MyButton className="button-create"  >Создать</MyButton>          
             </Link>
             </div>    
             <span className='texted' style={{fontSize: '16px', position: 'absolute', display: 'flex', top: '107vh', }}>
                 Стоит лишь попробовать. Это бесплатно
             </span>
 
-       {/*  <div>
-        <img src={samplesImage} alt="imgWsamples" />
-
-        </div> */}
         
         </div>
         
