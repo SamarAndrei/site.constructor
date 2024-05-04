@@ -1,26 +1,23 @@
 .collective-container {
-    display: flex;
-    position: relative;   
-    margin: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #9b9b9b;
-    color: white;
-
+  display: flex;
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #9b9b9b;
+  color: white;
 }
 
 .imagesettings {
-    width: 100%;
-    
-
+  width: 100%;
 }
 
 .textbox {
-    left: 0;
-    margin-left: 15px;
-    font-family: 'SFProDisplayBold', sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    font-size: 32px;
-    text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.25);
+  left: 0;
+  margin-left: 15px;
+  font-family: "SFProDisplayBold", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 32px;
+  text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.25);
 }
