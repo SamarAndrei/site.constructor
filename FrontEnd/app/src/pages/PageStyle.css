@@ -5,20 +5,10 @@
 
 .centered-content {
     text-align: center;
-    margin-top: 55px; 
+    margin-top: 60px; 
     background: linear-gradient(to right, #121313, #0f0f0f);
-    color: white;
-
-}
-
-
-.card-pattern {
-    margin-top: 50px;
-    
-}
-
-.text-empty {
-    margin-top: 0px; 
+    color: #ffffff;
+    height: 115px;
 }
 
 .image-empty {
@@ -29,10 +19,11 @@
 
 .card-pattern-o {
     display: flex;
-    background: grey;
-
+    background: grey; 
+    gap: 0px; 
 }
 
 .footer-pattern {
-    margin-top: 100px;
+    
+    margin-top: 0px;
 }
