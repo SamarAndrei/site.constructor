@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage'
 import Patterns from './pages/Patterns';
 import EmptyPattern from './pages/EmptyPattern'
 import OnePattern from './pages/OnePattern'
+import NoMatchPage from './pages/NoMatchPage';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,7 +19,9 @@ ReactDOM.render(
         <Route path="/Pattern" element={<Patterns/>} /> 
         <Route path='/Login' element={<LoginPage/>}/>
         <Route path='/EmptyPattern' element={<EmptyPattern/>}/>
-        <Route path='OnePattern' element={<OnePattern/>}/>
+        <Route path='/OnePattern' element={<OnePattern/>}/>
+        <Route path='*' element={<NoMatchPage/>}/>
+
       </Routes>
     </Router>
     
