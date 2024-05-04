@@ -6,7 +6,7 @@ import Input from '../Input/Input';
 
 const Card = ({ showInputs = true, showButton = true, showLink = true, children }) => {
     const [value, setValue] = useState(true);
-    const [registrationOrLogin, setRegistrationOrLogin] = useState('Войти');
+    const [registrationOrLogin, setRegistrationOrLogin] = useState('Зарегистрироваться');
 
     const handleOnClick = () => {
         if (value) {
