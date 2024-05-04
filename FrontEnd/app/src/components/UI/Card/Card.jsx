@@ -22,7 +22,7 @@ const Card = ({ showInputs = true, showButton = true, showLink = true, children 
         <div className='container'>
             <img className='logoLogin' src={logo} alt='etagiki' />
 
-            {showInputs && <Input placeholder='Username' />}
+            {showInputs && value && <Input placeholder='Username' />}
             {showInputs && <Input placeholder='Email' />}
             {showInputs && <Input placeholder='Password' />}
 
