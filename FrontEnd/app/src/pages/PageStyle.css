@@ -5,7 +5,10 @@
 
 .centered-content {
     text-align: center;
-    margin-top: 100px; 
+    margin-top: 55px; 
+    background: linear-gradient(to right, #121313, #0f0f0f);
+    color: white;
+
 }
 
 
@@ -26,6 +29,8 @@
 
 .card-pattern-o {
     display: flex;
+    background: grey;
+
 }
 
 .footer-pattern {

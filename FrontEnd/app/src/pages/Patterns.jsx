@@ -16,7 +16,7 @@ const Patterns = () => {
             <FixedBar showLoginButton={false} showRegisterButton={false}>
                 <MyButton style={{ marginRight: '20px' }}>Выйти</MyButton>
             </FixedBar>
-            <div className='centered-content'>
+            <div className='centered-content' style={{ color: 'white', fontFamily: '"Montserrat", sans-serif' }}>
                 <h1>Новая страница</h1>
                 <h2>Выберите подходящий шаблон и адаптируйте его под ваши цели.</h2>
             </div>

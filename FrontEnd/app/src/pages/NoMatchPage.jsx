@@ -7,7 +7,7 @@ function NoMatchPage() {
     return (
         <div className='no-match-page'>
             <MyText>Страница не найдена 404 ;(</MyText>
-            <img src={samples}></img>
+            <img style={{width:'800px', height:'700px'}} src={samples}></img>
         </div>
     );
 }
