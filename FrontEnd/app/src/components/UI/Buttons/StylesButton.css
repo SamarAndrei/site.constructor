@@ -1,12 +1,12 @@
 .button {
 
-  padding: 10px 20px; 
+  padding: 12px 20px; 
   border: 0px;
   border-radius: 4px; 
   text-decoration: none; 
   color: white; 
   text-align: center;
-  background-color: rgba(207, 49, 51, 1)
+  background-color: #960726
   ; 
   cursor: pointer; 
   font-family: "Montserrat", sans-serif;

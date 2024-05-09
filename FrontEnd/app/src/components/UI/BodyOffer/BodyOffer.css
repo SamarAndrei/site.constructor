@@ -3,46 +3,75 @@
   align-items: center;
   justify-content: center;
   height: 500px;
+  background-color:#7E191B
 }
 .textbox1 {
+  font-family: 'SFProDisplayRegular', sans-serif;
+  font-weight: normal;
+  font-style: normal;
   display: flex;
-  position: relative;
-  align-items: center;
+  position: relative; 
   width: 50%;
   margin-left: 30px;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 32px;
-  text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.25);
+  font-size: 36px;
+  align-content: center;
+  text-shadow: 0px 0px 20px rgba(204, 130, 130, 0.2);
+  color: #ffffff;
 }
 
 .text2{
-  font-weight: 200;
+  font-family: "SFProDisplayBold", sans-serif;
+  font-weight: normal;
+  font-style: normal;
 }
 
 .textbox2 {
   display: flex;
   /* position: relative; */
-  width: 30%;
-  /* margin-left: 15px; */
-  font-size: 25px;
-  /* text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.25); */
+  width: 40%;
+  margin-left: 15px;
+  font-size: 30px;
+  align-content: center;
   flex-direction: column;
+  color: #ffffff;
 }
 
 .text-and-button {
   display: flex;
   position: relative;
+  font-family: "SFProDisplayBold", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.1); 
+  text-decoration: none;
+  font-size: 25px;
+}
+.text-and-button a:visited {
+  color: #ececec; /* Цвет для посещённых ссылок */
 }
 
-/* .button-blockk {
-  display: flex;
-  position: relative;
-  margin: 0;
-  width: 100%;
-  left: 100%;
+.text-and-button a:hover {
+  color: #ebeaea; /* Цвет при наведении, например, белый */
+  text-shadow: 2px 2px 20px rgba(204, 130, 130, 0.3);
+}
 
-  justify-content: center;
-  margin-left: 1340px;
-    margin-top: -100px;
-} */
+.text-and-button a:active {
+  color: #FFFFFF; /* Цвет при нажатии, например, светло-серый */
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.65;
+  }
+}
+
+.blinking-text {
+  animation: blink 1.3s linear infinite;
+  text-decoration: none;
+}
+.blinking-text:hover {
+  animation: none;  /* Останавливает анимацию при наведении */
+}
