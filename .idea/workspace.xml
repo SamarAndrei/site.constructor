@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="76d3a228-8184-470a-a152-878e9a3b35d1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/BackEnd/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/site_constructor/app/Landings/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/site_constructor/app/Landings/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/site_constructor/app/Landings/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/site_constructor/app/Landings/router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/site_constructor/app/Landings/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/site_constructor/app/Landings/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/site_constructor/app/Services/repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/site_constructor/app/Services/repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/site_constructor/app/Users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/site_constructor/app/Users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/site_constructor/app/Users/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/site_constructor/app/Users/router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/site_constructor/app/Users/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/site_constructor/app/Users/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/site_constructor/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/site_constructor/app/main.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2f8LGlXBSfrdlUPYgTeyjsxaG9M" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-09665e90c3a7-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.15026.15" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="76d3a228-8184-470a-a152-878e9a3b35d1" name="Changes" comment="" />
+      <created>1713177667810</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713177667810</updated>
+    </task>
+    <servers />
+  </component>
+</project>

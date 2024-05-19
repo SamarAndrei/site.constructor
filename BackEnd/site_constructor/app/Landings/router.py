@@ -3,6 +3,7 @@ from app.Landings.services import LandingServices
 from app.Landings.schemas import SLanding
 from app.Users.dependencies import *
 from app.Users.models import Users
+from fastapi.responses import JSONResponse
 
 router = APIRouter(prefix='/landings', tags=["Лендинги"])
 
@@ -32,6 +33,11 @@ async def add_landing(landing_data: SLanding, current_user: Users = Depends(get_
             adress = landing_data.address, 
             description = landing_data.description
         )
+
+@router.post("/creating")
+async def accessCreate(current_user: Users = Depends(get_current_user)):
+    if current_user:
+        return JSONResponse(content={"message": "Доступ имеется"})
 
     
 
