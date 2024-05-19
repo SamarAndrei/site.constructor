@@ -3,36 +3,26 @@ import MyButton from '../Buttons/MyButton';
 import logo from '../../../assets/images/logo3.png';
 import './Card.css';
 import Input from '../Input/Input';
+import axios from 'axios';
 
-const Card = ({ showInputs = true, showButton = true, showLink = true, children }) => {
-    const [value, setValue] = useState(true);
-    const [registrationOrLogin, setRegistrationOrLogin] = useState('Зарегистрироваться');
+const Card = ({ login, showInputs = true, showButton = true, showLink = true, children }) => {
 
-    const handleOnClick = () => {
-        if (value) {
-            setValue(false);
-            setRegistrationOrLogin('Войти');
-        } else {
-            setValue(true);
-            setRegistrationOrLogin('Зарегистрироваться');
-        }
-    };
+    const handleButReg = () => {
+
+    }
 
     return (
         <div className='container'>
             <img className='logoLogin' src={logo} alt='etagiki' />
 
-            {showInputs && value && <Input placeholder='Username' />}
+            {showInputs && !login && <Input placeholder='Username' />}
             {showInputs && <Input placeholder='Email' />}
             {showInputs && <Input placeholder='Password' />}
 
-            {showButton && <MyButton>{registrationOrLogin}</MyButton>}
+            {showButton && !login && <MyButton>Зарегистрироваться</MyButton>}
+            {showButton && login && <MyButton>Войти</MyButton>}
 
-            {showLink && (
-                <a href='#' onClick={handleOnClick} style={{ marginTop: '60%' }}>
-                    {value ? 'Войти' : 'Регистрация'}
-                </a>
-            )}
+            
 
             {children}
         </div>
