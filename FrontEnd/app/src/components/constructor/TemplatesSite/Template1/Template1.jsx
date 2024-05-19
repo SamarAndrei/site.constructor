@@ -11,9 +11,9 @@ function Template1(props) {
 	return (
 		<div>
 			{/* <FixedBar showLoginButton={false} showRegisterButton={false}/> */}
-            <HeaderPanel img2={img2}/>
+            {/* <HeaderPanel img2={img2}/>
 			<ImagePanel img1={img1}/>
-			<Footer/>	
+			<Footer/>	 */}
 		</div>
 	);
 }

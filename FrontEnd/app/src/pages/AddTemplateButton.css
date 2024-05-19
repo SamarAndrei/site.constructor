@@ -1,0 +1,30 @@
+/* AddTemplateButton.css */
+.add-template-button {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-template-button-container {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .add-template-button-container--top {
+    margin-bottom: 10px;
+  }
+  
+  .add-template-button-container--bottom {
+    margin-top: 10px;
+  }
+  
+  .template-container {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  

@@ -15,6 +15,7 @@
 .textbox {
   left: 0;
   margin-left: 15px;
+  align-content: center;
   font-family: "SFProDisplayBold", sans-serif;
   font-weight: normal;
   font-style: normal;

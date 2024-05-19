@@ -20,9 +20,9 @@ const BodyOffer = () => {
             веб-сайт, который может расти вместе с вами.
           </h5>
         </div>
-        <div>
-          <Link to="/Pattern">приступить к работе</Link>
-        </div>
+    <div className="text-and-button blinking-text">
+      <Link to="/Pattern" className="blinking-text">Приступить к работе</Link>
+    </div>
       </div>
     </div>
   );

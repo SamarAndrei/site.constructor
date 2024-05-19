@@ -75,8 +75,7 @@
 
 .button-block {
     z-index: 9;
-    margin-top: 90vh;
-       
+    margin-top: 90vh    
 }
 
 .button-create {
@@ -92,7 +91,7 @@
 	font-family: 'SFProDisplayRegular', sans-serif;
     font-weight: normal;
     font-style: normal;
-    font-size: 36px;
+    font-size: 32px;
 
   
 	&:hover {
