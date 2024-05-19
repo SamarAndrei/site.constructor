@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import ParentComponent from "../components/constructor/ParentComponent.jsx";
-import Template1 from "../components/constructor/TemplatesSite/Template1/Template1.jsx";
-import MyButton from "../components/UI/Buttons/MyButton.jsx";
-import { savePageToJson } from "../utils/savePageToJson.jsx";
 import "./ConstructorPage.css";
-import BodyOffer from "../components/UI/BodyOffer/BodyOffer.jsx";
 import BodyOfferForConstructorPage from "./TemplatesForConstructorPage/BodyOfferForConstructorPage.jsx";
 import BodyCompsForConstructorPage from "./TemplatesForConstructorPage/BodyCompsForConstructorPage.jsx";
 import AddTemplateButton from "./AddTemplateButton";
