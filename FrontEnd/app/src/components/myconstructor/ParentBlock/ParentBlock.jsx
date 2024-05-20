@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import Sidebar from '../../UI/Sidebar/Sidebar'
-import PopupSidebar from '../../UI/Sidebar/PopupSidebar'
-import Modal from '../../UI/Modal/Modal'
-import ContentModal from '../../UI/Modal/ContentModal'
+import Sidebar from '../../UI/Sidebar/Sidebar';
+import PopupSidebar from '../../UI/Sidebar/PopupSidebar';
+import Modal from '../../UI/Modal/Modal';
+import ContentModal from '../../UI/Modal/ContentModal';
 import CoverBlockItem from '../../myconstructor/CoverBlock/CoverBlockItem';
 import TitleBlockItem from '../../myconstructor/TitleBlock/TitleBlockItem';
 import TextBlockItem from '../../myconstructor/TextBlock/TextBlockItem';
 import ImageBlockItem from '../../myconstructor/ImageBlock/ImageBlockItem';
 import ButtonBlockItem from '../../myconstructor/ButtonBlock/ButtonBlock';
-import '../../myconstructor/myconstructor.css'
-
+import '../../myconstructor/myconstructor.css';
 
 function ParentBlock() {
     const [sidebarVisible, setSidebarVisible] = useState(false);
@@ -35,7 +34,7 @@ function ParentBlock() {
         setPopupSidebarVisible(true);
     };
 
-    const addButtons = (newButtons) => {
+    const addButtonBlock = (newButtons) => {
         setButtons([...buttons, ...newButtons]);
         setSelectedBlock(null);
         setPopupSidebarVisible(false);
@@ -159,12 +158,12 @@ function ParentBlock() {
                 <PopupSidebar 
                     block={selectedBlock} 
                     setSelectedBlock={setSelectedBlock} 
-                    addButtons={addButtons} 
+                    addButtonBlock={addButtonBlock} 
                     addTextBlock={addTextBlock} 
                     addTitleBlock={addTitleBlock}
                     addCoverBlock={addCoverBlock}
                     addImageBlock={addImageBlock}
-            />
+                />
             )}
             <div id="mainContent">
                 {buttons.map(button => (
@@ -244,3 +243,4 @@ function ParentBlock() {
 }
 
 export default ParentBlock;
+

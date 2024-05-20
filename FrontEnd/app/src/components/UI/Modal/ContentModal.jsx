@@ -2,38 +2,43 @@ import React, { useState } from 'react';
 import './Modal.css';
 
 const ContentModal = ({ element, updateElement, closeModal, type }) => {
+    const [tempElement, setTempElement] = useState({ ...element });
+
     if (!element) {
         return null;
     }
 
-    const { id, text, backgroundColor, color, size, alignment, content, title } = element;
-
     const handleTextChange = (e) => {
-        updateElement(id, { text: e.target.value });
+        setTempElement({ ...tempElement, text: e.target.value });
     };
 
     const handleBackgroundColorChange = (e) => {
-        updateElement(id, { backgroundColor: e.target.value });
+        setTempElement({ ...tempElement, backgroundColor: e.target.value });
     };
 
     const handleColorChange = (e) => {
-        updateElement(id, { color: e.target.value });
+        setTempElement({ ...tempElement, color: e.target.value });
     };
 
     const handleSizeChange = (e) => {
-        updateElement(id, { size: e.target.value });
+        setTempElement({ ...tempElement, size: e.target.value });
     };
 
     const handleAlignmentChange = (e) => {
-        updateElement(id, { alignment: e.target.value });
+        setTempElement({ ...tempElement, alignment: e.target.value });
     };
 
     const handleContentChange = (e) => {
-        updateElement(id, { content: e.target.value });
+        setTempElement({ ...tempElement, content: e.target.value });
     };
 
     const handleTitleChange = (e) => {
-        updateElement(id, { title: e.target.value });
+        setTempElement({ ...tempElement, title: e.target.value });
+    };
+
+    const handleSave = () => {
+        updateElement(tempElement.id, tempElement);
+        closeModal();
     };
 
     return (
@@ -45,19 +50,19 @@ const ContentModal = ({ element, updateElement, closeModal, type }) => {
                         <h2>Настройки кнопки</h2>
                         <div>
                             <label>Текст кнопки:</label>
-                            <input type="text" value={text} onChange={handleTextChange} />
+                            <input type="text" value={tempElement.text} onChange={handleTextChange} />
                         </div>
                         <div>
                             <label>Цвет фона:</label>
-                            <input type="color" value={backgroundColor} onChange={handleBackgroundColorChange} />
+                            <input type="color" value={tempElement.backgroundColor} onChange={handleBackgroundColorChange} />
                         </div>
                         <div>
                             <label>Цвет текста:</label>
-                            <input type="color" value={color} onChange={handleColorChange} />
+                            <input type="color" value={tempElement.color} onChange={handleColorChange} />
                         </div>
                         <div>
                             <label>Размер:</label>
-                            <select value={size} onChange={handleSizeChange}>
+                            <select value={tempElement.size} onChange={handleSizeChange}>
                                 <option value="small">Small</option>
                                 <option value="medium">Medium</option>
                                 <option value="large">Large</option>
@@ -65,7 +70,7 @@ const ContentModal = ({ element, updateElement, closeModal, type }) => {
                         </div>
                         <div>
                             <label>Расположение:</label>
-                            <select value={alignment} onChange={handleAlignmentChange}>
+                            <select value={tempElement.alignment} onChange={handleAlignmentChange}>
                                 <option value="left">Слева</option>
                                 <option value="center">Центр</option>
                                 <option value="right">Справа</option>
@@ -77,7 +82,27 @@ const ContentModal = ({ element, updateElement, closeModal, type }) => {
                         <h2>Настройки текстового блока</h2>
                         <div>
                             <label>Контент:</label>
-                            <textarea value={content} onChange={handleContentChange} />
+                            <textarea value={tempElement.content} onChange={handleContentChange} />
+                        </div>
+                        <div>
+                            <label>Размер текста:</label>
+                            <select value={tempElement.size} onChange={handleSizeChange}>
+                                <option value="small">Small</option>
+                                <option value="medium">Medium</option>
+                                <option value="large">Large</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Цвет текста:</label>
+                            <input type="color" value={tempElement.color} onChange={handleColorChange} />
+                        </div>
+                        <div>
+                            <label>Расположение текста:</label>
+                            <select value={tempElement.alignment} onChange={handleAlignmentChange}>
+                                <option value="left">Слева</option>
+                                <option value="center">Центр</option>
+                                <option value="right">Справа</option>
+                            </select>
                         </div>
                     </>
                 ) : type === 'titleBlock' ? (
@@ -85,10 +110,31 @@ const ContentModal = ({ element, updateElement, closeModal, type }) => {
                         <h2>Настройки блока заголовка</h2>
                         <div>
                             <label>Заголовок:</label>
-                            <input type="text" value={title} onChange={handleTitleChange} />
+                            <input type="text" value={tempElement.title} onChange={handleTitleChange} />
+                        </div>
+                        <div>
+                            <label>Размер текста:</label>
+                            <select value={tempElement.size} onChange={handleSizeChange}>
+                                <option value="small">Small</option>
+                                <option value="medium">Medium</option>
+                                <option value="large">Large</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Цвет текста:</label>
+                            <input type="color" value={tempElement.color} onChange={handleColorChange} />
+                        </div>
+                        <div>
+                            <label>Расположение текста:</label>
+                            <select value={tempElement.alignment} onChange={handleAlignmentChange}>
+                                <option value="left">Слева</option>
+                                <option value="center">Центр</option>
+                                <option value="right">Справа</option>
+                            </select>
                         </div>
                     </>
                 ) : null}
+                <button className="save-button" onClick={handleSave}>Сохранить</button>
             </div>
         </div>
     );

@@ -1,45 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Modal.css';
 
 const Modal = ({ element, updateElement, closeModal, type }) => {
+    const [tempElement, setTempElement] = useState({ ...element });
+
     if (!element) return null;
 
-    const { id, text, backgroundColor, color, size, alignment, content, title, imageUrl, overlayColor } = element;
+    const { id, text, backgroundColor, color, size, alignment, content, title, imageUrl, overlayColor } = tempElement;
 
     const handleTextChange = (e) => {
-        updateElement(id, { text: e.target.value });
+        setTempElement({ ...tempElement, text: e.target.value });
     };
 
     const handleBackgroundColorChange = (e) => {
-        updateElement(id, { backgroundColor: e.target.value });
+        setTempElement({ ...tempElement, backgroundColor: e.target.value });
     };
 
     const handleColorChange = (e) => {
-        updateElement(id, { color: e.target.value });
+        setTempElement({ ...tempElement, color: e.target.value });
     };
 
     const handleSizeChange = (e) => {
-        updateElement(id, { size: e.target.value });
+        setTempElement({ ...tempElement, size: e.target.value });
     };
 
     const handleAlignmentChange = (e) => {
-        updateElement(id, { alignment: e.target.value });
+        setTempElement({ ...tempElement, alignment: e.target.value });
     };
 
     const handleContentChange = (e) => {
-        updateElement(id, { content: e.target.value });
+        setTempElement({ ...tempElement, content: e.target.value });
     };
 
     const handleTitleChange = (e) => {
-        updateElement(id, { title: e.target.value });
+        setTempElement({ ...tempElement, title: e.target.value });
     };
 
     const handleImageUrlChange = (e) => {
-        updateElement(id, { imageUrl: e.target.value });
+        setTempElement({ ...tempElement, imageUrl: e.target.value });
     };
 
     const handleOverlayColorChange = (e) => {
-        updateElement(id, { overlayColor: e.target.value });
+        setTempElement({ ...tempElement, overlayColor: e.target.value });
+    };
+
+    const handleSave = () => {
+        updateElement(tempElement.id, tempElement);
+        closeModal();
     };
 
     return (
@@ -86,6 +93,26 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                             <label>Контент:</label>
                             <textarea value={content || ''} onChange={handleContentChange} />
                         </div>
+                        <div>
+                            <label>Размер текста:</label>
+                            <select value={size || 'medium'} onChange={handleSizeChange}>
+                                <option value="small">Small</option>
+                                <option value="medium">Medium</option>
+                                <option value="large">Large</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Цвет текста:</label>
+                            <input type="color" value={color || '#000000'} onChange={handleColorChange} />
+                        </div>
+                        <div>
+                            <label>Расположение текста:</label>
+                            <select value={alignment || 'center'} onChange={handleAlignmentChange}>
+                                <option value="left">Слева</option>
+                                <option value="center">Центр</option>
+                                <option value="right">Справа</option>
+                            </select>
+                        </div>
                     </>
                 )}
                 {type === 'titleBlock' && (
@@ -94,6 +121,26 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                         <div>
                             <label>Заголовок:</label>
                             <input type="text" value={title || ''} onChange={handleTitleChange} />
+                        </div>
+                        <div>
+                            <label>Размер текста:</label>
+                            <select value={size || 'medium'} onChange={handleSizeChange}>
+                                <option value="small">Small</option>
+                                <option value="medium">Medium</option>
+                                <option value="large">Large</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Цвет текста:</label>
+                            <input type="color" value={color || '#000000'} onChange={handleColorChange} />
+                        </div>
+                        <div>
+                            <label>Расположение текста:</label>
+                            <select value={alignment || 'center'} onChange={handleAlignmentChange}>
+                                <option value="left">Слева</option>
+                                <option value="center">Центр</option>
+                                <option value="right">Справа</option>
+                            </select>
                         </div>
                     </>
                 )}
@@ -119,6 +166,7 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                         </div>
                     </>
                 )}
+                <button className="save-button" onClick={handleSave}>Сохранить</button>
             </div>
         </div>
     );
