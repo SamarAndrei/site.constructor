@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import ParentComponent from "../components/constructor/ParentComponent.jsx";
-import Template1 from "../components/constructor/TemplatesSite/Template1/Template1.jsx";
-import MyButton from "../components/UI/Buttons/MyButton.jsx";
-import { savePageToJson } from "../utils/savePageToJson.jsx";
-import "./ConstructorPage.css";
-import BodyOffer from "../components/UI/BodyOffer/BodyOffer.jsx";
 import BodyOfferForConstructorPage from "./TemplatesForConstructorPage/BodyOfferForConstructorPage.jsx";
 import BodyCompsForConstructorPage from "./TemplatesForConstructorPage/BodyCompsForConstructorPage.jsx";
+import NavBarTemp1 from "./TemplatesForConstructorPage/NavBarTemp1.jsx";
 import AddTemplateButton from "./AddTemplateButton";
+import "./ConstructorPage.css";
 
 const Constructor = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,6 +11,7 @@ const Constructor = () => {
   const [currentCoverTemplate, setCurrentCoverTemplate] = useState(0);
   const [addedTemplates, setAddedTemplates] = useState([]);
   const [insertPosition, setInsertPosition] = useState(null);
+  const [showInitialPlus, setShowInitialPlus] = useState(true);
 
   const handleOpenModal = (position) => {
     setIsModalOpen(true);
@@ -34,76 +31,110 @@ const Constructor = () => {
   const handleSelectTemplate = (template) => {
     const newTemplates = [...addedTemplates];
     if (insertPosition !== null) {
-      if (insertPosition === "top") {
-        newTemplates.unshift(template);
-      } else {
-        newTemplates.push(template);
-      }
+      newTemplates.splice(insertPosition, 0, template);
     } else {
       newTemplates.push(template);
     }
     setAddedTemplates(newTemplates);
+    setShowInitialPlus(false);
     handleCloseModal();
   };
 
   const handleNextCoverTemplate = () => {
-    setCurrentCoverTemplate((prevIndex) =>
-      prevIndex === 1 ? 0 : prevIndex + 1
+    setCurrentCoverTemplate(
+      (prevIndex) => (prevIndex === 2 ? 0 : prevIndex + 1) // меняем кол-во шаблонов
     );
   };
 
   const handlePrevCoverTemplate = () => {
-    setCurrentCoverTemplate((prevIndex) =>
-      prevIndex === 0 ? 1 : prevIndex - 1
+    setCurrentCoverTemplate(
+      (prevIndex) => (prevIndex === 0 ? 2 : prevIndex - 1) // меняем чтобы возращаться к первому
     );
+  };
+
+  const handleRemoveTemplate = (indexToRemove) => {
+    const updatedTemplates = addedTemplates.filter(
+      (_, index) => index !== indexToRemove
+    );
+    setAddedTemplates(updatedTemplates);
+    setShowInitialPlus(updatedTemplates.length === 0);
   };
 
   const renderTemplates = () => {
     switch (selectedSection) {
       case "Навигационная панель":
-        return <div>Шаблоны навигационной панели</div>;
-      case "Обложка":
         return (
-          <div className="cover-template-slider">
+          <div className="cover-template-slider template-full-screen">
             <button onClick={handlePrevCoverTemplate}>Предыдущий</button>
             {currentCoverTemplate === 0 ? (
-              <BodyOfferForConstructorPage onSelect={handleSelectTemplate} />
+              <NavBarTemp1 onSelect={handleSelectTemplate} />
             ) : (
               <BodyCompsForConstructorPage onSelect={handleSelectTemplate} />
             )}
             <button onClick={handleNextCoverTemplate}>Следующий</button>
           </div>
         );
+      case "Обложка":
+        return (
+          <div className="cover-template-slider template-full-screen">
+            <button onClick={handlePrevCoverTemplate}>Предыдущий</button>
+            {currentCoverTemplate === 0 ? (
+              <BodyOfferForConstructorPage onSelect={handleSelectTemplate} />
+            ) : currentCoverTemplate === 1 ? (
+              <BodyCompsForConstructorPage onSelect={handleSelectTemplate} />
+            ) : (
+              <NavBarTemp1 onSelect={handleSelectTemplate} />
+            )}
+            <button onClick={handleNextCoverTemplate}>Следующий</button>
+          </div>
+        );
+
       case "Доп. шаблоны":
-        return <div>Дополнительные шаблоны</div>;
+        return (
+          <div className="template-full-screen">Дополнительные шаблоны</div>
+        );
       case "Подвал":
-        return <div>Шаблоны подвала</div>;
+        return <div className="template-full-screen">Шаблоны подвала</div>;
       default:
-        return <div>Выберите раздел</div>;
+        return <div className="template-full-screen">Выберите раздел</div>;
     }
   };
 
   return (
     <div className="template-selector-container">
-      {addedTemplates.length === 0 && (
-        <AddTemplateButton
-          onClick={() => handleOpenModal("bottom")}
-          position="top"
-        />
+      {showInitialPlus && (
+        <div style={{ textAlign: "center", marginBottom: "20px" }}>
+          <AddTemplateButton
+            onClick={() => handleOpenModal(null)}
+            position="center"
+          />
+        </div>
       )}
-      {addedTemplates.flatMap((template, index) => [
+
+      {addedTemplates.map((template, index) => (
         <div key={`template-${index}`} className="template-container">
           <AddTemplateButton
-            onClick={() => handleOpenModal("top")}
+            className="add-template-button"
+            onClick={() => handleOpenModal(index)}
             position="top"
           />
           {template}
-          <AddTemplateButton
-            onClick={() => handleOpenModal("bottom")}
-            position="bottom"
-          />
-        </div>,
-      ])}
+          <button
+            className="remove-template-button"
+            onClick={() => handleRemoveTemplate(index)}
+          >
+            &times;
+          </button>
+          {index === addedTemplates.length - 1 && (
+            <AddTemplateButton
+              className="add-template-button"
+              onClick={() => handleOpenModal(index + 1)}
+              position="bottom"
+            />
+          )}
+        </div>
+      ))}
+
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">

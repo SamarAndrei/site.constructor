@@ -1,70 +1,137 @@
 .template-selector-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .template-selector-button {
-    font-size: 2rem;
-    padding: 1rem 1.5rem;
-    border-radius: 50%;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .modal {
-    display: block;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-  
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 30%;
-  }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
 
-  .section-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 1rem;
-  }
-  
-  .section-buttons button {
-    padding: 0.5rem 1rem;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .section-buttons button:hover {
-    background-color: #0056b3;
-  }
-  
+.add-template-button {
+  width: 50px;
+  height: 50px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 24px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-bottom: 10px;
+  z-index: 10; 
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100; /* Ensure modal is above everything */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  width: 80%;
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 101;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 102;
+}
+
+.section-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.section-buttons button {
+  margin: 0 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.section-buttons button:hover {
+  background-color: #0056b3;
+}
+
+.template-container {
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.cover-template-slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cover-template-slider button {
+  z-index: 10; /* Ensure buttons are above templates */
+}
+
+.template-full-screen {
+  width: 100%;
+  height: 100%;
+}
+
+.template-container > * {
+  width: 100%;
+  height: auto;
+}
+
+.section-container {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.section-container h2 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.section-container .add-template-button {
+  margin-bottom: 10px;
+}
+
+.remove-template-button {
+  width: 50px;
+  height: 50px;
+  background-color: #ff0000;
+  color: #fff;
+  font-size: 24px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 60px; /* Устанавливаем смещение от кнопки-плюс */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.remove-template-button:hover {
+  background-color: #cc0000;
+}
