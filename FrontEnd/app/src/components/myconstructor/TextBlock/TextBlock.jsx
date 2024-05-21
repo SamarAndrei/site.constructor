@@ -4,7 +4,7 @@ const TextBlock = ({ addTextBlock }) => {
     const handleAddTextBlock = (count) => {
         const newTextBlocks = Array.from({ length: count }).map((_, index) => ({
             id: Date.now() + index,
-            content: "Some Text",
+            content: "Текст",
             alignment: 'center' 
         }));
         addTextBlock(newTextBlocks);

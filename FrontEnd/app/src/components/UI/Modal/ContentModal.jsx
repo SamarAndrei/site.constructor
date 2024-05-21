@@ -84,26 +84,7 @@ const ContentModal = ({ element, updateElement, closeModal, type }) => {
                             <label>Контент:</label>
                             <textarea value={tempElement.content} onChange={handleContentChange} />
                         </div>
-                        <div>
-                            <label>Размер текста:</label>
-                            <select value={tempElement.size} onChange={handleSizeChange}>
-                                <option value="small">Small</option>
-                                <option value="medium">Medium</option>
-                                <option value="large">Large</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label>Цвет текста:</label>
-                            <input type="color" value={tempElement.color} onChange={handleColorChange} />
-                        </div>
-                        <div>
-                            <label>Расположение текста:</label>
-                            <select value={tempElement.alignment} onChange={handleAlignmentChange}>
-                                <option value="left">Слева</option>
-                                <option value="center">Центр</option>
-                                <option value="right">Справа</option>
-                            </select>
-                        </div>
+                        
                     </>
                 ) : type === 'titleBlock' ? (
                     <>
@@ -113,24 +94,12 @@ const ContentModal = ({ element, updateElement, closeModal, type }) => {
                             <input type="text" value={tempElement.title} onChange={handleTitleChange} />
                         </div>
                         <div>
-                            <label>Размер текста:</label>
-                            <select value={tempElement.size} onChange={handleSizeChange}>
-                                <option value="small">Small</option>
-                                <option value="medium">Medium</option>
-                                <option value="large">Large</option>
-                            </select>
+                            <label>Подзаголовок:</label>
+                            <input type="text" value={tempElement.title} onChange={handleTitleChange} />
                         </div>
                         <div>
-                            <label>Цвет текста:</label>
-                            <input type="color" value={tempElement.color} onChange={handleColorChange} />
-                        </div>
-                        <div>
-                            <label>Расположение текста:</label>
-                            <select value={tempElement.alignment} onChange={handleAlignmentChange}>
-                                <option value="left">Слева</option>
-                                <option value="center">Центр</option>
-                                <option value="right">Справа</option>
-                            </select>
+                            <label>Описание:</label>
+                            <input type="text" value={tempElement.title} onChange={handleTitleChange} />
                         </div>
                     </>
                 ) : null}

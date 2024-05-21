@@ -6,7 +6,7 @@ const ImageBlock = ({ addImageBlock }) => {
         const newImageBlock = {
             id: Date.now(),
             imageUrl: "https://via.placeholder.com/150",
-            caption: "Подпись к изображению"
+            
         };
         addImageBlock(newImageBlock);
     };
