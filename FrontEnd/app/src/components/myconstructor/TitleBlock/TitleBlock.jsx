@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../../myconstructor/myconstructor.css'
-
+import MyButton from '../../UI/Buttons/MyButton'
 const TitleBlock = ({ addTitleBlock }) => {
     const [title, setTitle] = useState('');
 
@@ -18,7 +18,7 @@ const TitleBlock = ({ addTitleBlock }) => {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
             />
-            <button onClick={handleAddTitleBlock}>Добавить заголовок</button>
+            <MyButton onClick={handleAddTitleBlock}>Добавить заголовок</MyButton>
         </div>
     );
 };

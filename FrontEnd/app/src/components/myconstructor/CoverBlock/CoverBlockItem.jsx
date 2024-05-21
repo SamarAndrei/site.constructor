@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../myconstructor/myconstructor.css';
+import MyButton from '../../UI/Buttons/MyButton'
 
 const CoverBlockItem = ({ id, title, subtitle, backgroundImage, updateCoverBlock, removeCoverBlock, openSidebar, openSettingsModal, openContentModal }) => {
     const [hovered, setHovered] = useState(false);

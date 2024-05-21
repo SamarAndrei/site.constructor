@@ -1,4 +1,5 @@
 import React from 'react';
+import MyButton from '../../UI/Buttons/MyButton'
 
 const ImageBlock = ({ addImageBlock }) => {
     const handleAddImageBlock = () => {
@@ -12,7 +13,7 @@ const ImageBlock = ({ addImageBlock }) => {
 
     return (
         <div>
-            <button onClick={handleAddImageBlock}>Добавить Image Block</button>
+            <MyButton onClick={handleAddImageBlock}>Добавить Image Block</MyButton>
         </div>
     );
 };

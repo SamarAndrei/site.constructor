@@ -1,5 +1,5 @@
 import React from 'react';
-
+import MyButton from '../../UI/Buttons/MyButton'
 const TextBlock = ({ addTextBlock }) => {
     const handleAddTextBlock = (count) => {
         const newTextBlocks = Array.from({ length: count }).map((_, index) => ({
@@ -12,8 +12,8 @@ const TextBlock = ({ addTextBlock }) => {
 
     return (
         <div>
-            <button onClick={() => handleAddTextBlock(1)}>Добавить один текстовый блок</button>
-            <button onClick={() => handleAddTextBlock(2)}>Добавить два текстовых блока</button>
+            <MyButton onClick={() => handleAddTextBlock(1)}>Добавить один текстовый блок</MyButton>
+            <MyButton onClick={() => handleAddTextBlock(2)}>Добавить два текстовых блока</MyButton>
         </div>
     );
 };

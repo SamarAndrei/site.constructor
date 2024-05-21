@@ -5,10 +5,11 @@
   right: -300px;
   width: 250px;
   height: 100%;
-  background-color: #f4f4f4;
+  background-color: black;
   padding: 20px;
   transition: right 0.3s ease;
   z-index: 1000;
+  color: white;
 }
 
 #sidebar.visible {
@@ -26,7 +27,7 @@
 }
 
 #sidebar li:hover {
-  color: #007bff;
+  color: #960726;
 }
 
 
@@ -36,7 +37,7 @@
   left: 0;
   width: 250px;
   height: 100%;
-  background-color: grey;
+  background-color: black;
   padding: 20px;
   transition: left 0.3s ease;
   z-index: 1001;
@@ -89,8 +90,8 @@
   bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
+  background-color: gray;
+  border: 1px solid white;
   border-radius: 50%;
   width: 30px;
   height: 30px;
@@ -101,7 +102,7 @@
 }
 
 .add-button:hover {
-  background-color: #e0e0e0;
+  background-color: white;
 }
 
 .text-block-item {

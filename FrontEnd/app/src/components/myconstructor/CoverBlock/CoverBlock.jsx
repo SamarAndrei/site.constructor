@@ -1,4 +1,5 @@
 import React from 'react';
+import MyButton from '../../UI/Buttons/MyButton'
 
 const CoverBlock = ({ addCoverBlock }) => {
     const handleAddCoverBlock = () => {
@@ -13,7 +14,7 @@ const CoverBlock = ({ addCoverBlock }) => {
 
     return (
         <div>
-            <button onClick={handleAddCoverBlock}>Добавить Cover Block</button>
+            <MyButton onClick={handleAddCoverBlock}>Добавить Cover Block</MyButton>
         </div>
     );
 };

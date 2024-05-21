@@ -9,6 +9,7 @@ import TextBlockItem from '../../myconstructor/TextBlock/TextBlockItem';
 import ImageBlockItem from '../../myconstructor/ImageBlock/ImageBlockItem';
 import ButtonBlockItem from '../../myconstructor/ButtonBlock/ButtonBlock';
 import '../../myconstructor/myconstructor.css';
+import MyButton from '../../UI/Buttons/MyButton'
 
 function ParentBlock() {
     const [sidebarVisible, setSidebarVisible] = useState(false);
@@ -169,7 +170,7 @@ function ParentBlock() {
 
     return (
         <div>
-            <button onClick={toggleSidebar}>ВСЕ БЛОКИ</button>
+            <MyButton onClick={toggleSidebar}>ВСЕ БЛОКИ</MyButton>
             <Sidebar 
                 ref={sidebarRef}
                 sidebarVisible={sidebarVisible}

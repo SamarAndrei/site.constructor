@@ -1,5 +1,7 @@
 import React from 'react';
 import '../../myconstructor/myconstructor.css';
+import MyButton from '../../UI/Buttons/MyButton'
+
 const ButtonBlock = ({ addButtonBlock }) => {
     const handleAddButton = (count) => {
         const newButtons = Array.from({ length: count }, (_, index) => ({
@@ -15,8 +17,8 @@ const ButtonBlock = ({ addButtonBlock }) => {
 
     return (
         <div>
-            <button onClick={() => handleAddButton(1)}>Добавить одну кнопку</button>
-            <button onClick={() => handleAddButton(2)}>Добавить две кнопки</button>
+            <MyButton onClick={() => handleAddButton(1)}>Добавить одну кнопку</MyButton>
+            <MyButton onClick={() => handleAddButton(2)}>Добавить две кнопки</MyButton>
         </div>
     );
 };
