@@ -1,8 +1,9 @@
-import React from 'react';
-import '../../myconstructor/myconstructor.css'
-const Sidebar = ({ sidebarVisible, selectBlock }) => {
+import React, { forwardRef } from 'react';
+import '../../myconstructor/myconstructor.css';
+
+const Sidebar = forwardRef(({ sidebarVisible, selectBlock }, ref) => {
     return (
-        <div id="sidebar" className={sidebarVisible ? "visible" : ""}>
+        <div id="sidebar" className={sidebarVisible ? "visible" : ""} ref={ref}>
             <ul>
                 <li onClick={() => selectBlock("cover")}>Обложка</li>
                 <li onClick={() => selectBlock("title")}>Заголовок</li>
@@ -12,6 +13,6 @@ const Sidebar = ({ sidebarVisible, selectBlock }) => {
             </ul>
         </div>
     );
-};
+});
 
 export default Sidebar;

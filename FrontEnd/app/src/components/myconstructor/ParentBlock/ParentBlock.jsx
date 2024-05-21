@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Sidebar from '../../UI/Sidebar/Sidebar';
 import PopupSidebar from '../../UI/Sidebar/PopupSidebar';
 import Modal from '../../UI/Modal/Modal';
@@ -23,6 +23,8 @@ function ParentBlock() {
     const [contentModalVisible, setContentModalVisible] = useState(false);
     const [currentElement, setCurrentElement] = useState(null);
     const [elementType, setElementType] = useState(null);
+
+    const sidebarRef = useRef(null);
 
     const toggleSidebar = () => {
         setSidebarVisible(!sidebarVisible);
@@ -146,11 +148,30 @@ function ParentBlock() {
         setCurrentElement(null);
         setElementType(null);
     };
-    
+
+    const handleClickOutside = (event) => {
+        if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+            setSidebarVisible(false);
+        }
+    };
+
+    useEffect(() => {
+        if (sidebarVisible) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [sidebarVisible]);
+
     return (
         <div>
             <button onClick={toggleSidebar}>ВСЕ БЛОКИ</button>
             <Sidebar 
+                ref={sidebarRef}
                 sidebarVisible={sidebarVisible}
                 selectBlock={selectBlock}
             />
@@ -243,4 +264,3 @@ function ParentBlock() {
 }
 
 export default ParentBlock;
-
