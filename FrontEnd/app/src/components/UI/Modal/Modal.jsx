@@ -89,6 +89,34 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                         </div>
                     </>
                 )}
+                {type === 'headerBlock' && (
+                    <>
+                        <h2>Настройки шапки</h2>
+                        <div>
+                            <label>Цвет фона блока:</label>
+                            <input type="color" name="backgroundColor" value={tempElement.backgroundColor || '#ffffff'} onChange={handleChange} />
+                        </div>
+                        <div>
+                            <label>Текст:</label>
+                            <input type="text" name="content" value={tempElement.content || ''} onChange={handleChange} />
+                        </div>
+                        <div>
+                            <label>Цвет текста:</label>
+                            <input type="color" name="textColor" value={tempElement.textColor || '#000000'} onChange={handleChange} />
+                        </div>
+                        <h3>Настройки кнопок</h3>
+                        {['О нас', 'Услуги', 'Контакты'].map((button, index) => (
+                            <div key={index}>
+                                <label>Текст кнопки {button}:</label>
+                                <input type="text" name={`buttons[${index}].text`} value={tempElement.buttons?.[index]?.text || button} onChange={handleChange} />
+                                <label>Цвет фона кнопки {button}:</label>
+                                <input type="color" name={`buttons[${index}].backgroundColor`} value={tempElement.buttons?.[index]?.backgroundColor || '#ffffff'} onChange={handleChange} />
+                                <label>Цвет текста кнопки {button}:</label>
+                                <input type="color" name={`buttons[${index}].color`} value={tempElement.buttons?.[index]?.color || '#000000'} onChange={handleChange} />
+                            </div>
+                        ))}
+                    </>
+                )}
                 {type === 'textBlock' && (
                     <>
                         <h2>Настройки текстового блока</h2>
