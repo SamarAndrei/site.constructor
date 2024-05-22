@@ -4,15 +4,23 @@ import "./BodyComps.css";
 import behind from "../../../assets/images/behindThetext.png";
 import MyButton from "../Buttons/MyButton";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+
 
 const BodyComps = () => {
 
-  const handleClickCreate = () => {
-    axios.post('http://127.0.0.1:8000/landings/creating', {})
-      .then(() => redirect('/Pattern'))
-      .catch(() => redirect('/Register'));
+  const navigate = useNavigate();
 
+
+  const handleClickCreate = () => {
+    axios.post('http://127.0.0.1:8001/landings/creating', {})
+    .then(response => {
+      console.log(response.data);
+      navigate('/Pattern');
+  })
+      // .catch(() => navigate('/Register'));
   }
+
 
   return (
     <div

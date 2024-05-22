@@ -3,27 +3,38 @@ import MyButton from '../Buttons/MyButton';
 import logo from '../../../assets/images/logo3.png';
 import './Card.css';
 import axios from 'axios';
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Card = ({ login, showInputs = true, showButton = true, showLink = true, children }) => {
 
     const [valueName, setValueName] = useState('');
     const [valueEmail, setValueEmail] = useState('');
     const [valuePass, setValuePass] = useState('');
+    const navigate = useNavigate();
+
 
     const handleClickReg = () => {
-        axios.post('http://127.0.0.1:8000/users/register', {
-            name: `${document.getElementsByName('Username').values}`,
-            email: `${document.getElementsByName('Email').values}`,
-            password: `${document.getElementsByName('Password').values}`,
-        }).then(() => redirect('/'), () => console.error('Ошибка сервера'))
+        axios.post('http://127.0.0.1:8001/users/register', {
+            name: valueName,
+            email: valueEmail,
+            password: valuePass,
+        })
+        .then(response => {
+            console.log(response.data);
+            navigate('/');
+        })
+        .catch(() => console.error('Сервак не отвечает'));
     };
 
     const handleClickLogin = () => {
-        axios.post('http://127.0.0.1:8000/users/login', {
-            email: `${document.getElementsByName('Email').values}`,
-            password: `${document.getElementsByName('Password').values}`,
-        }).then(() => redirect('/'), () => console.error('Ошибка сервера'))
+        axios.post('http://127.0.0.1:8001/users/login', {
+            email: valueEmail,
+            password: valuePass,
+        }).then(response => {
+            console.log(response.data);
+            navigate('/');
+        })
+        .catch(() => console.error('Сервак не отвечает'))
     };
 
     return (
