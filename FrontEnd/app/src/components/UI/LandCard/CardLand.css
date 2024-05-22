@@ -1,0 +1,13 @@
+.container {
+    background: linear-gradient(to right, #121313, #0f0f0f);
+    padding: 9px;
+    margin: auto;
+    border-radius: 12px;
+    width: 20%;
+    height: 60%;
+    color:white;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+  
+  }

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import MyButton from '../Buttons/MyButton';
 import logo from '../../../assets/images/logo3.png';
 import './Card.css';
-import Input from '../Input/Input';
 import axios from 'axios';
 import { redirect } from 'react-router-dom';
 

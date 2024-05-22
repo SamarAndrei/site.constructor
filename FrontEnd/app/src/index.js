@@ -9,6 +9,7 @@ import EmptyPattern from './pages/EmptyPattern'
 import OnePattern from './pages/OnePattern'
 import NoMatchPage from './pages/NoMatchPage';
 import RegisterPage from './pages/RegisterPage'
+import MyLandingsPage from './pages/MyLandingsPage';
 
 
 createRoot(document.getElementById('root')).render(
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/EmptyPattern' element={<EmptyPattern/>}/>
         <Route path='/OnePattern' element={<OnePattern/>}/>
         <Route path='*' element={<NoMatchPage/>}/>
+        <Route path='/Landings' element={<MyLandingsPage/>}/>
       </Routes>
     </Router>
   </React.StrictMode>
