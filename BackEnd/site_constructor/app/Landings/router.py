@@ -3,6 +3,7 @@ from app.Landings.services import LandingServices
 from app.Landings.schemas import SLanding
 from app.Users.dependencies import *
 from app.Users.models import Users
+from fastapi.responses import JSONResponse
 
 router = APIRouter(prefix='/landings', tags=["Лендинги"])
 
@@ -27,11 +28,17 @@ async def delete_landing(landing_id: int, current_user: Users = Depends(get_curr
 async def add_landing(landing_data: SLanding, current_user: Users = Depends(get_current_user)):
     if current_user:
         await LandingServices.add(
-            user_id = landing_data.user_id,
+            user_id = current_user.id, #landing_data.user_id если отправляем а не сами достаем
             name = landing_data.name, 
             adress = landing_data.address, 
-            description = landing_data.description
+            description = landing_data.description,
+            structure = landing_data.structure,
         )
+
+@router.post("/creating")
+async def accessCreate(current_user: Users = Depends(get_current_user)):
+    if current_user:
+        return JSONResponse(content={"message": "Доступ имеется"})
 
     
 

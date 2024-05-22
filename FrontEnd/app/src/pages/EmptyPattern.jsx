@@ -1,13 +1,10 @@
 import React from 'react';
-import ParentComponent from '../components/constructor/ParentComponent.jsx';
-
-
-
+import ParentBlock from '../components/myconstructor/ParentBlock/ParentBlock'
 
 const EmptyPattern = () => {
     return (
         <div>
-            <ParentComponent/>
+            <ParentBlock/>
         </div>
     );
 };

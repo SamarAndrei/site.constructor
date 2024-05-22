@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./ConstructorPage.css";
 import BodyOfferForConstructorPage from "./TemplatesForConstructorPage/BodyOfferForConstructorPage.jsx";
 import BodyCompsForConstructorPage from "./TemplatesForConstructorPage/BodyCompsForConstructorPage.jsx";
 import NavBarTemp1 from "./TemplatesForConstructorPage/NavBarTemp1.jsx";

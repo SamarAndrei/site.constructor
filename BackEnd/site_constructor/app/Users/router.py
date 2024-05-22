@@ -15,9 +15,9 @@ router = APIRouter(prefix='/users', tags=["Пользователи & Auth"])
 async def get_current_user(current_user: Users = Depends(get_current_user)):
     return current_user
 
-@router.delete("")
-async def delete_user(current_user: Users = Depends(get_current_user)):
-    return UserServices.delete(current_user.id)
+# @router.delete("")
+# async def delete_user(current_user: Users = Depends(get_current_user)):
+#     return UserServices.delete(current_user.id)
 
 
 @router.post("/register")

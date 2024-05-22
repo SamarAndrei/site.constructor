@@ -48,8 +48,11 @@ class BaseServices:
     async def add(cls, **data):
         async with async_session_maker() as session:
             query = insert(cls.model).values(**data)
-            await session.execute(query)
+            result = await session.execute(query)
             await session.commit()
-# user вернуть
-
+            #чтобы вернуть json надо заново открывать сессию?
+            inserted_id = result.inserted_primary_key[0]
+            query = select(cls.model).filter_by(id = inserted_id)
+            added_item = await session.execute(query)
+            return added_item.scalar_one_or_none()
             

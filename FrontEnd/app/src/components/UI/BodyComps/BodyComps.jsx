@@ -1,10 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import "./BodyComps.css";
 import behind from "../../../assets/images/behindThetext.png";
 import MyButton from "../Buttons/MyButton";
+import axios from "axios";
 
 const BodyComps = () => {
+
+  const handleClickCreate = () => {
+    axios.post('http://127.0.0.1:8000/landings/creating', {})
+      .then(() => redirect('/Pattern'))
+      .catch(() => redirect('/Register'));
+
+  }
+
   return (
     <div
       className="main-container"
@@ -16,14 +25,12 @@ const BodyComps = () => {
         </h2>
         <h6 className="texted" style={{}}>
           Используйте нашу профессиональную платформу для воплощения самых
-          смелых идей. Благодаря гибким настройкам дизайна и управления, ваши
+          смелых идей. <br/>Благодаря гибким настройкам дизайна и управления, ваши
           возможности в развитии бизнеса становятся безграничными.
         </h6>
       </div>
       <div className="button-block">
-        <Link to="/Pattern">
-          <MyButton className="button-create">Создать</MyButton>
-        </Link>
+        <MyButton className="button-create" onClick={handleClickCreate}>Создать</MyButton>
       </div>
       <span
         className="texted"

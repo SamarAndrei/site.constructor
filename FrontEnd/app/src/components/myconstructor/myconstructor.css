@@ -1,0 +1,122 @@
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 250px;
+  height: 100%;
+  background-color: black;
+  padding: 20px;
+  transition: right 0.3s ease;
+  z-index: 9999;
+  color: white;
+}
+
+#sidebar.visible {
+  right: 0;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+#sidebar li:hover {
+  color: #960726;
+}
+
+
+#popupSidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: black;
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 1001;
+  opacity: 1;
+}
+
+.block-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  border: 2px dashed transparent;
+}
+
+.block-item:hover {
+  border-color: #000;
+}
+
+.block-item .block-controls,
+.block-item .add-button {
+  display: none;
+}
+
+.block-item:hover .block-controls,
+.block-item:hover .add-button {
+  display: flex;
+}
+
+.block-controls {
+  gap: 10px;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1001;
+}
+
+.block-controls button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.block-controls button:hover {
+  background-color: #e0e0e0;
+}
+
+.add-button {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: gray;
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.add-button:hover {
+  background-color: white;
+}
+
+.text-block-item {
+  padding: 10px;
+}
+
+.title-block-item {
+  padding: 10px;
+}
+
+.cover-block-item {
+  padding: 10px;
+}
+
+.image-block-item {
+  padding: 10px;
+}
