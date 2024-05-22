@@ -1,4 +1,4 @@
-.button {
+.button:enabled {
 
   padding: 12px 20px; 
   border: 0px;
@@ -20,3 +20,25 @@
     background-color: rgba(139, 21, 42, 1);
   }
 }
+.button:disabled {
+  padding: 12px 20px; 
+  border: 0px;
+  border-radius: 4px; 
+  text-decoration: none; 
+  color: white; 
+  text-align: center;
+  background-color: gray
+  ; 
+  cursor: pointer; 
+  font-family: "Montserrat", sans-serif;
+
+  pointer-events: none;
+
+  &:hover {
+    background-color: rgb(175, 175, 175)
+  }
+
+
+  &:active {
+    background-color: rgb(65, 65, 65);
+  }}
