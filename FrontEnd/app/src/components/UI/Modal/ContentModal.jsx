@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Modal.css';
-
+import MyButton from '../../UI/Buttons/MyButton';
 const ContentModal = ({ element, updateElement, closeModal, type }) => {
     const [tempElement, setTempElement] = useState({ ...element });
 
@@ -103,7 +103,7 @@ const ContentModal = ({ element, updateElement, closeModal, type }) => {
                         </div>
                     </>
                 ) : null}
-                <button className="save-button" onClick={handleSave}>Сохранить</button>
+                <MyButton className="save-button" onClick={handleSave}>Сохранить</MyButton>
             </div>
         </div>
     );

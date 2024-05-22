@@ -20,6 +20,7 @@ function ParentBlock() {
     const [titleBlocks, setTitleBlocks] = useState([]);
     const [coverBlocks, setCoverBlocks] = useState([]);
     const [imageBlocks, setImageBlocks] = useState([]);
+    const [aboutprojectBlock, setaboutprojectBlock] = useState([]);
     const [settingsModalVisible, setSettingsModalVisible] = useState(false);
     const [contentModalVisible, setContentModalVisible] = useState(false);
     const [currentElement, setCurrentElement] = useState(null);
@@ -34,6 +35,7 @@ function ParentBlock() {
             titleBlocks,
             coverBlocks,
             imageBlocks,
+            aboutprojectBlock,
         };
     };
 
