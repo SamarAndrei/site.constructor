@@ -16,6 +16,8 @@ const Sidebar = forwardRef(({ sidebarVisible, selectBlock }, ref) => {
                 <li onClick={() => selectBlock("button")}>Кнопка</li>
                 <li onClick={() => selectBlock("advantages")}>Преимущества </li>
                 <li onClick={() => selectBlock("columns")}>Колонки</li>
+                <li onClick={() => selectBlock("footerconstructor")}>Подвал</li>
+                <li onClick={() => selectBlock("headerconstructor")}>Шапка</li>
                 <li><MyButton children={'Сохранить'} onClick={() => selectBlock("save")}/></li>
             </ul>
         </div>

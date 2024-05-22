@@ -5,7 +5,7 @@ const TitleBlock = ({ addTitleBlock }) => {
     const [title, setTitle] = useState('');
 
     const handleAddTitleBlock = () => {
-        const newTitleBlock = { id: Date.now(), title };
+        const newTitleBlock = { id: Date.now(), title};
         addTitleBlock([newTitleBlock]);
         setTitle('');
     };
@@ -18,7 +18,7 @@ const TitleBlock = ({ addTitleBlock }) => {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
             />
-            <MyButton onClick={handleAddTitleBlock}>Добавить заголовок</MyButton>
+            <MyButton onClick={handleAddTitleBlock}>Добавить Заголовок</MyButton>
         </div>
     );
 };

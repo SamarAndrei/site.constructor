@@ -87,7 +87,7 @@
 
 .add-button {
   position: absolute;
-  bottom: -15px; /* Adjust if necessary */
+  bottom: -15px; 
   left: 50%;
   transform: translateX(-50%);
   background-color: gray;
@@ -130,7 +130,7 @@
   z-index: 1;
   text-align: center;
   color: white;
-  padding: 20px; /* Adjust for better spacing */
+  padding: 20px; 
 }
 
 .cover-block-item .overlay {
@@ -170,7 +170,7 @@
 
 .add-button {
   position: absolute;
-  bottom: -15px; /* Adjust if necessary */
+  bottom: -15px; 
   left: 50%;
   transform: translateX(-50%);
   background-color: gray;

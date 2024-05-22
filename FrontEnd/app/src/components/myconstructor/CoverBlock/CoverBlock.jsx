@@ -17,7 +17,7 @@ const CoverBlock = ({ addCoverBlock }) => {
 
     return (
         <div>
-            <MyButton onClick={handleAddCoverBlock}>Добавить Cover Block</MyButton>
+            <MyButton onClick={handleAddCoverBlock}>Добавить Обложку</MyButton>
         </div>
     );
 };

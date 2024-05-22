@@ -41,6 +41,32 @@ const ContentModal = ({ element, updateElement, closeModal, type }) => {
         closeModal();
     };
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        const [key, subKey] = name.split('.');
+        if (subKey) {
+            setTempElement((prev) => ({
+                ...prev,
+                [key]: {
+                    ...prev[key],
+                    [subKey]: value
+                }
+            }));
+        } else {
+            setTempElement({ ...tempElement, [name]: value });
+        }
+    };
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setTempElement({ ...tempElement, backgroundImage: reader.result });
+        };
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    };
+
     return (
         <div className="modal">
             <div className="modal-content">
@@ -93,13 +119,21 @@ const ContentModal = ({ element, updateElement, closeModal, type }) => {
                             <label>Заголовок:</label>
                             <input type="text" value={tempElement.title} onChange={handleTitleChange} />
                         </div>
+                    </>
+                ) : type === 'imageBlock' ? (
+                    <>
+                        <h2>Настройки блока изображения</h2>
                         <div>
-                            <label>Подзаголовок:</label>
-                            <input type="text" value={tempElement.title} onChange={handleTitleChange} />
+                            <label>URL изображения:</label>
+                            <input type="text" name="imageUrl" value={tempElement.imageUrl || ''} onChange={handleChange} />
                         </div>
                         <div>
-                            <label>Описание:</label>
-                            <input type="text" value={tempElement.title} onChange={handleTitleChange} />
+                            <label>Или загрузите изображение:</label>
+                            <input type="file" name="file" onChange={handleFileChange} />
+                        </div>
+                        <div>
+                            <label>Прозрачность затемнения:</label>
+                            <input type="range" name="overlayOpacity" min="0" max="1" step="0.01" value={tempElement.overlayOpacity || 0} onChange={handleChange} />
                         </div>
                     </>
                 ) : null}
