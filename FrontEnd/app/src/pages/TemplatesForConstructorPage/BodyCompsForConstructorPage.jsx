@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import "./BodyCompsForConstructorPage.css";
 import behind from "../../assets/images/behindThetext.png";
 import MyButton from "../../components/UI/Buttons/MyButton";
 
