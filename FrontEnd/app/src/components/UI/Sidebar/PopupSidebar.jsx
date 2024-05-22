@@ -10,23 +10,23 @@ import MyButton from '../Buttons/MyButton';
 import axios from 'axios';
 import { redirect } from 'react-router-dom';
 
-const PopupSidebar = ({ block, setSelectedBlock, addButtonBlock, addTextBlock, addCoverBlock, addImageBlock, addTitleBlock }) => {
+const PopupSidebar = ({ block, setSelectedBlock, addButtonBlock, addTextBlock, addCoverBlock, addImageBlock, addTitleBlock, collectBlocks }) => {
     const [valueName, setValueName] = useState('');
     const [valueAdress, setValueAdress] = useState('');
     const [valueDesc, setValueDesc] = useState('');
-
-    
-
     
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
 
+        const structure = collectBlocks();  
+
+
         axios.post('http://127.0.0.1:8000/landings', {
             name: `${document.getElementsByName('name').values}`, 
             adress:`${document.getElementsByName('adress').values}`,
             description: `${document.getElementsByName('description').values}`,
-            structure: ``,
+            structure: JSON.stringify(structure),
         }).catch(() => console.error('Ошибка сервера'))
         };
 
@@ -40,12 +40,12 @@ const PopupSidebar = ({ block, setSelectedBlock, addButtonBlock, addTextBlock, a
             {block === "image" && <ImageBlock addImageBlock={addImageBlock} />}
             {block === "button" && <ButtonBlock addButtonBlock={addButtonBlock} />} 
 
-            <form autoComplete="off" onSubmit={handleSubmit}>
+            {block ==='save' && <form autoComplete="off" onSubmit={handleSubmit}>
                 <input type="search" value={valueName} onChange={e => setValueName(e.target.value)} placeholder="Название" name='name'/>
                 <input type="search" value={valueAdress} onChange={e => setValueAdress(e.target.value)} placeholder="Адрес сайта" name='adress'/>
                 <input type="search" value={valueDesc} onChange={e => setValueDesc(e.target.value)} placeholder="Описание" name='description'/>
-                <MyButton children={'Сохранить'} type='submit' />
-            </form>                
+                <MyButton disabled={valueName && valueAdress && valueDesc ? false : true } children={'Сохранить'} type='submit' />
+            </form> }               
                     
         </div>
     );

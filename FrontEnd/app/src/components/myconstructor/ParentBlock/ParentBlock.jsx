@@ -27,6 +27,16 @@ function ParentBlock() {
 
     const sidebarRef = useRef(null);
 
+    const collectBlocks = () => {
+        return {
+            buttons,
+            textBlocks,
+            titleBlocks,
+            coverBlocks,
+            imageBlocks,
+        };
+    };
+
     const toggleSidebar = () => {
         setSidebarVisible(!sidebarVisible);
     };
@@ -186,6 +196,7 @@ function ParentBlock() {
                     addTitleBlock={addTitleBlock}
                     addCoverBlock={addCoverBlock}
                     addImageBlock={addImageBlock}
+                    collectBlocks={collectBlocks}
                 />
             )}
             <div id="mainContent">
