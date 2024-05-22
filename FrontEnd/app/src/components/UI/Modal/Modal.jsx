@@ -1,53 +1,56 @@
 import React, { useState } from 'react';
-import './Modal.css';
+import './Modal.css'
+import MyButton from '../../UI/Buttons/MyButton';
 
 const Modal = ({ element, updateElement, closeModal, type }) => {
     const [tempElement, setTempElement] = useState({ ...element });
 
     if (!element) return null;
 
-    const { id, text, backgroundColor, color, size, alignment, content, title, imageUrl, overlayColor } = tempElement;
-
-    const handleTextChange = (e) => {
-        setTempElement({ ...tempElement, text: e.target.value });
-    };
-
-    const handleBackgroundColorChange = (e) => {
-        setTempElement({ ...tempElement, backgroundColor: e.target.value });
-    };
-
-    const handleColorChange = (e) => {
-        setTempElement({ ...tempElement, color: e.target.value });
-    };
-
-    const handleSizeChange = (e) => {
-        setTempElement({ ...tempElement, size: e.target.value });
-    };
-
-    const handleAlignmentChange = (e) => {
-        setTempElement({ ...tempElement, alignment: e.target.value });
-    };
-
-    const handleContentChange = (e) => {
-        setTempElement({ ...tempElement, content: e.target.value });
-    };
-
-    const handleTitleChange = (e) => {
-        setTempElement({ ...tempElement, title: e.target.value });
-    };
-
-    const handleImageUrlChange = (e) => {
-        setTempElement({ ...tempElement, imageUrl: e.target.value });
-    };
-
-    const handleOverlayColorChange = (e) => {
-        setTempElement({ ...tempElement, overlayColor: e.target.value });
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        const [key, subKey] = name.split('.');
+        if (subKey) {
+            setTempElement((prev) => ({
+                ...prev,
+                [key]: {
+                    ...prev[key],
+                    [subKey]: value
+                }
+            }));
+        } else {
+            setTempElement({ ...tempElement, [name]: value });
+        }
     };
 
     const handleSave = () => {
         updateElement(tempElement.id, tempElement);
         closeModal();
     };
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setTempElement({ ...tempElement, backgroundImage: reader.result });
+        };
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const renderTextSettings = (prefix, label) => (
+        <>
+            <div>
+                <label>{label}:</label>
+                <input type="text" name={`${prefix}.text`} value={tempElement[prefix]?.text || ''} onChange={handleChange} />
+            </div>
+            <div>
+                <label>Цвет текста {label}:</label>
+                <input type="color" name={`${prefix}.color`} value={tempElement[prefix]?.color || '#000000'} onChange={handleChange} />
+            </div>
+        </>
+    );
 
     return (
         <div className="modal">
@@ -58,19 +61,19 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                         <h2>Настройки кнопки</h2>
                         <div>
                             <label>Текст кнопки:</label>
-                            <input type="text" value={text || ''} onChange={handleTextChange} />
+                            <input type="text" name="text" value={tempElement.text || ''} onChange={handleChange} />
                         </div>
                         <div>
                             <label>Цвет фона:</label>
-                            <input type="color" value={backgroundColor || '#ffffff'} onChange={handleBackgroundColorChange} />
+                            <input type="color" name="backgroundColor" value={tempElement.backgroundColor || '#ffffff'} onChange={handleChange} />
                         </div>
                         <div>
                             <label>Цвет текста:</label>
-                            <input type="color" value={color || '#000000'} onChange={handleColorChange} />
+                            <input type="color" name="color" value={tempElement.color || '#000000'} onChange={handleChange} />
                         </div>
                         <div>
                             <label>Размер:</label>
-                            <select value={size || 'medium'} onChange={handleSizeChange}>
+                            <select name="size" value={tempElement.size || 'medium'} onChange={handleChange}>
                                 <option value="small">Small</option>
                                 <option value="medium">Medium</option>
                                 <option value="large">Large</option>
@@ -78,7 +81,7 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                         </div>
                         <div>
                             <label>Расположение:</label>
-                            <select value={alignment || 'center'} onChange={handleAlignmentChange}>
+                            <select name="alignment" value={tempElement.alignment || 'center'} onChange={handleChange}>
                                 <option value="left">Слева</option>
                                 <option value="center">Центр</option>
                                 <option value="right">Справа</option>
@@ -91,23 +94,15 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                         <h2>Настройки текстового блока</h2>
                         <div>
                             <label>Контент:</label>
-                            <textarea value={content || ''} onChange={handleContentChange} />
-                        </div>
-                        <div>
-                            <label>Размер текста:</label>
-                            <select value={size || 'medium'} onChange={handleSizeChange}>
-                                <option value="small">Small</option>
-                                <option value="medium">Medium</option>
-                                <option value="large">Large</option>
-                            </select>
+                            <textarea name="content" value={tempElement.content || ''} onChange={handleChange} />
                         </div>
                         <div>
                             <label>Цвет текста:</label>
-                            <input type="color" value={color || '#000000'} onChange={handleColorChange} />
+                            <input type="color" name="color" value={tempElement.color || '#000000'} onChange={handleChange} />
                         </div>
                         <div>
                             <label>Расположение текста:</label>
-                            <select value={alignment || 'center'} onChange={handleAlignmentChange}>
+                            <select name="alignment" value={tempElement.alignment || 'center'} onChange={handleChange}>
                                 <option value="left">Слева</option>
                                 <option value="center">Центр</option>
                                 <option value="right">Справа</option>
@@ -120,23 +115,15 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                         <h2>Настройки блока заголовка</h2>
                         <div>
                             <label>Заголовок:</label>
-                            <input type="text" value={title || ''} onChange={handleTitleChange} />
+                            <input type="text" name="title" value={tempElement.title || ''} onChange={handleChange} />
                         </div>
                         <div>
-                            <label>Размер текста:</label>
-                            <select value={size || 'medium'} onChange={handleSizeChange}>
-                                <option value="small">Small</option>
-                                <option value="medium">Medium</option>
-                                <option value="large">Large</option>
-                            </select>
+                            <label>Цвет текста заголовка:</label>
+                            <input type="color" name="color" value={tempElement.color || '#000000'} onChange={handleChange} />
                         </div>
                         <div>
-                            <label>Цвет текста:</label>
-                            <input type="color" value={color || '#000000'} onChange={handleColorChange} />
-                        </div>
-                        <div>
-                            <label>Расположение текста:</label>
-                            <select value={alignment || 'center'} onChange={handleAlignmentChange}>
+                            <label>Расположение заголовка:</label>
+                            <select name="alignment" value={tempElement.alignment || 'center'} onChange={handleChange}>
                                 <option value="left">Слева</option>
                                 <option value="center">Центр</option>
                                 <option value="right">Справа</option>
@@ -147,13 +134,20 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                 {type === 'coverBlock' && (
                     <>
                         <h2>Настройки блока обложки</h2>
+                        {renderTextSettings('title', 'Надзаголовок')}
+                        {renderTextSettings('subtitle', 'Заголовок')}
+                        {renderTextSettings('description', 'Описание')}
                         <div>
-                            <label>Заголовок:</label>
-                            <input type="text" value={title || ''} onChange={handleTitleChange} />
+                            <label>URL изображения:</label>
+                            <input type="text" name="backgroundImage" value={tempElement.backgroundImage || ''} onChange={handleChange} />
                         </div>
                         <div>
-                            <label>Цвет наложения:</label>
-                            <input type="color" value={overlayColor || '#000000'} onChange={handleOverlayColorChange} />
+                            <label>Или загрузите изображение:</label>
+                            <input type="file" name="file" onChange={handleFileChange} />
+                        </div>
+                        <div>
+                            <label>Прозрачность затемнения:</label>
+                            <input type="range" name="overlayOpacity" min="0" max="1" step="0.01" value={tempElement.overlayOpacity || 0} onChange={handleChange} />
                         </div>
                     </>
                 )}
@@ -162,11 +156,11 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                         <h2>Настройки блока изображения</h2>
                         <div>
                             <label>URL изображения:</label>
-                            <input type="text" value={imageUrl || ''} onChange={handleImageUrlChange} />
+                            <input type="text" name="imageUrl" value={tempElement.imageUrl || ''} onChange={handleChange} />
                         </div>
                     </>
                 )}
-                <button className="save-button" onClick={handleSave}>Сохранить</button>
+                <MyButton onClick={handleSave}>Сохранить</MyButton>
             </div>
         </div>
     );

@@ -14,7 +14,8 @@
 .image-empty {
     margin-top: 20px;
     width: auto; 
-    height: 450px;
+    height: auto;
+    
 }
 
 .card-pattern-o {
@@ -23,7 +24,3 @@
     gap: 0px; 
 }
 
-.footer-pattern {
-    
-    margin-top: 0px;
-}

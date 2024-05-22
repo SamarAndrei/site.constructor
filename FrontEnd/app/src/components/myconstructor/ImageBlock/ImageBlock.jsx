@@ -6,14 +6,14 @@ const ImageBlock = ({ addImageBlock }) => {
         const newImageBlock = {
             id: Date.now(),
             imageUrl: "https://via.placeholder.com/150",
-            caption: "Подпись к изображению"
+            
         };
         addImageBlock(newImageBlock);
     };
 
     return (
         <div>
-            <MyButton onClick={handleAddImageBlock}>Добавить Image Block</MyButton>
+            <MyButton onClick={handleAddImageBlock}>Добавить Изображение</MyButton>
         </div>
     );
 };

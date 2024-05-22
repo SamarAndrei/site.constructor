@@ -9,7 +9,7 @@ import TextBlockItem from '../../myconstructor/TextBlock/TextBlockItem';
 import ImageBlockItem from '../../myconstructor/ImageBlock/ImageBlockItem';
 import ButtonBlockItem from '../../myconstructor/ButtonBlock/ButtonBlock';
 import '../../myconstructor/myconstructor.css';
-import MyButton from '../../UI/Buttons/MyButton'
+import MyButton from '../../UI/Buttons/MyButton';
 
 function ParentBlock() {
     const [sidebarVisible, setSidebarVisible] = useState(false);
@@ -20,12 +20,24 @@ function ParentBlock() {
     const [titleBlocks, setTitleBlocks] = useState([]);
     const [coverBlocks, setCoverBlocks] = useState([]);
     const [imageBlocks, setImageBlocks] = useState([]);
+    const [aboutprojectBlock, setaboutprojectBlock] = useState([]);
     const [settingsModalVisible, setSettingsModalVisible] = useState(false);
     const [contentModalVisible, setContentModalVisible] = useState(false);
     const [currentElement, setCurrentElement] = useState(null);
     const [elementType, setElementType] = useState(null);
 
     const sidebarRef = useRef(null);
+
+    const collectBlocks = () => {
+        return {
+            buttons,
+            textBlocks,
+            titleBlocks,
+            coverBlocks,
+            imageBlocks,
+            aboutprojectBlock,
+        };
+    };
 
     const toggleSidebar = () => {
         setSidebarVisible(!sidebarVisible);
@@ -43,7 +55,7 @@ function ParentBlock() {
         setPopupSidebarVisible(false);
     };
 
-    const addTextBlock = (newTextBlocks) => { 
+    const addTextBlock = (newTextBlocks) => {
         setTextBlocks([...textBlocks, ...newTextBlocks]);
         setSelectedBlock(null);
         setPopupSidebarVisible(false);
@@ -82,6 +94,7 @@ function ParentBlock() {
             textBlock.id === id ? { ...textBlock, ...updatedProperties } : textBlock
         ));
     };
+    
 
     const removeTextBlock = (id) => {
         setTextBlocks(textBlocks.filter(textBlock => textBlock.id !== id));
@@ -185,6 +198,7 @@ function ParentBlock() {
                     addTitleBlock={addTitleBlock}
                     addCoverBlock={addCoverBlock}
                     addImageBlock={addImageBlock}
+                    collectBlocks={collectBlocks}
                 />
             )}
             <div id="mainContent">
