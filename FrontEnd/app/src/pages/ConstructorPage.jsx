@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ConstructorPage.css";
 import BodyOfferForConstructorPage from "./TemplatesForConstructorPage/BodyOfferForConstructorPage.jsx";
 import BodyCompsForConstructorPage from "./TemplatesForConstructorPage/BodyCompsForConstructorPage.jsx";
 import NavBarTemp1 from "./TemplatesForConstructorPage/NavBarTemp1.jsx";
+import NavBarTemp2 from "./TemplatesForConstructorPage/NavBarTemp2.jsx";
 import AddTemplateButton from "./AddTemplateButton";
 import "./ConstructorPage.css";
 
@@ -13,6 +14,13 @@ const Constructor = () => {
   const [addedTemplates, setAddedTemplates] = useState([]);
   const [insertPosition, setInsertPosition] = useState(null);
   const [showInitialPlus, setShowInitialPlus] = useState(true);
+  const [editMode, setEditMode] = useState(true); // Устанавливаем начальное значение в true
+  const [hasTemplates, setHasTemplates] = useState(false); // Устанавливаем начальное значение в false
+
+  useEffect(() => {
+    // Проверяем, есть ли добавленные шаблоны
+    setHasTemplates(addedTemplates.length > 0);
+  }, [addedTemplates]);
 
   const handleOpenModal = (position) => {
     setIsModalOpen(true);
@@ -70,7 +78,7 @@ const Constructor = () => {
             {currentCoverTemplate === 0 ? (
               <NavBarTemp1 onSelect={handleSelectTemplate} />
             ) : (
-              <BodyCompsForConstructorPage onSelect={handleSelectTemplate} />
+              <NavBarTemp2 onSelect={handleSelectTemplate} />
             )}
             <button onClick={handleNextCoverTemplate}>Следующий</button>
           </div>
@@ -103,7 +111,15 @@ const Constructor = () => {
 
   return (
     <div className="template-selector-container">
-      {showInitialPlus && (
+      {/* Добавляем кнопку переключения режима */}
+      <div className="mode-toggle">
+        <button onClick={() => setEditMode(!editMode)}>
+          {editMode ? "Режим просмотра" : "Режим редактирования"}
+        </button>
+      </div>
+
+      {/* Рендерим кнопку добавления только если нет добавленных шаблонов */}
+      {editMode && !hasTemplates && (
         <div style={{ textAlign: "center", marginBottom: "20px" }}>
           <AddTemplateButton
             onClick={() => handleOpenModal(null)}
@@ -112,21 +128,32 @@ const Constructor = () => {
         </div>
       )}
 
+      {/* Рендерим добавленные шаблоны */}
       {addedTemplates.map((template, index) => (
-        <div key={`template-${index}`} className="template-container">
-          <AddTemplateButton
-            className="add-template-button"
-            onClick={() => handleOpenModal(index)}
-            position="top"
-          />
+        <div
+          key={`template-${index}`}
+          className={`template-container ${editMode ? "edit-mode" : ""}`}
+        >
+          {/* Рендерим кнопки редактирования только в режиме редактирования */}
+          {editMode && (
+            <AddTemplateButton
+              className="add-template-button"
+              onClick={() => handleOpenModal(index)}
+              position="top"
+            />
+          )}
           {template}
-          <button
-            className="remove-template-button"
-            onClick={() => handleRemoveTemplate(index)}
-          >
-            &times;
-          </button>
-          {index === addedTemplates.length - 1 && (
+          {/* Рендерим кнопку удаления только в режиме редактирования */}
+          {editMode && (
+            <button
+              className="remove-template-button"
+              onClick={() => handleRemoveTemplate(index)}
+            >
+              &times;
+            </button>
+          )}
+          {/* Рендерим кнопку добавления только в режиме редактирования и когда это последний шаблон */}
+          {editMode && index === addedTemplates.length - 1 && (
             <AddTemplateButton
               className="add-template-button"
               onClick={() => handleOpenModal(index + 1)}
@@ -136,6 +163,7 @@ const Constructor = () => {
         </div>
       ))}
 
+      {/* Рендерим модальное окно */}
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">

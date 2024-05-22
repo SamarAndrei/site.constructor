@@ -135,3 +135,11 @@
 .remove-template-button:hover {
   background-color: #cc0000;
 }
+
+.mode-toggle {
+  position: fixed;
+  bottom: 20px; /* Располагаем кнопку снизу */
+  right: 20px; /* Располагаем кнопку справа */
+  z-index: 1000; /* Устанавливаем z-index для обеспечения видимости над другими элементами */
+}
+
