@@ -31,3 +31,4 @@ const TitleBlockItem = ({ id, title, content, size, color, alignment, updateTitl
 };
 
 export default TitleBlockItem;
+

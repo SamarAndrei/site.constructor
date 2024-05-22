@@ -13,7 +13,7 @@ const ImageBlock = ({ addImageBlock }) => {
 
     return (
         <div>
-            <MyButton onClick={handleAddImageBlock}>Добавить Image Block</MyButton>
+            <MyButton onClick={handleAddImageBlock}>Добавить Изображение</MyButton>
         </div>
     );
 };

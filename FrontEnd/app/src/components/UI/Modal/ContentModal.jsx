@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Modal.css';
-
+import MyButton from '../../UI/Buttons/MyButton';
 const ContentModal = ({ element, updateElement, closeModal, type }) => {
     const [tempElement, setTempElement] = useState({ ...element });
 
@@ -39,6 +39,32 @@ const ContentModal = ({ element, updateElement, closeModal, type }) => {
     const handleSave = () => {
         updateElement(tempElement.id, tempElement);
         closeModal();
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        const [key, subKey] = name.split('.');
+        if (subKey) {
+            setTempElement((prev) => ({
+                ...prev,
+                [key]: {
+                    ...prev[key],
+                    [subKey]: value
+                }
+            }));
+        } else {
+            setTempElement({ ...tempElement, [name]: value });
+        }
+    };
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setTempElement({ ...tempElement, backgroundImage: reader.result });
+        };
+        if (file) {
+            reader.readAsDataURL(file);
+        }
     };
 
     return (
@@ -93,17 +119,25 @@ const ContentModal = ({ element, updateElement, closeModal, type }) => {
                             <label>Заголовок:</label>
                             <input type="text" value={tempElement.title} onChange={handleTitleChange} />
                         </div>
+                    </>
+                ) : type === 'imageBlock' ? (
+                    <>
+                        <h2>Настройки блока изображения</h2>
                         <div>
-                            <label>Подзаголовок:</label>
-                            <input type="text" value={tempElement.title} onChange={handleTitleChange} />
+                            <label>URL изображения:</label>
+                            <input type="text" name="imageUrl" value={tempElement.imageUrl || ''} onChange={handleChange} />
                         </div>
                         <div>
-                            <label>Описание:</label>
-                            <input type="text" value={tempElement.title} onChange={handleTitleChange} />
+                            <label>Или загрузите изображение:</label>
+                            <input type="file" name="file" onChange={handleFileChange} />
+                        </div>
+                        <div>
+                            <label>Прозрачность затемнения:</label>
+                            <input type="range" name="overlayOpacity" min="0" max="1" step="0.01" value={tempElement.overlayOpacity || 0} onChange={handleChange} />
                         </div>
                     </>
                 ) : null}
-                <button className="save-button" onClick={handleSave}>Сохранить</button>
+                <MyButton className="save-button" onClick={handleSave}>Сохранить</MyButton>
             </div>
         </div>
     );
