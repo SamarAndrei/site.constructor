@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MyButton from '../../UI/Buttons/MyButton';
 import '../../myconstructor/myconstructor.css';
 
-const FormConstructorBlockItem = ({ id, openSettingsModal, openContentModal, removeHeaderBlock }) => {
+const FormConstructorBlockItem = ({ id, openSettingsModal, openContentModal, removeHeaderBlock, openSidebar }) => {
     const [hovered, setHovered] = useState(false);
 
     return (
@@ -27,6 +27,7 @@ const FormConstructorBlockItem = ({ id, openSettingsModal, openContentModal, rem
                     <input type="tel" placeholder="Телефон" />
                 </div>
                 <MyButton>Отправить</MyButton>
+                {hovered && <button className="add-button" onClick={openSidebar}>+</button>}
             </div>
         </div>
     );

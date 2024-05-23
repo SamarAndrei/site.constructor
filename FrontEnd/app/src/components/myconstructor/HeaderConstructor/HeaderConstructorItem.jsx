@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MyButton from '../../UI/Buttons/MyButton';
 import '../../myconstructor/myconstructor.css';
 
-const HeaderConstructorItem = ({ id, content, textColor, backgroundColor, buttons = [], updateHeaderBlock, removeHeaderBlock, openSettingsModal, openContentModal }) => {
+const HeaderConstructorItem = ({ id, content, textColor, backgroundColor, buttons = [], updateHeaderBlock, removeHeaderBlock, openSettingsModal, openContentModal, openSidebar }) => {
     const [hovered, setHovered] = useState(false);
 
     const defaultButtons = ['О нас', 'Услуги', 'Контакты'];
@@ -36,6 +36,7 @@ const HeaderConstructorItem = ({ id, content, textColor, backgroundColor, button
                     })}
                 </div>
                 <div className="header-center-text">{content}</div>
+                {hovered && <button className="add-button" onClick={openSidebar}>+</button>}
             </div>
         </div>
     );

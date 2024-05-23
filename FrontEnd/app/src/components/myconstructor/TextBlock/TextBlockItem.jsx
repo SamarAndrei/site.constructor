@@ -31,3 +31,4 @@ const TextBlockItem = ({ id, content, size, color, alignment, updateTextBlock, r
 };
 
 export default TextBlockItem;
+
