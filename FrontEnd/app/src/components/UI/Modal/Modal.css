@@ -1,4 +1,18 @@
 /* Modal styles */
+@font-face {
+  font-family: 'SFProDisplayBold';
+  src: url('../../../assets/fonts/SFPRODISPLAYBOLD.OTF') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFProDisplayRegular';
+  src: url('../../../assets/fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .modals {
   position: fixed;
   top: 0;
@@ -10,16 +24,23 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  font-family: 'SFProDisplayRegular';
+  font-weight: normal;
+  font-style: normal;
 }
 
+
 .modal-content {
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 20px;
-  border-radius: 5px;
-  width: 400px;
+  color: black;
+  width: auto;
+  max-width: 400px;
   max-height: 80%;
   overflow-y: auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-content .close {
@@ -31,45 +52,82 @@
 }
 
 .modal-content h2 {
-  margin-top: 0;
+  margin-top: 0px;
 }
 
-.modal-content div {
-  margin-bottom: 10px;
+.modal-content .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+  width: 100%;
+  font-family: 'SFProDisplayRegular';
+  font-weight: normal;
+  font-style: normal;
+
+  
 }
 
 .modal-content label {
-  display: block;
   margin-bottom: 5px;
 }
 
 .modal-content input[type="text"],
 .modal-content input[type="color"],
-.modal-content select,
 .modal-content textarea {
   width: 100%;
   padding: 5px;
   box-sizing: border-box;
+  max-width: 100%;
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  font-family: 'SFProDisplayRegular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
 }
 
 .modal-content textarea {
   resize: vertical;
+  min-height: 50px; 
 }
 
-.save-button {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-top: 10px;
-  cursor: pointer;
-  border-radius: 5px;
+.modal-content .form-group-last {
+  margin-bottom: 10px; /* Добавляем отступ снизу */
 }
 
-.save-button:hover {
-  background-color: #45a049;
+.modal-content label {
+  margin-bottom: 0px; /* Уменьшаем нижний отступ */
 }
+
+
+.location-select {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 14px;
+  background-color: #fff; /* Цвет фона выбора расположения текста */
+  color: #333; /* Цвет текста выбора расположения текста */
+  font-family: 'SFProDisplayRegular';
+  font-weight: normal;
+  font-style: normal;
+  outline: none;
+  
+}
+
+.location-select option  {
+  padding: 5px;
+  background-color: #ececec; /* Цвет фона опций */
+  color: #000000; /* Цвет текста опций */
+}
+
+.location-select option:checked {
+  background-color: #f0f0f0 !important; /* Цвет фона выбранной опции */
+  color: #333 !important; /* Цвет текста выбранной опции */
+}
+
+.location-select option:hover {
+  background-color: #e0e0e0 !important; /* Цвет фона при наведении */
+  color: #333 !important; /* Цвет текста при наведении */
+}
+
