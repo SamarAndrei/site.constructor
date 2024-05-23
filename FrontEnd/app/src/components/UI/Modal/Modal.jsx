@@ -41,11 +41,11 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
 
     const renderTextSettings = (prefix, label) => (
         <>
-            <div>
+            <div className="form-group">
                 <label>{label}:</label>
                 <input type="text" name={`${prefix}.text`} value={tempElement[prefix]?.text || ''} onChange={handleChange} />
             </div>
-            <div>
+            <div className="form-group">
                 <label>Цвет текста {label}:</label>
                 <input type="color" name={`${prefix}.color`} value={tempElement[prefix]?.color || '#000000'} onChange={handleChange} />
             </div>
@@ -53,25 +53,25 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
     );
 
     return (
-        <div className="modal">
+        <div className="modals">
             <div className="modal-content">
                 <span className="close" onClick={closeModal}>&times;</span>
                 {type === 'button' && (
                     <>
                         <h2>Настройки кнопки</h2>
-                        <div>
+                        <div className="form-group">
                             <label>Текст кнопки:</label>
                             <input type="text" name="text" value={tempElement.text || ''} onChange={handleChange} />
                         </div>
-                        <div>
+                        <div className="form-group">
                             <label>Цвет фона:</label>
                             <input type="color" name="backgroundColor" value={tempElement.backgroundColor || '#ffffff'} onChange={handleChange} />
                         </div>
-                        <div>
+                        <div className="form-group">
                             <label>Цвет текста:</label>
                             <input type="color" name="color" value={tempElement.color || '#000000'} onChange={handleChange} />
                         </div>
-                        <div>
+                        <div className="form-group">
                             <label>Размер:</label>
                             <select name="size" value={tempElement.size || 'medium'} onChange={handleChange}>
                                 <option value="small">Small</option>
@@ -79,7 +79,7 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                                 <option value="large">Large</option>
                             </select>
                         </div>
-                        <div>
+                        <div className="form-group">
                             <label>Расположение:</label>
                             <select name="alignment" value={tempElement.alignment || 'center'} onChange={handleChange}>
                                 <option value="left">Слева</option>
@@ -152,17 +152,17 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                 {type === 'textBlock' && (
                     <>
                         <h2>Настройки текстового блока</h2>
-                        <div>
+                        <div className="form-group">
                             <label>Контент:</label>
                             <textarea name="content" value={tempElement.content || ''} onChange={handleChange} />
                         </div>
-                        <div>
+                        <div className="form-group">
                             <label>Цвет текста:</label>
                             <input type="color" name="color" value={tempElement.color || '#000000'} onChange={handleChange} />
                         </div>
-                        <div>
+                        <div className="form-group form-group-last">
                             <label>Расположение текста:</label>
-                            <select name="alignment" value={tempElement.alignment || 'center'} onChange={handleChange}>
+                            <select className='location-select' name="alignment"  value={tempElement.alignment || 'center'} onChange={handleChange}>
                                 <option value="left">Слева</option>
                                 <option value="center">Центр</option>
                                 <option value="right">Справа</option>
@@ -173,15 +173,15 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                 {type === 'titleBlock' && (
                     <>
                         <h2>Настройки блока заголовка</h2>
-                        <div>
+                        <div className="form-group">
                             <label>Заголовок:</label>
                             <input type="text" name="title" value={tempElement.title || ''} onChange={handleChange} />
                         </div>
-                        <div>
+                        <div className="form-group">
                             <label>Цвет текста заголовка:</label>
                             <input type="color" name="color" value={tempElement.color || '#000000'} onChange={handleChange} />
                         </div>
-                        <div>
+                        <div className="form-group">
                             <label>Расположение заголовка:</label>
                             <select name="alignment" value={tempElement.alignment || 'center'} onChange={handleChange}>
                                 <option value="left">Слева</option>
@@ -197,15 +197,15 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                         {renderTextSettings('title', 'Надзаголовок')}
                         {renderTextSettings('subtitle', 'Заголовок')}
                         {renderTextSettings('description', 'Описание')}
-                        <div>
+                        <div className="form-group">
                             <label>URL изображения:</label>
                             <input type="text" name="backgroundImage" value={tempElement.backgroundImage || ''} onChange={handleChange} />
                         </div>
-                        <div>
+                        <div className="form-group">
                             <label>Или загрузите изображение:</label>
                             <input type="file" name="file" onChange={handleFileChange} />
                         </div>
-                        <div>
+                        <div className="form-group">
                             <label>Прозрачность затемнения:</label>
                             <input type="range" name="overlayOpacity" min="0" max="1" step="0.01" value={tempElement.overlayOpacity || 0} onChange={handleChange} />
                         </div>
@@ -214,13 +214,14 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                 {type === 'imageBlock' && (
                     <>
                         <h2>Настройки блока изображения</h2>
-                        <div>
+                        <div className="form-group">
                             <label>URL изображения:</label>
                             <input type="text" name="imageUrl" value={tempElement.imageUrl || ''} onChange={handleChange} />
                         </div>
                     </>
                 )}
-                <MyButton onClick={handleSave}>Сохранить</MyButton>
+                <MyButton className="save-button" onClick={handleSave}>Сохранить</MyButton>
+
             </div>
         </div>
     );
