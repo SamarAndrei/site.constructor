@@ -73,34 +73,10 @@ const ContentModal = ({ element, updateElement, closeModal, type }) => {
                 <span className="close" onClick={closeModal}>&times;</span>
                 {type === 'button' ? (
                     <>
-                        <h2>Настройки кнопки</h2>
+                        <h2>Контент кнопки</h2>
                         <div>
                             <label>Текст кнопки:</label>
                             <input type="text" value={tempElement.text} onChange={handleTextChange} />
-                        </div>
-                        <div>
-                            <label>Цвет фона:</label>
-                            <input type="color" value={tempElement.backgroundColor} onChange={handleBackgroundColorChange} />
-                        </div>
-                        <div>
-                            <label>Цвет текста:</label>
-                            <input type="color" value={tempElement.color} onChange={handleColorChange} />
-                        </div>
-                        <div>
-                            <label>Размер:</label>
-                            <select value={tempElement.size} onChange={handleSizeChange}>
-                                <option value="small">Small</option>
-                                <option value="medium">Medium</option>
-                                <option value="large">Large</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label>Расположение:</label>
-                            <select value={tempElement.alignment} onChange={handleAlignmentChange}>
-                                <option value="left">Слева</option>
-                                <option value="center">Центр</option>
-                                <option value="right">Справа</option>
-                            </select>
                         </div>
                     </>
                 ) : type === 'textBlock' ? (
@@ -114,7 +90,7 @@ const ContentModal = ({ element, updateElement, closeModal, type }) => {
                     </>
                 ) : type === 'titleBlock' ? (
                     <>
-                        <h2>Настройки блока заголовка</h2>
+                        <h2>Контент блока заголовка</h2>
                         <div>
                             <label>Заголовок:</label>
                             <input type="text" value={tempElement.title} onChange={handleTitleChange} />
@@ -134,6 +110,22 @@ const ContentModal = ({ element, updateElement, closeModal, type }) => {
                         <div>
                             <label>Прозрачность затемнения:</label>
                             <input type="range" name="overlayOpacity" min="0" max="1" step="0.01" value={tempElement.overlayOpacity || 0} onChange={handleChange} />
+                        </div>
+                    </>
+                ) : type === 'formBlock' ? (
+                    <>
+                        <h2>Контент формы</h2>
+                        <div className="form-group">
+                            <label>Заголовок:</label>
+                            <input type="text" name="title" value={tempElement.title || ''} onChange={handleChange} />
+                        </div>
+                        <div className="form-group">
+                            <label>Описание:</label>
+                            <input type="text" name="description" value={tempElement.description || ''} onChange={handleChange} />
+                        </div>
+                        <div className="form-group">
+                            <label>Текст кнопки:</label>
+                            <input type="text" name="buttonText" value={tempElement.buttonText || 'Отправить'} onChange={handleChange} />
                         </div>
                     </>
                 ) : null}

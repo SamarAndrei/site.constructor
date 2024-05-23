@@ -16,9 +16,9 @@ const HeaderConstructorItem = ({ id, content, textColor, backgroundColor, button
         >
             {hovered && (
                 <div className="block-controls">
-                    <button onClick={() => openSettingsModal({ id, content, textColor, backgroundColor, buttons }, 'headerBlock')}>Настройки</button>
-                    <button onClick={() => openContentModal({ id, content, textColor, backgroundColor, buttons }, 'headerBlock')}>Контент</button>
-                    <button onClick={() => removeHeaderBlock(id)}>🗑️</button>
+                    <MyButton onClick={() => openSettingsModal({ id, content, textColor, backgroundColor, buttons }, 'headerBlock')}>Настройки</MyButton>
+                    <MyButton onClick={() => openContentModal({ id, content, textColor, backgroundColor, buttons }, 'headerBlock')}>Контент</MyButton>
+                    <MyButton onClick={() => removeHeaderBlock(id)}>🗑️</MyButton>
                 </div>
             )}
             <div className="header-block-content">

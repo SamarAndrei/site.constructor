@@ -30,6 +30,7 @@ function ParentBlock() {
     const [elementType, setElementType] = useState(null);
 
     const sidebarRef = useRef(null);
+    const popupSidebarRef = useRef(null);
 
     const collectBlocks = () => {
         return {
@@ -44,7 +45,7 @@ function ParentBlock() {
     };
 
     const toggleSidebar = () => {
-        setSidebarVisible(!sidebarVisible);
+        setSidebarVisible(prev => !prev);
     };
 
     const selectBlock = (block) => {
@@ -135,6 +136,10 @@ function ParentBlock() {
         setCoverBlocks(coverBlocks.filter(coverBlock => coverBlock.id !== id));
     };
 
+    const removeFormBlock = (id) => {
+        setFormBlocks(coverBlocks.filter(coverBlock => coverBlock.id !== id));
+    };
+
     const updateImageBlock = (id, updatedProperties) => {
         setImageBlocks(imageBlocks.map(imageBlock =>
             imageBlock.id === id ? { ...imageBlock, ...updatedProperties } : imageBlock
@@ -159,10 +164,6 @@ function ParentBlock() {
         setFormBlocks(formBlocks.map(formBlock =>
             formBlock.id === id ? { ...formBlock, ...updatedProperties } : formBlock
         ));
-    };
-
-    const removeFormBlock = (id) => {
-        setFormBlocks(formBlocks.filter(formBlock => formBlock.id !== id));
     };
 
     const openSidebar = () => {
@@ -202,10 +203,13 @@ function ParentBlock() {
         if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
             setSidebarVisible(false);
         }
+        if (popupSidebarRef.current && !popupSidebarRef.current.contains(event.target)) {
+            setPopupSidebarVisible(false);
+        }
     };
 
     useEffect(() => {
-        if (sidebarVisible) {
+        if (sidebarVisible || popupSidebarVisible) {
             document.addEventListener('mousedown', handleClickOutside);
         } else {
             document.removeEventListener('mousedown', handleClickOutside);
@@ -214,7 +218,7 @@ function ParentBlock() {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [sidebarVisible]);
+    }, [sidebarVisible, popupSidebarVisible]);
 
     return (
         <div>
@@ -226,6 +230,7 @@ function ParentBlock() {
             />
             {popupSidebarVisible && (
                 <PopupSidebar 
+                    ref={popupSidebarRef}
                     block={selectedBlock} 
                     setSelectedBlock={setSelectedBlock} 
                     addButtonBlock={addButtonBlock} 

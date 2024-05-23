@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../myconstructor/myconstructor.css';
+import MyButton from '../../UI/Buttons/MyButton';
 
 const TextBlockItem = ({ id, content, size, color, alignment, updateTextBlock, removeTextBlock, openSidebar, openSettingsModal, openContentModal }) => {
     const [hovered, setHovered] = useState(false);
@@ -17,9 +18,9 @@ const TextBlockItem = ({ id, content, size, color, alignment, updateTextBlock, r
         >
             {hovered && (
                 <div className="block-controls">
-                    <button onClick={() => openSettingsModal({ id, content, size, color, alignment }, 'textBlock')}>Настройки</button>
-                    <button onClick={() => openContentModal({ id, content, size, color, alignment }, 'textBlock')}>Контент</button>
-                    <button onClick={() => removeTextBlock(id)}>🗑️</button>
+                    <MyButton onClick={() => openSettingsModal({ id, content, size, color, alignment }, 'textBlock')}>Настройки</MyButton>
+                    <MyButton onClick={() => openContentModal({ id, content, size, color, alignment }, 'textBlock')}>Контент</MyButton>
+                    <MyButton onClick={() => removeTextBlock(id)}>🗑️</MyButton>
                 </div>
             )}
             <div className="text-block-content">

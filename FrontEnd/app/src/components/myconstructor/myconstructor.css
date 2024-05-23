@@ -44,11 +44,11 @@
 
 .block-item {
   padding: 10px;
-  margin-bottom: 10px;
+  margin: 0px;
   position: relative;
   width: auto;
   height: auto;
-  border: 2px dashed transparent;
+  border: 1px dashed transparent;
 }
 
 .block-item:hover {
@@ -164,7 +164,6 @@
 .header-center-text {
   flex-grow: 1;
   text-align: center;
-  /* padding: 5px 300px; */
 }
 
 .header-buttons button {
