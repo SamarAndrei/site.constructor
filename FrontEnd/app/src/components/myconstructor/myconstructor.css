@@ -106,16 +106,15 @@
   background-color: white;
 }
 
-.text-block-item {
-  padding: 10px;
-}
-
-.title-block-item {
+.text-block-item,
+.title-block-item,
+.cover-block-item,
+.header-block-item,
+.form-block-item {
   padding: 10px;
 }
 
 .cover-block-item {
-  padding: 10px;
   position: relative;
   background-size: cover;
   background-position: center;
@@ -130,7 +129,7 @@
   z-index: 1;
   text-align: center;
   color: white;
-  padding: 20px; 
+  padding: 20px;
 }
 
 .cover-block-item .overlay {
@@ -143,51 +142,54 @@
   z-index: 0;
 }
 
-.block-item:hover .block-controls,
-.block-item:hover .add-button {
-  display: flex;
-}
-
-.block-controls {
-  gap: 10px;
-  margin-bottom: 10px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 1001;
-}
-
-.block-controls button {
-  background-color: #f0f0f0;
-  border: none;
-  padding: 5px;
-  cursor: pointer;
-}
-
-.block-controls button:hover {
-  background-color: #e0e0e0;
-}
-
-.add-button {
-  position: absolute;
-  bottom: -15px; 
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: gray;
-  border: 1px solid white;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+.header-block-item {
+  padding: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.header-block-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.header-center-text {
+  flex-grow: 1;
+  text-align: center;
+  /* padding: 5px 300px; */
+}
+
+.header-buttons button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 5px 10px;
   cursor: pointer;
-  z-index: 1001;
 }
 
-.add-button:hover {
-  background-color: white;
+.header-buttons button:hover {
+  background-color: #e0e0e0;
 }
-
-
-
+.form-block-content {
+  text-align: center;
+  flex-direction: column;
+  
+}
+.form-inputs input{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 5px;
+}
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
