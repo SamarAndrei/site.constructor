@@ -25,7 +25,7 @@ function ParentBlock() {
     const [imageBlocks, setImageBlocks] = useState([]);
     const [headerBlocks, setHeaderBlocks] = useState([]);
     const [formBlocks, setFormBlocks] = useState([]);
-    const [footerBlocks, setFooterBlocks] = useState([]); // Добавлено состояние для блоков футера
+    const [footerBlocks, setFooterBlocks] = useState([]); 
     const [settingsModalVisible, setSettingsModalVisible] = useState(false);
     const [contentModalVisible, setContentModalVisible] = useState(false);
     const [currentElement, setCurrentElement] = useState(null);
