@@ -3,7 +3,6 @@ import '../../myconstructor/myconstructor.css';
 import MyButton from '../Buttons/MyButton';
 
 const Sidebar = forwardRef(({ sidebarVisible, selectBlock }, ref) => {
-
     return (
         <div id="sidebar" className={sidebarVisible ? "visible" : ""} ref={ref}>
             <ul>
@@ -14,9 +13,9 @@ const Sidebar = forwardRef(({ sidebarVisible, selectBlock }, ref) => {
                 <li onClick={() => selectBlock("image")}>Изображение</li>
                 <li onClick={() => selectBlock("formconstructor")}>Форма</li>
                 <li onClick={() => selectBlock("button")}>Кнопка</li>
-                <li onClick={() => selectBlock("advantages")}>Преимущества </li>
+                <li onClick={() => selectBlock("advantages")}>Преимущества</li>
                 <li onClick={() => selectBlock("columns")}>Колонки</li>
-                <li onClick={() => selectBlock("footerconstructor")}>Подвал</li>
+                <li onClick={() => selectBlock("footerconstructor")}>Подвал</li> {/* Добавляем пункт меню для блока футера */}
                 <li onClick={() => selectBlock("header")}>Шапка</li>
                 <li><MyButton children={'Сохранить'} onClick={() => selectBlock("save")}/></li>
             </ul>

@@ -6,12 +6,12 @@ import CoverBlock from '../../myconstructor/CoverBlock/CoverBlock';
 import ButtonBlock from '../../myconstructor/ButtonBlock/ButtonBlock';
 import HeaderConstructor from '../../myconstructor/HeaderConstructor/HeaderConstructor';
 import FormConstructorBlock from '../../myconstructor/FormConstructorBlock/FormConstructorBlock';
+import FooterConstructorBlock from '../../myconstructor/FooterConstructorBlock/FooterConstructorBlock'; // Импортируем блок футера
 import '../../myconstructor/myconstructor.css';
 import MyButton from '../Buttons/MyButton';
-
 import axios from 'axios';
 
-const PopupSidebar = ({ block, setSelectedBlock, addButtonBlock, addTextBlock, addCoverBlock, addImageBlock, addTitleBlock, addHeaderBlock, collectBlocks , addFormBlock}) => {
+const PopupSidebar = ({ block, setSelectedBlock, addButtonBlock, addTextBlock, addCoverBlock, addImageBlock, addTitleBlock, addHeaderBlock, collectBlocks, addFormBlock, addFooterBlock }) => { // Добавляем addFooterBlock в пропсы
     const [valueName, setValueName] = useState('');
     const [valueAdress, setValueAdress] = useState('');
     const [valueDesc, setValueDesc] = useState('');
@@ -22,16 +22,13 @@ const PopupSidebar = ({ block, setSelectedBlock, addButtonBlock, addTextBlock, a
 
         const structure = collectBlocks();  
 
-
         axios.post('http://127.0.0.1:8000/landings', {
-            name: `${document.getElementsByName('name').values}`, 
-            adress:`${document.getElementsByName('adress').values}`,
-            description: `${document.getElementsByName('description').values}`,
+            name: document.getElementsByName('name')[0].value,
+            adress: document.getElementsByName('adress')[0].value,
+            description: document.getElementsByName('description')[0].value,
             structure: JSON.stringify(structure),
         }).catch(() => console.error('Ошибка сервера'))
-        };
-
-
+    };
 
     return (
         <div id="popupSidebar" className="popup-sidebar">
@@ -41,15 +38,16 @@ const PopupSidebar = ({ block, setSelectedBlock, addButtonBlock, addTextBlock, a
             {block === "image" && <ImageBlock addImageBlock={addImageBlock} />}
             {block === "button" && <ButtonBlock addButtonBlock={addButtonBlock} />} 
             {block === "header" && <HeaderConstructor addHeaderBlock={addHeaderBlock} />} 
-            {block === "formconstructor" && <FormConstructorBlock addFormBlock={addFormBlock} />} {/* Correctly pass addHeaderBlock */}
-            {block ==='save' && <form autoComplete="off" onSubmit={handleSubmit}>
-                
-                <input type="search" value={valueName} onChange={e => setValueName(e.target.value)} placeholder="Название" name='name'/>
-                <input type="search" value={valueAdress} onChange={e => setValueAdress(e.target.value)} placeholder="Адрес сайта" name='adress'/>
-                <input type="search" value={valueDesc} onChange={e => setValueDesc(e.target.value)} placeholder="Описание" name='description'/>
-                <MyButton disabled={valueName && valueAdress && valueDesc ? false : true } children={'Сохранить'} type='submit' />
-            </form> }               
-                    
+            {block === "formconstructor" && <FormConstructorBlock addFormBlock={addFormBlock} />}
+            {block === "footerconstructor" && <FooterConstructorBlock addFooterBlock={addFooterBlock} />} {/* Добавляем условие рендеринга для блока футера */}
+            {block === 'save' && (
+                <form autoComplete="off" onSubmit={handleSubmit}>
+                    <input type="search" value={valueName} onChange={e => setValueName(e.target.value)} placeholder="Название" name='name'/>
+                    <input type="search" value={valueAdress} onChange={e => setValueAdress(e.target.value)} placeholder="Адрес сайта" name='adress'/>
+                    <input type="search" value={valueDesc} onChange={e => setValueDesc(e.target.value)} placeholder="Описание" name='description'/>
+                    <MyButton disabled={valueName && valueAdress && valueDesc ? false : true } children={'Сохранить'} type='submit' />
+                </form>
+            )}
         </div>
     );
 };

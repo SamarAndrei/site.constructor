@@ -110,8 +110,10 @@
 .title-block-item,
 .cover-block-item,
 .header-block-item,
-.form-block-item {
+.form-block-item,
+.footer-block-item {
   padding: 10px;
+  text-align: center; 
 }
 
 .cover-block-item {
@@ -176,19 +178,116 @@
 .header-buttons button:hover {
   background-color: #e0e0e0;
 }
+
 .form-block-content {
   text-align: center;
   flex-direction: column;
-  
 }
-.form-inputs input{
+
+.form-inputs input {
   width: 100%;
   box-sizing: border-box;
   padding: 10px 5px;
 }
+
 .form-inputs {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.footer-block-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 10px; 
+  flex-wrap: wrap;
+  justify-content: center; 
+}
+
+.footer-buttons button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px; 
+  cursor: pointer;
+}
+
+.footer-buttons button:hover {
+  background-color: #e0e0e0;
+}
+
+.footer-center-text {
+  margin-top: 20px; 
+}
+.footer-social-icons {
+  display: flex;
+  gap: 10px; 
+  margin-top: 20px; 
+  justify-content: center; 
+}
+
+.footer-social-icons a {
+  display: inline-block;
+  width: 24px; 
+  height: 24px; 
+}
+
+.footer-social-icons img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.advantages-block {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.advantages-block h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.advantages-block p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #6c757d;
+}
+
+.advantages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.advantages-block-item {
+  display: flex;
+  align-items: flex-start;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.advantages-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.advantages-content h3 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.advantages-content p {
+  font-size: 16px;
+  margin: 5px 0 0;
+  color: #6c757d;
 }

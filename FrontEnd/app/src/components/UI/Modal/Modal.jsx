@@ -136,38 +136,22 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                             <label>Цвет описания:</label>
                             <input type="color" name="descriptionColor" value={tempElement.descriptionColor || '#000000'} onChange={handleChange} />
                         </div>
-                        <div className="form-group">
-                            <label>Цвет фона блока:</label>
-                            <input type="color" name="backgroundColor" value={tempElement.backgroundColor || '#ffffff'} onChange={handleChange} />
-                        </div>
-                        <div className="form-group">
-                            <label>Текст кнопки:</label>
-                            <input type="text" name="buttonText" value={tempElement.buttonText || 'Отправить'} onChange={handleChange} />
-                        </div>
-                        <div className="form-group">
-                            <label>Цвет кнопки:</label>
-                            <input type="color" name="buttonColor" value={tempElement.buttonColor || '#000000'} onChange={handleChange} />
-                        </div>
-                        <div className="form-group">
-                            <label>Цвет текста кнопки:</label>
-                            <input type="color" name="buttonTextColor" value={tempElement.buttonTextColor || '#ffffff'} onChange={handleChange} />
-                        </div>
                     </>
                 )}
                 {type === 'textBlock' && (
                     <>
-                        <h2>Настройки текстового блока</h2>
+                        <h2>Настройки блока текста</h2>
                         <div className="form-group">
-                            <label>Контент:</label>
-                            <textarea name="content" value={tempElement.content || ''} onChange={handleChange} />
+                            <label>Текст:</label>
+                            <input type="text" name="content" value={tempElement.content || ''} onChange={handleChange} />
                         </div>
                         <div className="form-group">
                             <label>Цвет текста:</label>
-                            <input type="color" name="color" value={tempElement.color || '#000000'} onChange={handleChange} />
+                            <input type="color" name="textColor" value={tempElement.textColor || '#000000'} onChange={handleChange} />
                         </div>
-                        <div className="form-group form-group-last">
+                        <div className="form-group">
                             <label>Расположение текста:</label>
-                            <select className='location-select' name="alignment"  value={tempElement.alignment || 'center'} onChange={handleChange}>
+                            <select name="alignment" value={tempElement.alignment || 'center'} onChange={handleChange}>
                                 <option value="left">Слева</option>
                                 <option value="center">Центр</option>
                                 <option value="right">Справа</option>
@@ -223,6 +207,42 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                             <label>URL изображения:</label>
                             <input type="text" name="imageUrl" value={tempElement.imageUrl || ''} onChange={handleChange} />
                         </div>
+                    </>
+                )}
+                {type === 'footerBlock' && (
+                    <>
+                        <h2>Настройки блока футера</h2>
+                        <div className="form-group">
+                            <label>Цвет фона блока:</label>
+                            <input type="color" name="backgroundColor" value={tempElement.backgroundColor || '#ffffff'} onChange={handleChange} />
+                        </div>
+                        <div className="form-group">
+                            <label>Цвет текста:</label>
+                            <input type="color" name="textColor" value={tempElement.textColor || '#000000'} onChange={handleChange} />
+                        </div>
+                        <div className="form-group">
+                            <label>Текст:</label>
+                            <input type="text" name="content" value={tempElement.content || ''} onChange={handleChange} />
+                        </div>
+                        <div className="form-group">
+                            <label>Ссылка ВКонтакте:</label>
+                            <input type="text" name="vkLink" value={tempElement.vkLink || ''} onChange={handleChange} />
+                        </div>
+                        <div className="form-group">
+                            <label>Ссылка Телеграм:</label>
+                            <input type="text" name="tgLink" value={tempElement.tgLink || ''} onChange={handleChange} />
+                        </div>
+                        <h3>Настройки кнопок</h3>
+                        {['About', 'Features', 'Works', 'Blog', 'Help', 'Contacts'].map((button, index) => (
+                            <div key={index}>
+                                <label>Текст кнопки {button}:</label>
+                                <input type="text" name={`buttons[${index}].text`} value={tempElement.buttons?.[index]?.text || button} onChange={handleChange} />
+                                <label>Цвет фона кнопки {button}:</label>
+                                <input type="color" name={`buttons[${index}].backgroundColor`} value={tempElement.buttons?.[index]?.backgroundColor || '#000000'} onChange={handleChange} />
+                                <label>Цвет текста кнопки {button}:</label>
+                                <input type="color" name={`buttons[${index}].color`} value={tempElement.buttons?.[index]?.color || '#ffffff'} onChange={handleChange} />
+                            </div>
+                        ))}
                     </>
                 )}
                 <MyButton className="save-button" onClick={handleSave}>Сохранить</MyButton>
