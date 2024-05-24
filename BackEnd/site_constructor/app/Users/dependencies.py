@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 from fastapi import Depends, Request, HTTPException, status
 from jose import jwt, JWTError
 
-from BackEnd.site_constructor.app.exception import IncorrectTokenFormatException, TokenAbsentException, TokenExpiredException, UserIsNotPresentException
+from app.exception import IncorrectTokenFormatException, TokenAbsentException, TokenExpiredException, UserIsNotPresentException
 from app.config import settings
 from app.Users.services import UserServices
 

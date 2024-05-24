@@ -50,7 +50,6 @@ class BaseServices:
             query = insert(cls.model).values(**data)
             result = await session.execute(query)
             await session.commit()
-            #чтобы вернуть json надо заново открывать сессию?
             inserted_id = result.inserted_primary_key[0]
             query = select(cls.model).filter_by(id = inserted_id)
             added_item = await session.execute(query)

@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, Response
 
-from BackEnd.site_constructor.app.exception import IncorrectEmailOrPasswordException, UserAlreadyExistException
+from app.exception import IncorrectEmailOrPasswordException, UserAlreadyExistException
 from app.Users.auth import authenticate_user, create_access_token, get_password_hash
 from app.Users.services import *
 from app.Users.schemas import SUser, SUserAuth

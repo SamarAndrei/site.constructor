@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from app.Landings.services import LandingServices
 from app.Landings.schemas import SLanding
 from app.Users.dependencies import *
@@ -39,6 +39,7 @@ async def add_landing(landing_data: SLanding, current_user: Users = Depends(get_
 async def accessCreate(current_user: Users = Depends(get_current_user)):
     if current_user:
         return JSONResponse(content={"message": "Доступ имеется"})
+    raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
 
     
 
