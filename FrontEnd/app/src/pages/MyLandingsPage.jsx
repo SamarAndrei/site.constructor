@@ -10,7 +10,7 @@ const MyLandingsPage = () => {
     
     
     async function fetchLandings() {
-        const response = await axios.get('http://127.0.0.1:8000/landings')
+        const response = await axios.get('http://127.0.0.1:8001/landings')
             .catch(() => console.error('Ошибка сервера'))
         setData(response.data)
     }   
