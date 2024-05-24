@@ -1,5 +1,4 @@
 import React from "react";
-import { Link, redirect } from "react-router-dom";
 import "./BodyComps.css";
 import behind from "../../../assets/images/behindThetext.png";
 import MyButton from "../Buttons/MyButton";
@@ -13,16 +12,19 @@ const BodyComps = () => {
 
 
   const handleClickCreate = () => {
-    axios.post('http://127.0.0.1:8001/landings/creating', {})
-    .then(response => {
-      console.log(response.data);
-      navigate('/Pattern');
-  })
-      // .catch(() => navigate('/Register'));
+    axios.post('http://127.0.0.1:8001/landings/creating', {}, { withCredentials: true }) //попробовать через /me
+      .then(response => {
+        console.log(response.data);
+        navigate('/Pattern');
+      })
+      .catch(() => {
+        console.error('Зарегайтесь');
+        navigate('/Register');
+      });
   }
 
 
-  return (
+  return ( 
     <div
       className="main-container"
       style={{ backgroundImage: `url(${behind})`, backgroundSize: "cover" }}

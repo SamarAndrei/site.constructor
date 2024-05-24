@@ -1,198 +1,149 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./ConstructorPage.css";
-import BodyOfferForConstructorPage from "./TemplatesForConstructorPage/BodyOfferForConstructorPage.jsx";
-import BodyCompsForConstructorPage from "./TemplatesForConstructorPage/BodyCompsForConstructorPage.jsx";
-import NavBarTemp1 from "./TemplatesForConstructorPage/NavBarTemp1.jsx";
-import NavBarTemp2 from "./TemplatesForConstructorPage/NavBarTemp2.jsx";
-import AddTemplateButton from "./AddTemplateButton";
-import "./ConstructorPage.css";
+import HeaderConstructorItem from "../components/myconstructor/HeaderConstructor/HeaderConstructorItem";
+import CoverBlockItem from "../components/myconstructor/CoverBlock/CoverBlockItem";
+import Modal from "../components/UI/Modal/Modal";
+import coverblock from '../assets/images/coverblock.jpg';
+import FormConstructorBlockItem from "../components/myconstructor/FormConstructorBlock/FormConstructorBlockItem";
+
+
 
 const Constructor = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedSection, setSelectedSection] = useState("");
-  const [currentCoverTemplate, setCurrentCoverTemplate] = useState(0);
-  const [addedTemplates, setAddedTemplates] = useState([]);
-  const [insertPosition, setInsertPosition] = useState(null);
-  const [showInitialPlus, setShowInitialPlus] = useState(true);
-  const [editMode, setEditMode] = useState(true); // Устанавливаем начальное значение в true
-  const [hasTemplates, setHasTemplates] = useState(false); // Устанавливаем начальное значение в false
+  const [headerBlock, setHeaderBlock] = useState({
+      id: 1,
+      content: "Наименование сайта",
+      textColor: "#ffffff",
+      backgroundColor: "black",
+      buttons: []
+  });
 
-  useEffect(() => {
-    // Проверяем, есть ли добавленные шаблоны
-    setHasTemplates(addedTemplates.length > 0);
-  }, [addedTemplates]);
+  const [coverBlock, setCoverBlock] = useState({
+      id: 2,
+      title: { text: "Заголовок", color: "#ffffff" },
+      subtitle: { text: "Подзаголовок", color: "#ffffff" },
+      description: { text: "Описание", color: "#ffffff" },
+      backgroundImage: coverblock,
+      overlayOpacity: 0.5
+  });
 
-  const handleOpenModal = (position) => {
-    setIsModalOpen(true);
-    setInsertPosition(position);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalType, setModalType] = useState('');
+  const [currentElement, setCurrentElement] = useState(null);
+
+  const updateHeaderBlock = (id, newData) => {
+      setHeaderBlock((prevState) => ({
+          ...prevState,
+          ...newData
+      }));
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedSection("");
-    setInsertPosition(null);
-  };
+  const [formBlock, setFormBlock] = useState({
+    id: 3,
+    title: "Обратная связь",
+    description: "Пожалуйста, заполните для поддержания обратной связи с нами!",
+    backgroundColor: "#f0f0f0",
+    buttonText: "Отправить",
+    buttonColor: "red",
+    buttonTextColor: "#ffffff",
+    titleColor: "#000000",
+    descriptionColor: "#333333"
+});
 
-  const handleSectionClick = (section) => {
-    setSelectedSection(section);
-  };
-
-  const handleSelectTemplate = (template) => {
-    const newTemplates = [...addedTemplates];
-    if (insertPosition !== null) {
-      newTemplates.splice(insertPosition, 0, template);
-    } else {
-      newTemplates.push(template);
-    }
-    setAddedTemplates(newTemplates);
-    setShowInitialPlus(false);
-    handleCloseModal();
-  };
-
-  const handleNextCoverTemplate = () => {
-    setCurrentCoverTemplate(
-      (prevIndex) => (prevIndex === 2 ? 0 : prevIndex + 1) // меняем кол-во шаблонов
-    );
-  };
-
-  const handlePrevCoverTemplate = () => {
-    setCurrentCoverTemplate(
-      (prevIndex) => (prevIndex === 0 ? 2 : prevIndex - 1) // меняем чтобы возращаться к первому
-    );
-  };
-
-  const handleRemoveTemplate = (indexToRemove) => {
-    const updatedTemplates = addedTemplates.filter(
-      (_, index) => index !== indexToRemove
-    );
-    setAddedTemplates(updatedTemplates);
-    setShowInitialPlus(updatedTemplates.length === 0);
-  };
-
-  const renderTemplates = () => {
-    switch (selectedSection) {
-      case "Навигационная панель":
-        return (
-          <div className="cover-template-slider template-full-screen">
-            <button onClick={handlePrevCoverTemplate}>Предыдущий</button>
-            {currentCoverTemplate === 0 ? (
-              <NavBarTemp1 onSelect={handleSelectTemplate} />
-            ) : (
-              <NavBarTemp2 onSelect={handleSelectTemplate} />
-            )}
-            <button onClick={handleNextCoverTemplate}>Следующий</button>
-          </div>
-        );
-      case "Обложка":
-        return (
-          <div className="cover-template-slider template-full-screen">
-            <button onClick={handlePrevCoverTemplate}>Предыдущий</button>
-            {currentCoverTemplate === 0 ? (
-              <BodyOfferForConstructorPage onSelect={handleSelectTemplate} />
-            ) : currentCoverTemplate === 1 ? (
-              <BodyCompsForConstructorPage onSelect={handleSelectTemplate} />
-            ) : (
-              <NavBarTemp1 onSelect={handleSelectTemplate} />
-            )}
-            <button onClick={handleNextCoverTemplate}>Следующий</button>
-          </div>
-        );
-
-      case "Доп. шаблоны":
-        return (
-          <div className="template-full-screen">Дополнительные шаблоны</div>
-        );
-      case "Подвал":
-        return <div className="template-full-screen">Шаблоны подвала</div>;
-      default:
-        return <div className="template-full-screen">Выберите раздел</div>;
-    }
-  };
-
-  return (
-    <div className="template-selector-container">
-      {/* Добавляем кнопку переключения режима */}
-      <div className="mode-toggle">
-        <button onClick={() => setEditMode(!editMode)}>
-          {editMode ? "Режим просмотра" : "Режим редактирования"}
-        </button>
-      </div>
-
-      {/* Рендерим кнопку добавления только если нет добавленных шаблонов */}
-      {editMode && !hasTemplates && (
-        <div style={{ textAlign: "center", marginBottom: "20px" }}>
-          <AddTemplateButton
-            onClick={() => handleOpenModal(null)}
-            position="center"
-          />
-        </div>
-      )}
-
-      {/* Рендерим добавленные шаблоны */}
-      {addedTemplates.map((template, index) => (
-        <div
-          key={`template-${index}`}
-          className={`template-container ${editMode ? "edit-mode" : ""}`}
-        >
-          {/* Рендерим кнопки редактирования только в режиме редактирования */}
-          {editMode && (
-            <AddTemplateButton
-              className="add-template-button"
-              onClick={() => handleOpenModal(index)}
-              position="top"
-            />
-          )}
-          {template}
-          {/* Рендерим кнопку удаления только в режиме редактирования */}
-          {editMode && (
-            <button
-              className="remove-template-button"
-              onClick={() => handleRemoveTemplate(index)}
-            >
-              &times;
-            </button>
-          )}
-          {/* Рендерим кнопку добавления только в режиме редактирования и когда это последний шаблон */}
-          {editMode && index === addedTemplates.length - 1 && (
-            <AddTemplateButton
-              className="add-template-button"
-              onClick={() => handleOpenModal(index + 1)}
-              position="bottom"
-            />
-          )}
-        </div>
-      ))}
-
-      {/* Рендерим модальное окно */}
-      {isModalOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={handleCloseModal}>
-              &times;
-            </span>
-
-            <div className="section-buttons">
-              <button
-                onClick={() => handleSectionClick("Навигационная панель")}
-              >
-                Навигационная панель
-              </button>
-              <button onClick={() => handleSectionClick("Обложка")}>
-                Обложка
-              </button>
-              <button onClick={() => handleSectionClick("Доп. шаблоны")}>
-                Доп. шаблоны
-              </button>
-              <button onClick={() => handleSectionClick("Подвал")}>
-                Подвал
-              </button>
-            </div>
-            {renderTemplates()}
-          </div>
-        </div>
-      )}
-    </div>
-  );
+const updateCoverBlock = (id, newData) => {
+  setCoverBlock((prevState) => ({
+      ...prevState,
+      ...newData
+  }));
 };
+
+const updateFormBlock = (id, newData) => {
+  setFormBlock((prevState) => ({
+      ...prevState,
+      ...newData
+  }));
+};
+
+const removeHeaderBlock = (id) => {
+  setHeaderBlock(null);
+};
+
+const removeCoverBlock = (id) => {
+  setCoverBlock(null);
+};
+
+const removeFormBlock = (id) => {
+  setFormBlock(null);
+};
+
+const openSettingsModal = (element, type) => {
+  setCurrentElement(element);
+  setModalType(type);
+  setModalOpen(true);
+};
+
+const openContentModal = (element, type) => {
+  setCurrentElement(element);
+  setModalType(type);
+  setModalOpen(true);
+};
+
+const closeModal = () => {
+  setModalOpen(false);
+  setCurrentElement(null);
+  setModalType('');
+};
+
+const openSidebar = () => {
+  console.log("Opening sidebar");
+};
+
+return (
+  <div className="constructor-page">
+      {headerBlock && (
+          <HeaderConstructorItem
+              {...headerBlock}
+              updateHeaderBlock={updateHeaderBlock}
+              removeHeaderBlock={removeHeaderBlock}
+              openSettingsModal={openSettingsModal}
+              openContentModal={openContentModal}
+              openSidebar={openSidebar}
+          />
+      )}
+      {coverBlock && (
+          <CoverBlockItem
+              {...coverBlock}
+              updateCoverBlock={updateCoverBlock}
+              removeCoverBlock={removeCoverBlock}
+              openSettingsModal={openSettingsModal}
+              openContentModal={openContentModal}
+              openSidebar={openSidebar}
+          />
+      )}
+      {formBlock && (
+          <FormConstructorBlockItem
+              {...formBlock}
+              updateFormBlock={updateFormBlock}
+              removeFormBlock={removeFormBlock}
+              openSettingsModal={openSettingsModal}
+              openContentModal={openContentModal}
+              openSidebar={openSidebar}
+          />
+      )}
+      {modalOpen && (
+          <Modal
+              element={currentElement}
+              updateElement={
+                  modalType === 'headerBlock' ? updateHeaderBlock :
+                  modalType === 'coverBlock' ? updateCoverBlock :
+                  updateFormBlock
+              }
+              closeModal={closeModal}
+              type={modalType}
+          />
+      )}
+  </div>
+);
+};
+
 
 export default Constructor;
