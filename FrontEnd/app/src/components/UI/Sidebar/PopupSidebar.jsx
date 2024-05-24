@@ -6,12 +6,13 @@ import CoverBlock from '../../myconstructor/CoverBlock/CoverBlock';
 import ButtonBlock from '../../myconstructor/ButtonBlock/ButtonBlock';
 import HeaderConstructor from '../../myconstructor/HeaderConstructor/HeaderConstructor';
 import FormConstructorBlock from '../../myconstructor/FormConstructorBlock/FormConstructorBlock';
-import FooterConstructorBlock from '../../myconstructor/FooterConstructorBlock/FooterConstructorBlock'; // Импортируем блок футера
+import FooterConstructorBlock from '../../myconstructor/FooterConstructorBlock/FooterConstructorBlock'; 
+import AdvantagesBlock from '../../myconstructor/AdvantagesBlock/AdvantagesBlock'; 
 import '../../myconstructor/myconstructor.css';
 import MyButton from '../Buttons/MyButton';
 import axios from 'axios';
 
-const PopupSidebar = ({ block, setSelectedBlock, addButtonBlock, addTextBlock, addCoverBlock, addImageBlock, addTitleBlock, addHeaderBlock, collectBlocks, addFormBlock, addFooterBlock }) => { // Добавляем addFooterBlock в пропсы
+const PopupSidebar = ({ block, setSelectedBlock, addButtonBlock, addTextBlock, addCoverBlock, addImageBlock, addTitleBlock, addHeaderBlock, collectBlocks, addFormBlock, addFooterBlock, addAdvantagesBlock }) => { 
     const [valueName, setValueName] = useState('');
     const [valueAdress, setValueAdress] = useState('');
     const [valueDesc, setValueDesc] = useState('');
@@ -39,7 +40,8 @@ const PopupSidebar = ({ block, setSelectedBlock, addButtonBlock, addTextBlock, a
             {block === "button" && <ButtonBlock addButtonBlock={addButtonBlock} />} 
             {block === "header" && <HeaderConstructor addHeaderBlock={addHeaderBlock} />} 
             {block === "formconstructor" && <FormConstructorBlock addFormBlock={addFormBlock} />}
-            {block === "footerconstructor" && <FooterConstructorBlock addFooterBlock={addFooterBlock} />} {/* Добавляем условие рендеринга для блока футера */}
+            {block === "footerconstructor" && <FooterConstructorBlock addFooterBlock={addFooterBlock} />} 
+            {block === "advantages" && <AdvantagesBlock addAdvantagesBlock={addAdvantagesBlock} />} 
             {block === 'save' && (
                 <form autoComplete="off" onSubmit={handleSubmit}>
                     <input type="search" value={valueName} onChange={e => setValueName(e.target.value)} placeholder="Название" name='name'/>

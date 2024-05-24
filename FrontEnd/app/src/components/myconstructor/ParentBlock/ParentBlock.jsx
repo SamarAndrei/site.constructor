@@ -11,6 +11,7 @@ import ButtonBlockItem from '../../myconstructor/ButtonBlock/ButtonBlock';
 import HeaderConstructorItem from '../../myconstructor/HeaderConstructor/HeaderConstructorItem';
 import FormConstructorBlockItem from '../../myconstructor/FormConstructorBlock/FormConstructorBlockItem';
 import FooterConstructorBlockItem from '../../myconstructor/FooterConstructorBlock/FooterConstructorBlockItem';
+import AdvantagesBlockItem from '../../myconstructor/AdvantagesBlock/AdvantagesBlockItem'; // Import AdvantagesBlockItem
 import '../../myconstructor/myconstructor.css';
 import MyButton from '../../UI/Buttons/MyButton';
 
@@ -25,7 +26,8 @@ function ParentBlock() {
     const [imageBlocks, setImageBlocks] = useState([]);
     const [headerBlocks, setHeaderBlocks] = useState([]);
     const [formBlocks, setFormBlocks] = useState([]);
-    const [footerBlocks, setFooterBlocks] = useState([]); // Добавлено состояние для блоков футера
+    const [footerBlocks, setFooterBlocks] = useState([]);
+    const [advantagesBlocks, setAdvantagesBlocks] = useState([]); 
     const [settingsModalVisible, setSettingsModalVisible] = useState(false);
     const [contentModalVisible, setContentModalVisible] = useState(false);
     const [currentElement, setCurrentElement] = useState(null);
@@ -43,7 +45,8 @@ function ParentBlock() {
             imageBlocks,
             headerBlocks,
             formBlocks,
-            footerBlocks, 
+            footerBlocks,
+            advantagesBlocks, 
         };
     };
 
@@ -99,8 +102,14 @@ function ParentBlock() {
         setPopupSidebarVisible(false);
     };
 
-    const addFooterBlock = (newFooterBlock) => { 
+    const addFooterBlock = (newFooterBlock) => {
         setFooterBlocks([...footerBlocks, newFooterBlock]);
+        setSelectedBlock(null);
+        setPopupSidebarVisible(false);
+    };
+
+    const addAdvantagesBlock = (newAdvantagesBlock) => {
+        setAdvantagesBlocks([...advantagesBlocks, newAdvantagesBlock]);
         setSelectedBlock(null);
         setPopupSidebarVisible(false);
     };
@@ -175,14 +184,24 @@ function ParentBlock() {
         setFormBlocks(formBlocks.filter(formBlock => formBlock.id !== id));
     };
 
-    const updateFooterBlock = (id, updatedProperties) => { 
+    const updateFooterBlock = (id, updatedProperties) => {
         setFooterBlocks(footerBlocks.map(footerBlock =>
             footerBlock.id === id ? { ...footerBlock, ...updatedProperties } : footerBlock
         ));
     };
 
-    const removeFooterBlock = (id) => { 
+    const removeFooterBlock = (id) => {
         setFooterBlocks(footerBlocks.filter(footerBlock => footerBlock.id !== id));
+    };
+
+    const updateAdvantagesBlock = (id, updatedProperties) => {
+        setAdvantagesBlocks(advantagesBlocks.map(advantagesBlock =>
+            advantagesBlock.id === id ? { ...advantagesBlock, ...updatedProperties } : advantagesBlock
+        ));
+    };
+
+    const removeAdvantagesBlock = (id) => {
+        setAdvantagesBlocks(advantagesBlocks.filter(advantagesBlock => advantagesBlock.id !== id));
     };
 
     const openSidebar = () => {
@@ -252,14 +271,15 @@ function ParentBlock() {
                     ref={popupSidebarRef}
                     block={selectedBlock} 
                     setSelectedBlock={setSelectedBlock} 
-                    addButtonBlock={addButtonBlock} 
-                    addTextBlock={addTextBlock} 
+                    addButtonBlock={addButtonBlock}
+                    addTextBlock={addTextBlock}
                     addTitleBlock={addTitleBlock}
                     addCoverBlock={addCoverBlock}
                     addImageBlock={addImageBlock}
                     addHeaderBlock={addHeaderBlock}
                     addFormBlock={addFormBlock}
-                    addFooterBlock={addFooterBlock} 
+                    addFooterBlock={addFooterBlock}
+                    addAdvantagesBlock={addAdvantagesBlock}
                     collectBlocks={collectBlocks}
                 />
             )}
@@ -275,26 +295,15 @@ function ParentBlock() {
                         openContentModal={() => openContentModal(headerBlock, 'headerBlock')}
                     />
                 ))}
-                {buttons.map(button => (
-                    <ButtonBlockItem 
-                        key={button.id} 
-                        {...button} 
-                        updateButton={updateButton} 
-                        removeButton={removeButton} 
-                        openSidebar={openSidebar} 
-                        openSettingsModal={() => openSettingsModal(button, 'button')}
-                        openContentModal={() => openContentModal(button, 'button')}
-                    />
-                ))}
-                {textBlocks.map(textBlock => (
-                    <TextBlockItem
-                        key={textBlock.id}
-                        {...textBlock}
-                        updateTextBlock={updateTextBlock}
-                        removeTextBlock={removeTextBlock}
+                {coverBlocks.map(coverBlock => (
+                    <CoverBlockItem
+                        key={coverBlock.id}
+                        {...coverBlock}
+                        updateCoverBlock={updateCoverBlock}
+                        removeCoverBlock={removeCoverBlock}
                         openSidebar={openSidebar}
-                        openSettingsModal={() => openSettingsModal(textBlock, 'textBlock')}
-                        openContentModal={() => openContentModal(textBlock, 'textBlock')}
+                        openSettingsModal={() => openSettingsModal(coverBlock, 'coverBlock')}
+                        openContentModal={() => openContentModal(coverBlock, 'coverBlock')}
                     />
                 ))}
                 {titleBlocks.map(titleBlock => (
@@ -308,15 +317,15 @@ function ParentBlock() {
                         openContentModal={() => openContentModal(titleBlock, 'titleBlock')}
                     />
                 ))}
-                {coverBlocks.map(coverBlock => (
-                    <CoverBlockItem
-                        key={coverBlock.id}
-                        {...coverBlock}
-                        updateCoverBlock={updateCoverBlock}
-                        removeCoverBlock={removeCoverBlock}
+                {textBlocks.map(textBlock => (
+                    <TextBlockItem
+                        key={textBlock.id}
+                        {...textBlock}
+                        updateTextBlock={updateTextBlock}
+                        removeTextBlock={removeTextBlock}
                         openSidebar={openSidebar}
-                        openSettingsModal={() => openSettingsModal(coverBlock, 'coverBlock')}
-                        openContentModal={() => openContentModal(coverBlock, 'coverBlock')}
+                        openSettingsModal={() => openSettingsModal(textBlock, 'textBlock')}
+                        openContentModal={() => openContentModal(textBlock, 'textBlock')}
                     />
                 ))}
                 {imageBlocks.map(imageBlock => (
@@ -330,6 +339,17 @@ function ParentBlock() {
                         openContentModal={() => openContentModal(imageBlock, 'imageBlock')}
                     />
                 ))}
+                {buttons.map(button => (
+                    <ButtonBlockItem
+                        key={button.id}
+                        {...button}
+                        updateButton={updateButton}
+                        removeButton={removeButton}
+                        openSidebar={openSidebar}
+                        openSettingsModal={() => openSettingsModal(button, 'button')}
+                        openContentModal={() => openContentModal(button, 'button')}
+                    />
+                ))}
                 {formBlocks.map(formBlock => (
                     <FormConstructorBlockItem
                         key={formBlock.id}
@@ -341,7 +361,7 @@ function ParentBlock() {
                         openContentModal={() => openContentModal(formBlock, 'formBlock')}
                     />
                 ))}
-                {footerBlocks.map(footerBlock => ( 
+                {footerBlocks.map(footerBlock => (
                     <FooterConstructorBlockItem
                         key={footerBlock.id}
                         {...footerBlock}
@@ -352,20 +372,22 @@ function ParentBlock() {
                         openContentModal={() => openContentModal(footerBlock, 'footerBlock')}
                     />
                 ))}
+                {advantagesBlocks.map(advantagesBlock => (
+                    <AdvantagesBlockItem
+                        key={advantagesBlock.id}
+                        {...advantagesBlock}
+                        updateAdvantagesBlock={updateAdvantagesBlock}
+                        removeAdvantagesBlock={removeAdvantagesBlock}
+                        openSidebar={openSidebar}
+                        openSettingsModal={() => openSettingsModal(advantagesBlock, 'advantagesBlock')}
+                        openContentModal={() => openContentModal(advantagesBlock, 'advantagesBlock')}
+                    />
+                ))}
             </div>
             {settingsModalVisible && (
                 <Modal 
                     element={currentElement} 
-                    updateElement={
-                        elementType === 'button' ? updateButton : 
-                        elementType === 'textBlock' ? updateTextBlock : 
-                        elementType === 'titleBlock' ? updateTitleBlock : 
-                        elementType === 'coverBlock' ? updateCoverBlock : 
-                        elementType === 'headerBlock' ? updateHeaderBlock : 
-                        elementType === 'formBlock' ? updateFormBlock :
-                        elementType === 'footerBlock' ? updateFooterBlock : 
-                        updateImageBlock
-                    } 
+                    updateElement={elementType === 'advantagesBlock' ? updateAdvantagesBlock : null} // Add other types as needed
                     closeModal={closeSettingsModal} 
                     type={elementType}
                 />
@@ -373,16 +395,7 @@ function ParentBlock() {
             {contentModalVisible && (
                 <ContentModal 
                     element={currentElement} 
-                    updateElement={
-                        elementType === 'button' ? updateButton : 
-                        elementType === 'textBlock' ? updateTextBlock : 
-                        elementType === 'titleBlock' ? updateTitleBlock : 
-                        elementType === 'coverBlock' ? updateCoverBlock : 
-                        elementType === 'headerBlock' ? updateHeaderBlock : 
-                        elementType === 'formBlock' ? updateFormBlock :
-                        elementType === 'footerBlock' ? updateFooterBlock : 
-                        updateImageBlock
-                    } 
+                    updateElement={elementType === 'advantagesBlock' ? updateAdvantagesBlock : null} // Add other types as needed
                     closeModal={closeContentModal} 
                     type={elementType}
                 />
