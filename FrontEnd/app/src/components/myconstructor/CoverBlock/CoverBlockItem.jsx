@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../../myconstructor/myconstructor.css';
+import MyButton from '../../UI/Buttons/MyButton';
+import { Padding } from '@mui/icons-material';
 
 const CoverBlockItem = ({ id, title, subtitle, description, backgroundImage, overlayOpacity, updateCoverBlock, removeCoverBlock, openSidebar, openSettingsModal, openContentModal }) => {
     const [hovered, setHovered] = useState(false);
@@ -24,10 +26,10 @@ const CoverBlockItem = ({ id, title, subtitle, description, backgroundImage, ove
             }}
         >
             {hovered && (
-                <div className="block-controls cover-block-controls">
-                    <button onClick={() => openSettingsModal({ id, title, subtitle, description, backgroundImage, overlayOpacity }, 'coverBlock')}>Настройки</button>
-                    <button onClick={() => openContentModal({ id, title, subtitle, description, backgroundImage, overlayOpacity }, 'coverBlock')}>Контент</button>
-                    <button onClick={() => removeCoverBlock(id)}>🗑️</button>
+                <div className="block-controls cover-block-controls ">
+                    <MyButton onClick={() => openSettingsModal({ id, title, subtitle, description, backgroundImage, overlayOpacity }, 'coverBlock')}>Настройки</MyButton>
+                    <MyButton onClick={() => openContentModal({ id, title, subtitle, description, backgroundImage, overlayOpacity }, 'coverBlock')}>Контент</MyButton>
+                    <MyButton onClick={() => removeCoverBlock(id)}>🗑️</MyButton>
                 </div>
             )}
             <div className="overlay" style={{ opacity: overlayOpacity }}></div>

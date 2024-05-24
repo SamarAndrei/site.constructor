@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../myconstructor/myconstructor.css';
+import MyButton from '../../UI/Buttons/MyButton';
 
 const TitleBlockItem = ({ id, title, content, size, color, alignment, updateTitleBlock, removeTitleBlock, openSidebar, openSettingsModal, openContentModal }) => {
     const [hovered, setHovered] = useState(false);
@@ -17,9 +18,9 @@ const TitleBlockItem = ({ id, title, content, size, color, alignment, updateTitl
         >
             {hovered && (
                 <div className="block-controls title-block-controls">
-                    <button onClick={() => openSettingsModal({ id, title, content, size, color, alignment })}>Настройки</button>
-                    <button onClick={() => openContentModal({ id, title , content, size, color, alignment })}>Контент</button>
-                    <button onClick={() => removeTitleBlock(id)}>🗑️</button>
+                    <MyButton onClick={() => openSettingsModal({ id, title, content, size, color, alignment })}>Настройки</MyButton>
+                    <MyButton onClick={() => openContentModal({ id, title , content, size, color, alignment })}>Контент</MyButton>
+                    <MyButton onClick={() => removeTitleBlock(id)}>🗑️</MyButton>
                 </div>
             )}
             <div className="title-block-content">

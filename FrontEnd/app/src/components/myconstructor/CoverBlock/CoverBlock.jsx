@@ -1,6 +1,6 @@
 import React from 'react';
 import MyButton from '../../UI/Buttons/MyButton';
-import logoetagi from '../../../assets/images/logoetagi.jpg';
+import coverblock from '../../../assets/images/coverblock.jpg';
 
 const CoverBlock = ({ addCoverBlock }) => {
     const handleAddCoverBlock = () => {
@@ -9,7 +9,7 @@ const CoverBlock = ({ addCoverBlock }) => {
             title: { text: "Надзаголовок", color: "#000000" },
             subtitle: { text: "Заголовок", color: "#000000" },
             description: { text: "Описание", color: "#000000" },
-            backgroundImage: logoetagi,
+            backgroundImage: coverblock,
             overlayOpacity: 0.5 
         };
         addCoverBlock(newCoverBlock);
