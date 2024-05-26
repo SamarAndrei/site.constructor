@@ -244,50 +244,41 @@
   object-fit: cover;
 }
 .advantages-block {
-  text-align: center;
   padding: 20px;
-  background-color: #f8f9fa;
+  background-color: #f9f9f9;
+  border-radius: 8px;
 }
 
 .advantages-block h2 {
-  font-size: 24px;
   margin-bottom: 10px;
+  font-size: 24px;
 }
 
 .advantages-block p {
-  font-size: 16px;
   margin-bottom: 20px;
-  color: #6c757d;
+  font-size: 16px;
+  color: #555;
 }
 
-.advantages-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.advantages-block-item {
+.advantage-item {
   display: flex;
   align-items: flex-start;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
 }
 
-.advantages-icon {
-  width: 40px;
-  height: 40px;
-  margin-right: 20px;
+.checkmark {
+  width: 20px; 
+  height: 20px; 
+  margin-right: 10px;
 }
 
-.advantages-content h3 {
-  font-size: 20px;
+.advantage-text h3 {
   margin: 0;
+  font-size: 18px;
 }
 
-.advantages-content p {
-  font-size: 16px;
-  margin: 5px 0 0;
-  color: #6c757d;
+.advantage-text p {
+  margin: 5px 0 0 0;
+  font-size: 14px;
+  color: #777;
 }

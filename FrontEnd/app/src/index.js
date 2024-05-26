@@ -10,7 +10,7 @@ import OnePattern from './pages/OnePattern'
 import NoMatchPage from './pages/NoMatchPage';
 import RegisterPage from './pages/RegisterPage'
 import MyLandingsPage from './pages/MyLandingsPage';
-
+import SecondPattern from './pages/SecondPattern'
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -22,6 +22,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/Register' element={<RegisterPage/>}/>
         <Route path='/EmptyPattern' element={<EmptyPattern/>}/>
         <Route path='/OnePattern' element={<OnePattern/>}/>
+        <Route path='/SecondPattern' element={<SecondPattern/>}/>
         <Route path='*' element={<NoMatchPage/>}/>
         <Route path='/Landings' element={<MyLandingsPage/>}/>
       </Routes>

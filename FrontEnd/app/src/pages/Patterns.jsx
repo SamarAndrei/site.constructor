@@ -32,10 +32,18 @@ const Patterns = () => {
                     <Card showInputs={false} showButton={false} showLink={false} >
                         <img className='image-empty' src={emptypage} alt="Пустая страница" />
                         <div className='text-empty'>
-                            <p>Страница с готовым шаблоном</p>
+                            <p>Страница с готовым шаблоном №1</p>
                             <p>Начать с готового шаблона</p>
                         </div>
                         <Link to='/OnePattern'><MyButton>Выбрать</MyButton></Link>
+                    </Card>
+                    <Card showInputs={false} showButton={false} showLink={false} >
+                        <img className='image-empty' src={emptypage} alt="Пустая страница" />
+                        <div className='text-empty'>
+                            <p>Страница с готовым шаблоном №2</p>
+                            <p>Начать с готового шаблона</p>
+                        </div>
+                        <Link to='/SecondPattern'><MyButton>Выбрать</MyButton></Link>
                     </Card>
             </div>
             <div className='footer-pattern'>

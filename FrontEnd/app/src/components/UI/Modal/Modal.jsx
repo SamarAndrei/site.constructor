@@ -9,15 +9,26 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        const [key, subKey] = name.split('.');
+        const [key, subKey, index] = name.split('.');
         if (subKey) {
-            setTempElement((prev) => ({
-                ...prev,
-                [key]: {
-                    ...prev[key],
-                    [subKey]: value
-                }
-            }));
+            if (index !== undefined) {
+                setTempElement((prev) => {
+                    const updatedAdvantages = [...prev.advantages];
+                    updatedAdvantages[index] = {
+                        ...updatedAdvantages[index],
+                        [subKey]: value
+                    };
+                    return { ...prev, advantages: updatedAdvantages };
+                });
+            } else {
+                setTempElement((prev) => ({
+                    ...prev,
+                    [key]: {
+                        ...prev[key],
+                        [subKey]: value
+                    }
+                }));
+            }
         } else {
             setTempElement({ ...tempElement, [name]: value });
         }
@@ -241,6 +252,40 @@ const Modal = ({ element, updateElement, closeModal, type }) => {
                                 <input type="color" name={`buttons[${index}].backgroundColor`} value={tempElement.buttons?.[index]?.backgroundColor || '#000000'} onChange={handleChange} />
                                 <label>Цвет текста кнопки {button}:</label>
                                 <input type="color" name={`buttons[${index}].color`} value={tempElement.buttons?.[index]?.color || '#ffffff'} onChange={handleChange} />
+                            </div>
+                        ))}
+                    </>
+                )}
+                {type === 'advantageBlock' && (
+                    <>
+                        <h2>Настройки блока преимуществ</h2>
+                        <div className="form-group">
+                            <label>Заголовок:</label>
+                            <input type="text" name="title" value={tempElement.title || ''} onChange={handleChange} />
+                        </div>
+                        <div className="form-group">
+                            <label>Описание:</label>
+                            <input type="text" name="description" value={tempElement.description || ''} onChange={handleChange} />
+                        </div>
+                        <div className="form-group">
+                            <label>Цвет текста заголовка:</label>
+                            <input type="color" name="titleColor" value={tempElement.titleColor || '#000000'} onChange={handleChange} />
+                        </div>
+                        <div className="form-group">
+                            <label>Цвет текста описания:</label>
+                            <input type="color" name="descriptionColor" value={tempElement.descriptionColor || '#000000'} onChange={handleChange} />
+                        </div>
+                        <h3>Преимущества</h3>
+                        {tempElement.advantages?.map((advantage, index) => (
+                            <div key={index} className="form-group">
+                                <label>Заголовок преимущества {index + 1}:</label>
+                                <input type="text" name={`advantages.title.${index}`} value={advantage.title || ''} onChange={handleChange} />
+                                <label>Описание преимущества {index + 1}:</label>
+                                <input type="text" name={`advantages.description.${index}`} value={advantage.description || ''} onChange={handleChange} />
+                                <label>Цвет текста заголовка:</label>
+                                <input type="color" name={`advantages.titleColor.${index}`} value={advantage.titleColor || '#000000'} onChange={handleChange} />
+                                <label>Цвет текста описания:</label>
+                                <input type="color" name={`advantages.descriptionColor.${index}`} value={advantage.descriptionColor || '#000000'} onChange={handleChange} />
                             </div>
                         ))}
                     </>

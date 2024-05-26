@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../../myconstructor/myconstructor.css';
 import MyButton from '../../UI/Buttons/MyButton';
-import { Padding } from '@mui/icons-material';
+
 
 const CoverBlockItem = ({ id, title, subtitle, description, backgroundImage, overlayOpacity, updateCoverBlock, removeCoverBlock, openSidebar, openSettingsModal, openContentModal }) => {
     const [hovered, setHovered] = useState(false);
