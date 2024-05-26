@@ -12,7 +12,7 @@ const BodyComps = () => {
 
 
   const handleClickCreate = () => {
-    axios.post('http://127.0.0.1:8001/landings/creating', {}, { withCredentials: true }) //попробовать через /me
+    axios.post('http://127.0.0.1:8001/landings/creating', {}, { withCredentials: true , headers: {Cookie: document.cookie}}) //попробовать через /me
       .then(response => {
         console.log(response.data);
         navigate('/Pattern');

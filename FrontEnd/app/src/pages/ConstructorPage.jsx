@@ -5,6 +5,8 @@ import CoverBlockItem from "../components/myconstructor/CoverBlock/CoverBlockIte
 import Modal from "../components/UI/Modal/Modal";
 import coverblock from '../assets/images/coverblock.jpg';
 import FormConstructorBlockItem from "../components/myconstructor/FormConstructorBlock/FormConstructorBlockItem";
+import FooterConstructorBlockItem from "../components/myconstructor/FooterConstructorBlock/FooterConstructorBlockItem";
+
 
 
 
@@ -25,6 +27,16 @@ const Constructor = () => {
       backgroundImage: coverblock,
       overlayOpacity: 0.5
   });
+
+  const [footerBlock, setFooterBlock] = useState({
+    id: 4,
+    content: "© Все права защищены. Acme Design Co. hello@mysite.com",
+    textColor: "#ffffff",
+    backgroundColor: "#000000",
+    buttons: [],
+    vkLink: "",
+    tgLink: ""
+});
 
   const [modalOpen, setModalOpen] = useState(false);
   const [modalType, setModalType] = useState('');
@@ -48,6 +60,17 @@ const Constructor = () => {
     titleColor: "#000000",
     descriptionColor: "#333333"
 });
+
+const updateFooterBlock = (id, newData) => {
+  setFooterBlock((prevState) => ({
+      ...prevState,
+      ...newData
+  }));
+};
+
+const removeFooterBlock = (id) => {
+  setFooterBlock(null);
+};
 
 const updateCoverBlock = (id, newData) => {
   setCoverBlock((prevState) => ({
@@ -129,6 +152,16 @@ return (
               openSidebar={openSidebar}
           />
       )}
+      {footerBlock && (
+                <FooterConstructorBlockItem
+                    {...footerBlock}
+                    updateFooterBlock={updateFooterBlock}
+                    removeFooterBlock={removeFooterBlock}
+                    openSettingsModal={openSettingsModal}
+                    openContentModal={openContentModal}
+                    openSidebar={openSidebar}
+                />
+            )}
       {modalOpen && (
           <Modal
               element={currentElement}

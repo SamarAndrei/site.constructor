@@ -7,6 +7,9 @@ import emptypage from '../assets/images/emptypage.png';
 import Footer from '../components/UI/Footer/Footer.jsx';
 import { Link } from 'react-router-dom';
 import pattern1 from '../assets/images/pattern1.png';
+import patic2 from '../assets/images/patic2.png';
+import patic3 from '../assets/images/patic3.png';
+
 
 const Patterns = () => {
     
@@ -22,7 +25,7 @@ const Patterns = () => {
             </div>
             <div className='card-pattern-o'>               
                     <Card showInputs={false} showButton={false} showLink={false} >
-                        <img className='image-empty' src={emptypage} alt="Пустая страница" />
+                        <img className='image-empty' src={patic3} alt="Пустая страница" />
                         <div className='text-empty'>
                             <p>Пустая страница</p>
                             <p>Начать с пустого листа</p>
@@ -38,7 +41,7 @@ const Patterns = () => {
                         <Link to='/OnePattern'><MyButton>Выбрать</MyButton></Link>
                     </Card>
                     <Card showInputs={false} showButton={false} showLink={false} >
-                        <img className='image-empty' src={emptypage} alt="Пустая страница" />
+                        <img className='image-empty' src={patic2} alt="Пустая страница" />
                         <div className='text-empty'>
                             <p>Страница с готовым шаблоном №2</p>
                             <p>Начать с готового шаблона</p>

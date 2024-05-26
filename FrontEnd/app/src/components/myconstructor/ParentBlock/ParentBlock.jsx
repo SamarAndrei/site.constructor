@@ -15,7 +15,6 @@ import AdvantagesBlockItem from '../../myconstructor/AdvantagesBlock/AdvantagesB
 import AboutProjectBlockItem from '../../myconstructor/AboutProjectBlock/AboutProjectBlockItem';
 import '../../myconstructor/myconstructor.css';
 import MyButton from '../../UI/Buttons/MyButton';
-import { FaArrowAltCircleDown } from 'react-icons/fa';
 
 function ParentBlock() {
     const [sidebarVisible, setSidebarVisible] = useState(false);
