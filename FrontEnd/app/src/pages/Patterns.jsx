@@ -6,7 +6,7 @@ import Card from '../components/UI/Card/Card';
 import emptypage from '../assets/images/emptypage.png';
 import Footer from '../components/UI/Footer/Footer.jsx';
 import { Link } from 'react-router-dom';
-
+import pattern1 from '../assets/images/pattern1.png';
 
 const Patterns = () => {
     
@@ -30,7 +30,7 @@ const Patterns = () => {
                        <Link to='/EmptyPattern'><MyButton>Выбрать</MyButton></Link>
                     </Card>
                     <Card showInputs={false} showButton={false} showLink={false} >
-                        <img className='image-empty' src={emptypage} alt="Пустая страница" />
+                        <img className='image-empty' src={pattern1} alt="Пустая страница" />
                         <div className='text-empty'>
                             <p>Страница с готовым шаблоном №1</p>
                             <p>Начать с готового шаблона</p>

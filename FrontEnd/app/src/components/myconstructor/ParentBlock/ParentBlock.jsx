@@ -15,6 +15,7 @@ import AdvantagesBlockItem from '../../myconstructor/AdvantagesBlock/AdvantagesB
 import AboutProjectBlockItem from '../../myconstructor/AboutProjectBlock/AboutProjectBlockItem';
 import '../../myconstructor/myconstructor.css';
 import MyButton from '../../UI/Buttons/MyButton';
+import { FaArrowAltCircleDown } from 'react-icons/fa';
 
 function ParentBlock() {
     const [sidebarVisible, setSidebarVisible] = useState(false);
@@ -277,7 +278,19 @@ function ParentBlock() {
 
     return (
         <div>
-            <MyButton onClick={toggleSidebar}>ВСЕ БЛОКИ</MyButton>
+           <div style={{ position: 'relative' }}>
+           <MyButton
+                style={{
+                    position: 'fixed',
+                    bottom: '20px',
+                    right: '20px',
+                    zIndex: '999', 
+                }}
+                onClick={toggleSidebar}
+            >
+                ВСЕ БЛОКИ
+            </MyButton>
+            </div>
             <Sidebar 
                 ref={sidebarRef}
                 sidebarVisible={sidebarVisible}
